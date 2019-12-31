@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 350px;
+            height: 70px;
+            border: 1px solid black;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>localStorage</h1>
+    <p>
+        웹 스토리지가 나오기 전(HTML5 이전)에는 쿠키(cookie)를 사용했으나 저장 용량이 적고 보안에 취약했음<br>
+        웹 스토리지는 사용자 측에서 좀 더 많은 양의 정보(최소 5MB 이상의 공간)를 안전하게 저장할 수 있도록 하며<br>
+        이 정보는 절대 서버로 전송되지 않는다. <br><br>
+        - localStorage : 보관 기한이 없는 데이터를 저장한다.<br>
+          브라우저 탭이나 창이 닫히거나, 컴퓨터를 재부팅 해도 저장 된 데이터는 없어지지 않는다.<br>
+        - sessionStorage : 하나의 세션만을 위한 데이터를 저장한다.<br>
+          사용자가 브라우저 탭이나 창을 닫으면 이 객체에 저장 된 데이터는 사라진다.<br>
+    </p>
+    <script>
+        if(window.localStorage){
+            console.log('localStorage가 지원되는 브라우저입니다.');
+
+            // localStorage setItem
+            localStorage.academy = 'KH정보교육원';
+            localStorage['class'] = 'L오후';
+            localStorage.setItem('teacher', '우별림');
+
+            // localStorage getItem
+            console.log('localStorage academy : ' + localStorage.academy);
+            console.log('localStorage class : ' + localStorage['class']);
+            console.log('localStorage teacher : ' + localStorage.getItem('teacher'));
+
+            // sessionStorage setItem
+            sessionStorage.LoginUser = '우별림';
+            sessionStorage['userId'] = 'byeollim';
+            sessionStorage.setItem('loginDate', new Date());
+
+            // sessionStorage getItem
+            console.log('sessionStorage LoginUser : ' + sessionStorage.LoginUser);
+            console.log('sessionStorage userId : ' + sessionStorage['userId']);
+            console.log('sessionStorage loginDate : ' + sessionStorage.getItem('loginDate'));
+
+            /*
+                개발자 도구 - Application 탭 - storage 확인 가능
+            */
+
+            for(var i = 0; i < localStorage.length; i++) {
+                console.log(localStorage.key(i) + " : " + localStorage.getItem(localStorage.key(i)));
+            }
+
+            for(var i = 0; i < sessionStorage.length; i++) {
+                console.log(sessionStorage.key(i) + " : " + sessionStorage.getItem(sessionStorage.key(i)));
+            }
+        }else {
+            console.log('localStorage가 지원되지 않는 브라우저입니다.');
+        }
+    </script>
+
+    <button id="removeItem">일부 데이터 삭제</button>
+    <button id="clearItem">전체 데이터 삭제</button>
+    <script>
+        $("#removeItem").on('click', function() {
+            // 로컬스토리지의 반(class) 데이터 삭제
+            localStorage.removeItem('class');
+            
+            // 세션스토리지의 userId 삭제
+            sessionStorage.removeItem('userId');
+        });
+
+        $("#clearItem").on('click', function() {
+                // 로컬스토리지의 전체 데이터 삭제
+                localStorage.clear();
+
+                // 세션스토리지 전체 데이터 삭제
+                sessionStorage.clear();
+            });
+    </script>
+</body>
+</html>

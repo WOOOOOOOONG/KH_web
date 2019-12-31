@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12_HTML종합실습문제2</title>
+</head>
+<body>
+    <fieldset>
+        <legend>납품자 정보</legend>
+        <br>
+
+        <label for="">1. 납품자명 : </label>
+        <input type="text" name="user" id="userName">
+        <br><br>
+
+        <label for="">2. email : </label>
+        <input type="email" name="user" id="email" placeholder="answer@naver.com">
+        <br><br>
+
+        <label for="">3. 홈페이지</label>
+        <input type="url" name="user" id="url" value="http://">
+        <br><br>
+
+        <label for="">4. 지역</label>
+        <select name="" id="">
+            <option value="서울">서울</option>
+            <option value="강원도">강원도</option>
+            <option value="수원">수원</option>
+            <option value="대구">대구</option>
+            <option value="인천" selected>인천</option>
+        </select>
+        <br><br>
+    </fieldset>
+    
+    <br>
+
+    <fieldset>
+        <br>
+        <ul>
+            <li>상품명 : <input type="text" id="product" name="delivery"></li>
+            <br>
+            <li>납품수량 : <input type="text" placeholder="최소 100"></li>
+            <br>
+            <li>납품등급 : <input type="range" id="point" name="delivery" min="0" max="100" step="10"></li>
+            <br>
+            <li>기타사항 : <textarea name="delivery" rows="3" cols="18"></textarea></li>
+        </ul>
+    </fieldset>
+    <br>
+
+    <input type="submit" value="send massage">
+</body>
+</html>

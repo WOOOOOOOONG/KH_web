@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <h3>이벤트 관련 속성</h3>
+    <p>이벤트 핸들러의 매개변수로 event 객체를 전달함. <br>
+        인라인 방식으로 이벤트 설정 시 매개변수 키워드는 event로 고정
+    </p>
+    
+    <button onclick="test1(event);">실행확인</button>
+    <script>
+        function test1(e) {
+            console.log(e);
+            console.log(e.target);
+        }
+    </script>
+
+    <hr>
+
+    <h3>이벤트 연결 종류</h3>
+    <p>
+        요소 객체에 이벤트 발생 시 연결될 이벤트 핸들러를 지정하는 메소드이다. <br>
+        $('선택자').bind() : 현재 존재하는 문서 객체만 이벤트 연결 <br>
+        $('선택자').unbind() : bind()로 연결된 이벤트 제거
+    </p>
+    
+    <h4>
+        bind(), unbind() 메소드는 jQuery3.0부터 deprecated(비권장)로 설정되어<br>
+        대신 on(), off() 메소드를 사용함. <br><br>
+
+        $('선택자').on("이벤트명", "이벤트 핸들러") <br>
+        $('선택자').off('이벤트명') : on으로 연결된 이벤트 제거
+    </h4>
+
+    <h1 id="test1">마우스를 올려보세요</h1>
+    <script>
+        // on() 기본적인 사용법
+        $('#test1').on('click', function() {
+            console.log(event.target);
+            console.log($(this).text());
+        })
+
+        // 여러 이벤트를 객체로 등록함
+        $('#test1').on({'mouseenter':function() {
+            $(this).css("background","yellowgreen").text("마우스 올라감");
+        }, 'mouseleave':function() {
+            $(this).css("background","yellow").text("마우스 내려감");
+        }, 'click':function() {
+            $(this).off('mouseenter').off('mouseleave').css("background", "orangered").text("이벤트 제거됨");
+        }});
+    </script>
+    
+    <hr>
+
+    <h3>$('선택자').on(events, selector, handler)</h3>
+    <pre>
+    선택자를 기준으로 매개변수로 전달된 selector에 지정한 event 발생시
+    해당 handler를 동적 적용시켜 이벤트 처리를 할 수 있음.   
+    </pre>
+
+    <div id="wrap">
+        <h2>클릭 시 h2 태그 요소 추가</h2>
+    </div>
+    <script>
+        $(document).on('click', 'h2', add);
+
+        function add(e) {
+            console.log(e.target);
+            $('#wrap').append("<h2>클릭으로 인해 추가됨</h2>");
+        }
+    </script>
+
+    <hr>
+
+    <h3>one() 메소드</h3>
+    <p>
+    이벤트를 한 번만 연결할 때 사용한다.
+    </p>
+    <h1 id="test2">클릭하세요</h1>
+    <script>
+        $(function() {
+            $('#test2').one('click', function() {
+                alert('처음이자 마지막으로 이벤트 발생');
+            });
+        });
+    </script>
+</body>
+</html>

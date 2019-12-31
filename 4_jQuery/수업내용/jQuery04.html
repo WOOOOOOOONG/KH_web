@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>입력 양식 필터 선택자</h1>
+    <h3>checkbox의 상태에 대한 선택자</h3>
+    <label>취미 : </label>
+    <input type="checkbox" name="hobby" value="game" id="game">
+    <label for="game">게임</label> <!-- for 안에는 id값을 연결해야 한다 -->
+    <input type="checkbox" name="hobby" value="movie" id="movie">
+    <label for="movie">영화</label>
+    <input type="checkbox" name="hobby" value="music" id="music">
+    <label for="music">음악</label>
+
+    <script>
+        // $(document).ready(function() {
+        //     // input 태그 중 체크된 객체 선택
+        //     $("input:checked").css({"width":"50px","height":"50px"});
+        // });
+        // input 태그 중 checkbox의 값에 변화가 있을 경우 checkChange 함수 실행
+        $("input:checkbox").change(checkedChange);
+
+        function checkedChange() {
+            // prop() : 선택한 요소의 속성값을 반환하거나 설정함
+            console.log($(this).prop("checked"));
+            
+            // 선택한 요소의 값이 'checked'일 경우
+            if($(this).prop("checked")) {
+                $(this).css({"width":"50px","height":"50px"});
+            }else {
+                $(this).css({"width":"15px","height":"15px"});
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>select > option 태그의 상태에 대한 선택자</h3>
+    <select id="national">
+        <option value="한국" selected>한국</option>
+        <option value="미국">미국</option>
+        <option value="일본">일본</option>
+        <option value="중국">중국</option>
+    </select>
+
+    <label>선택한 나라 : </label><input type="text" id="result">
+    <script>
+        // 초기 select값 출력
+        $(selectChange);
+        
+        $("national").change(selectChange);
+
+        function selectChange() {
+            // select 태그의 option 태그 중 선택된 객체 선택
+            var value = $("option:selected").val();
+
+            // id가 result인 요소의 값을 value로 변경
+            $("#result").val(value);
+        }
+    </script>
+
+    <hr>
+
+    <h3>input 상태에 대한 선택자</h3>
+    <label for="">활성화 텍스트 상자 : </label><input type="text"><br>
+    <label for="">비활성화 텍스트 상자 : </label><input type="text" disabled><br> 
+    <!-- disabled 하면 비활성화(보이긴 하는데 못씀). 텍스트 말고 다른곳에서도 사용 가능 -->
+    <label for="">활성화 버튼 : </label><input type="button" value="활성화"><br>
+    <label for="">비활성화 버튼 : </label><input type="button" value="비활성화" disabled><br>
+    <script>
+        // input : disabled -> 비활성화
+        // input : enabled -> 활성화
+        $(document).ready(function() {
+            $("input:disabled").css("background", "yellowgreen");
+            $("input:enabled").css("background", "red");//.attr("disabled", false)
+            // .attr("readonly", flase)
+        });
+    </script>
+
+    <hr>
+
+    <h3>순서에 따른 필터 선택자</h3>
+    <table>
+        <tr><th>이름</th><th>혈액형</th><th>지역</th></tr>
+        <tr><td>우별림</td><td>B형</td><td>서울</td></tr>
+        <tr><td>김영희</td><td>A형</td><td>경기도</td></tr>
+        <tr><td>김삼순</td><td>O형</td><td>충청도</td></tr>
+        <tr><td>김민철</td><td>AB형</td><td>경상도</td></tr>
+        <tr><td>박철수</td><td>O형</td><td>강원도</td></tr>
+        <tr><td colspan="2">총원</td><td>5</td></tr>
+    </table>
+    <script>
+        // 요소:odd -> 홀수번째 인덱스 객체 선택
+        // 요소:even -> 짝수번째 인덱스 객체 선택
+        // 요소:first -> 첫번째
+        // 요소:last -> 마지막
+        $("tr:first").css({"background":"black","color":"white"});
+        $("tr:last").css({"background":"red","color":"white"});
+        $("tr:odd").css("background","white");
+        $("tr:even").css("background","lightgray");
+    </script>
+</body>
+</html>

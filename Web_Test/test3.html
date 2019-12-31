@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원가입</title>
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+    <style>
+        #interests {
+            width: 400px;
+        }
+
+        img {
+            width: 200px;
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <ul>
+            <li><label>이메일 : </label><input type="email" id="email"><label id="emailChk"></label> </li>
+            <li><label>비밀번호 : </label><input type="password" id="userpwd" name="userpwd"></li>
+            <li><label>비밀번호 확인 : </label><input type="password" id="pw_check" name="pw_check"><label id="chk"></label></li>
+            <li><label>이름 : </label><input type="text" id="userid" name="userid"></li>
+            <li><label>특기 : </label><input type="text" id="interests" name="interests" list="myinter" placeholder="선택하시오"></li>
+            <datalist id="myinter">
+                    <option value="java">java</option>
+                    <option value="oracle">oracle</option>
+                    <option value="html/css">html/css</option>
+                    <option value="javascript/jquery">javascript/jquery</option>
+                </datalist>
+            <li><label>프로필 사진 : </label><input type="file" id="upfile" name="upfile">
+                <div id="preview"></div>
+            </li>
+            <input type="submit" value="회원가입"> <input type="reset" value="취소">
+        </ul>
+    </form>
+
+    <script>
+        jQuery(document).ready(function() {
+            // 이메일
+            $('#email').focusout(function() {
+                var exp = /[a-zA-z]@[a-zA-z].\w/;
+
+                if(!exp.test($(this).val())) {
+                    $('#emailChk').html('이메일 형식에 맞지 않습니다.').css({'color':'red','font-weight':'bold'});
+                }else {
+                    $('#emailChk').html('');
+                }
+            });
+            
+            // 비밀번호
+            $('#userpwd').focusout(function() {
+                var exp1 = /^[a-zA-z0-9]{8,}$/;
+
+                if(!exp1.test($('#userpwd').val())) {
+                    alert('8글자 이상, 영문자 숫자만 가능');
+                    $(this).val('');
+                    $(this).focusin();
+                }
+            });
+
+            // 비밀번호 확인
+            $('#pw_check').focusout(function() {
+                if($('#userpwd').val() == $(this).val()) {
+                    $('#chk').html('비밀번호가 일치합니다').css({'color':'green','font-weight':'bold'});
+                    $(this).focusin();
+                }else {
+                    $('#chk').html('비밀번호가 일치하지 않습니다').css({'color':'red','font-weight':'bold'});
+                    $(this).focusin();
+                }
+            });
+
+            // 이름 확인
+            $('#userid').focusout(function() {
+                var exp2 = /^[가-힣]{2,}$/;
+                if(!exp2.test($(this).val())) {
+                    alert('2글자 이상, 한글만 가능');
+                    $(this).val('');
+                    $(this).focusin();
+                }
+            });
+
+            $('#upfile').change(function() {
+                $('#preview').html("<img src='" + $(this).val() + "'></img>");
+            });
+        });
+    </script>
+</body>
+
+</html>

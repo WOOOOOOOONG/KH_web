@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 텍스트 색상 지정 */
+        #c-name {
+            color : red;
+        }
+        #c-16 {
+            color : #ff0000;
+        }
+        #c-rgb {
+            color : rgb(255, 0, 0);
+        }
+        
+        /* 투명도 추가 */
+        #c-rgba{
+            color : rgba(255, 0, 0, 0.5);
+        }
+
+        /* 색조, 채도, 명도 */
+        #c-hsl {
+            color : hsl(360, 100%, 50%);
+        }
+        #c-hsla {
+            color : hsla(360, 100%, 50%, 0.5);
+        }
+
+        /* 텍스트 줄 표시하기/없애기 지정 */
+        #td1 { text-decoration: none;}
+        #td2 { text-decoration: underline;}
+        #td3 { text-decoration: line-through;}
+        #td4 { text-decoration: overline;}
+
+        /* 텍스트 대소문자 변경 지정 */
+        #tt1 { text-transform: none;}
+        #tt2 { text-transform: capitalize;}
+        #tt3 { text-transform: uppercase;}
+        #tt4 { text-transform: lowercase;}
+
+        /* 공통 속성으로 사이즈와 두께를 지정 */
+        .shadow {
+            font-size:100px;
+            line-height: 30px;
+            font-weight: 900;
+        }
+
+        #bg {
+            background:black;
+            /* 요소 외부 여백 */
+            margin:30px;
+            /* 요소 내부 여백 */
+            padding:50px;
+        }
+
+        /* 그림자 효과(가로, 세로, 번짐, 색상) */
+        #ts1 {
+            color:orangered;
+            text-shadow: 5px 5px orange;
+        }
+        #ts2 {
+            color:white;
+            text-shadow:0px 1px 20px #fff;
+        }
+        #ts3 {
+            color:white;
+            text-shadow:1px 1px 20px #6f0;
+        }
+        #ts4 {
+            color:black;
+            text-shadow: 0px 0px 4px #ccc, 0px -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20; 
+        }
+
+        #space1 {
+            /* 여러 개의 공백을 하나로 표시 */
+            white-space:normal;
+            /* 낱개 글자의 간격 조정 */
+            letter-spacing:5px;
+        }
+
+        #space2 {
+            /* 여러 개의 공백을 하나로 표시, 줄 바꾸지 않고 한 줄 표시 */
+            white-space:nowrap;
+            /* 단어 사이의 간격 조정 */
+            word-spacing:5px;
+        }
+
+        #space3 {
+            /* 여러 개의 공백을 그대로 표시 */
+            white-space: pre;
+        }
+        
+        #space4 {
+            /* 여러 개의 공백을 하나로 표시, 영역 넘어가면 자동 줄 바꿈 */
+            white-space:pre-line;
+        }
+
+        #space5 {
+            /* 여러 개의 공백을 그대로 표시, 영역 넘어가면 자동 줄 바꿈 */
+            white-space:pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>텍스트 스타일</h1>
+    <hr>
+    <h3>color 속성 : 텍스트의 색상을 지정할 수 있다.</h3>
+    <pre> 선택자 { color : 색상명영문이름 | 16진수숫자 | rgb값 | rgba값 | hsl값 | hsla값; }의 형식으로 사용된다.</pre>
+    <p>색상값 참조 사이트 : <a href="http://www.colorpicker.com" target="_blank">사이트로 이동</a></p>
+    <ul>
+        <li id="c-name">색상명으로 지정</li>
+        <li id="c-16">16진수 값으로 지정</li>
+        <li id="c-rgb">rgb로 지정</li>
+        <li id="c-rgba">rgba로 지정</li>
+        <li id="c-hsl">hsl로 지정</li>
+        <li id="c-hsla">hsla로 지정</li>
+    </ul>
+
+    <hr>
+
+    <h3>text-decoration 속성 : 텍스트에 줄을 긋거나 줄을 없앨 때 사용한다.</h3>
+    <pre> 선택자 { text-decoration : none | underline | overline | line-through; }의 형식으로 표현한다.</pre>
+    <ul>
+        <li><a href="#" id="td1">하이퍼링크 밑줄 없애기</a></li>
+        <li id="td2">텍스트영역 아래 줄 긋기</li>
+        <li id="td3">텍스트영역 중간에 줄 긋기</li>
+        <li id="td4">텍스트영역 위에 줄 긋기</li>
+    </ul>
+    <hr>
+
+    <h3>text-transform 속성 : 영문 텍스트의 대소문자 변환시 사용한다.</h3>
+    <pre>선택자 { text-transform : none | capitalize | uppercase | lowercase; }의 형식으로 표현한다.</pre>
+    <ul>
+        <li id="tt1">none</li>
+        <li id="tt2">capitalize : 영문자의 첫 글자만 대문자로</li>
+        <li id="tt3">uppercase : 모든 영문자를 대문자로</li>
+        <li id="tt4">LOWERCASE : 모든 영문자를 소문자로</li>
+    </ul>
+    <hr>
+
+    <h3>text-shadow 속성 : 텍스트에 그림자 효과를 줄 때 사용한다.</h3>
+    <pre> 선택자 { text-shadow : none | 가로거리 세로거리 번짐정도 색상; }의 형식으로 표현한다.</pre>
+    <div id="bg">
+        <span id="ts1" class="shadow">HTML5</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span id="ts2" class="shadow">HTML5</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span id="ts3" class="shadow">HTML5</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span id="ts4" class="shadow">HTML5</span>
+    </div>
+
+    <hr>
+
+    <p id="space1">그러므로 그러므로 곧 위하여 자신과 얼음에 꽃이 뛰노는 하였으며, 있으랴? 용기가 열락의 방황하였으며, 끓는다. 귀는 인생에 작고 아니한 길을 인간의 이는 못할 청춘은 철환하였는가? 싶이 피가 열락의 사는가 가는 원질이 이것이다. 가슴에 간에 너의 뼈 유소년에게서 현저하게 새 인간의 없으면 쓸쓸하랴? 하여도 같이, 새 봄바람이다.
+                   열락의 역사를 이 붙잡아 우리 원대하고, 남는 청춘의 군영과 봄바람이다. 인간에 우는 무한한 행복스럽고 스며들어 천지는 칼이다. 붙잡아 품고 이상은 인생의 군영과 가치를 피다. 못할 역사를 그들의 살았으며, 밥을 가는 방황하여도, 그것을 따뜻한 피다. 그들은 위하여서, 방황하여도, 가는 행복스럽고 위하여 생명을 피가 것이다. 가치를 따뜻한 피고 영원히 설산에서 것이다.</p>
+    <p id="space2">그러므로 그러므로 곧 위하여 자신과 얼음에 꽃이 뛰노는 하였으며, 있으랴? 용기가 열락의 방황하였으며, 끓는다. 귀는 인생에 작고 아니한 길을 인간의 이는 못할 청춘은 철환하였는가? 싶이 피가 열락의 사는가 가는 원질이 이것이다. 가슴에 간에 너의 뼈 유소년에게서 현저하게 새 인간의 없으면 쓸쓸하랴? 하여도 같이, 새 봄바람이다.
+                   열락의 역사를 이 붙잡아 우리 원대하고, 남는 청춘의 군영과 봄바람이다. 인간에 우는 무한한 행복스럽고 스며들어 천지는 칼이다. 붙잡아 품고 이상은 인생의 군영과 가치를 피다. 못할 역사를 그들의 살았으며, 밥을 가는 방황하여도, 그것을 따뜻한 피다. 그들은 위하여서, 방황하여도, 가는 행복스럽고 위하여 생명을 피가 것이다. 가치를 따뜻한 피고 영원히 설산에서 것이다.</p>
+    <p id="space3">그러므로 그러므로 곧 위하여 자신과 얼음에 꽃이 뛰노는 하였으며, 있으랴? 용기가 열락의 방황하였으며, 끓는다. 귀는 인생에 작고 아니한 길을 인간의 이는 못할 청춘은 철환하였는가? 싶이 피가 열락의 사는가 가는 원질이 이것이다. 가슴에 간에 너의 뼈 유소년에게서 현저하게 새 인간의 없으면 쓸쓸하랴? 하여도 같이, 새 봄바람이다.
+                   열락의 역사를 이 붙잡아 우리 원대하고, 남는 청춘의 군영과 봄바람이다. 인간에 우는 무한한 행복스럽고 스며들어 천지는 칼이다. 붙잡아 품고 이상은 인생의 군영과 가치를 피다. 못할 역사를 그들의 살았으며, 밥을 가는 방황하여도, 그것을 따뜻한 피다. 그들은 위하여서, 방황하여도, 가는 행복스럽고 위하여 생명을 피가 것이다. 가치를 따뜻한 피고 영원히 설산에서 것이다.</p>
+    <p id="space4">그러므로 그러므로 곧 위하여 자신과 얼음에 꽃이 뛰노는 하였으며, 있으랴? 용기가 열락의 방황하였으며, 끓는다. 귀는 인생에 작고 아니한 길을 인간의 이는 못할 청춘은 철환하였는가? 싶이 피가 열락의 사는가 가는 원질이 이것이다. 가슴에 간에 너의 뼈 유소년에게서 현저하게 새 인간의 없으면 쓸쓸하랴? 하여도 같이, 새 봄바람이다.
+                   열락의 역사를 이 붙잡아 우리 원대하고, 남는 청춘의 군영과 봄바람이다. 인간에 우는 무한한 행복스럽고 스며들어 천지는 칼이다. 붙잡아 품고 이상은 인생의 군영과 가치를 피다. 못할 역사를 그들의 살았으며, 밥을 가는 방황하여도, 그것을 따뜻한 피다. 그들은 위하여서, 방황하여도, 가는 행복스럽고 위하여 생명을 피가 것이다. 가치를 따뜻한 피고 영원히 설산에서 것이다.</p>
+    <p id="space5">그러므로 그러므로 곧 위하여 자신과 얼음에 꽃이 뛰노는 하였으며, 있으랴? 용기가 열락의 방황하였으며, 끓는다. 귀는 인생에 작고 아니한 길을 인간의 이는 못할 청춘은 철환하였는가? 싶이 피가 열락의 사는가 가는 원질이 이것이다. 가슴에 간에 너의 뼈 유소년에게서 현저하게 새 인간의 없으면 쓸쓸하랴? 하여도 같이, 새 봄바람이다.
+                   열락의 역사를 이 붙잡아 우리 원대하고, 남는 청춘의 군영과 봄바람이다. 인간에 우는 무한한 행복스럽고 스며들어 천지는 칼이다. 붙잡아 품고 이상은 인생의 군영과 가치를 피다. 못할 역사를 그들의 살았으며, 밥을 가는 방황하여도, 그것을 따뜻한 피다. 그들은 위하여서, 방황하여도, 가는 행복스럽고 위하여 생명을 피가 것이다. 가치를 따뜻한 피고 영원히 설산에서 것이다.</p>
+
+</body>
+</html>

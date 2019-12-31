@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+        table { width: 450px; margin: 0 auto; }
+        table td { padding: 5px; }
+        table tr>td:nth-of-type(1) { width: 110px; }
+        table tr>td:nth-of-type(2) { width: 150px; }
+        table tr>td:nth-of-type(3) { width: 150px; }
+
+        .trg {
+            width: 100px;
+            height: 100px;
+            background: orangered;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .increment {
+            background: black;
+            width: 100px;
+            height: 25px;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>입력 양식 이벤트</h1>
+    <div id="wrap">
+        <h1 align="center">회원가입</h1>
+        <form method="post">
+            <table>
+                <tr>
+                    <td><label>이름</label></td>
+                    <td><input type="text" name="name" id="name" required></td>
+                    <td><span id="nameresult"></span></td>
+                </tr>
+                <tr>
+                    <td><label>아이디</label></td>
+                    <td><input type="text" name="userid" id="userid"></td>
+                    <td><input type="button" value="중복확인"></td>
+                </tr>
+                <tr>
+                    <td><label>비밀번호</label></td>
+                    <td><input type="password" name="pwd1" id="pwd1" required></td>
+                    <td><span id="pwdresult"></span></td>
+                </tr>
+                <tr>
+                    <td><label>비밀번호 확인</label></td>
+                    <td><input type="password" name="pwd2" id="pwd2" required></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><label>이메일</label></td>
+                    <td><input type="email" name="email" id="email" required></td>
+                    <td></td>
+                    <!-- 이메일 타입은 자동으로 유효성 검사 해줌 -->
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="reset"> &nbsp; <input type="submit"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        $(function () {
+            // input 관련 각종 이벤트
+            $('#name').focus(function () {
+                console.log('FOCUS');
+            }).blur(function () { // blur() : 요소의 focus가 해제되었을 때
+                console.log('BLUR');
+            }).change(function () { // 요소의 값이 변경되었을 때
+                // select, checkbox, radio와 다르게
+                // input, textarea은 focus를 잃을 때 발생함.
+                console.log('CHANGE');
+            }).select(function () { // 텍스트 영역 블럭 잡힌 경우
+                console.log('SELECT');
+            });
+
+            // focusin(), focusout()
+            // : 해당 요소와 자식 요소가 포커스를 가지면 발생함
+            $('td').focusin(function () { // 요소의 자식이 focus를 받을 때
+                console.log('FOCUSIN');
+                $(this).css("background", "aqua");
+            }).focusout(function () {
+                $(this).css("background", "white");
+            })
+
+            // 이름이 한글로 두 글자 이상
+            //  change 이벤트를 통해 정규식을 만족할 경우 -> 정상입력(초록글씨)
+            // 만족하지 않을 시 -> 한글로 두 글자 이상 입력(빨간색 글씨)
+            // 라고 nameresult 표시
+            var exp = /^[가-힣]{1,}$/
+            $('#name').change(function () {
+                if (exp.test($('#name').val())) {
+                    $('#nameresult').html('정상입력').css('background', 'green');
+                } else {
+                    $('#nameresult').html('한글로 두 글자 이상 입력').css('background', 'red');
+                }
+            });
+
+            //  keyup 이벤트를 통해 
+            // pwd1과 pwd2의 값이 같지 않은경우
+            // 비밀번호 불일치(빨간색 글씨)
+            // 같은 경우 비밀번호 일치(초록색 글씨)
+            // 라고 pwdresult에 표시
+            $('#pwd1, #pwd2').keyup(function () {
+                if ($('#pwd1').val() == $('#pwd2').val()) {
+                    $('#pwdresult').html('비밀번호 일치').css('color', 'green');
+                } else {
+                    $('#pwdresult').html('비밀번호 불일치').css('color', 'red');
+                }
+            })
+
+            $("form").submit(function(event) {
+                // 기본 이벤트(submit)제거
+                $('#result').html('이름 : ' + $('#name').val());
+
+                // return false
+                event.preventDefault();
+                // -> 임의로 전송을 막음
+            });
+        });
+    </script>
+
+    <hr>
+
+    <h3>trigger() 메소드</h3>
+    <p>
+        특정 이벤트나 기본 이벤트를 강제로 발생시키는 메소드로
+        사용자 정의 이벤트 발생 시 사용함
+        이벤트 발생 시 인자 값 전달 가능.
+    </p>
+    <div class="trg" id="trg">
+        click Num : <span>0</span>
+    </div>
+    <div class="increment" id="increment">click me!</div>
+
+    <script>
+        var cnt = 0;
+        $(function() {
+            $('#trg').on('click', function() {
+                cnt++;
+                $('span').text(cnt);
+            })
+        });  
+
+        // increment를 클릭 시 trg의 클릭 이벤트를 트리거해 같이 사용한다
+        // trigger : 방아쇠; 작동시키다
+        $('#increment').click(function() {
+           $('#trg').trigger('click'); // click 이벤트 핸들러를 요청함
+        });
+    </script>
+    <p>
+        trigger 메소드는 실제 클릭이 일어나는 것이 아닌 click 이벤트 핸들러를 호출함. <br>
+        따라서 아래의 경우 링크로 실제 이동하지는 않는다. (속성까지는 가져가지 않는다)
+    </p>
+
+    <a href="https://www.naver.com" id="goNaver" onclick="justClicked()">네이버</a>
+    <button id="btnTrg">trigger를 통한 a태그 클릭</button>
+    <script>
+        // $ == jQuery
+        jQuery(function() {
+            jQuery('#btnTrg').on('click', function() {
+                $('#goNaver').trigger('click');
+            });
+        });
+
+        function justClicked() {
+                console.log('justClicked!!!!');
+            }
+    </script>
+</body>
+
+</html>

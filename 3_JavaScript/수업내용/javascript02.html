@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트 데이터 입/출력</h1>
+
+    <h2>데이터 출력</h2>
+    <script type="text/javascript">
+        // body 부분에 작성된 script 태그의 내용이 funtion으로 감싸져 있지 않으면
+        // html 로딩 과정에서 실행
+        document.write("document.write()로 출력한 내용");
+        alert('출력 문구를 실행하였습니다.');
+    </script>
+    <br>
+
+    <button onclick="writefn();">출력</button>
+    <script>
+        function writefn() {
+            document.write("HTML 문서가 완전히 로드된 후 호출 시" + "기존 HTML 내용을 모두 삭제");
+        }
+    </script>
+
+    <hr>
+
+    <h3>innerHTML로 요소의 내용 변경하기</h3>
+    <div id="area1">
+        자바스크립트에서 태그 엘리먼트의 값을 읽거나 변경할 때 innerHTML
+        속성을 사용함.
+    </div>
+    <br>
+    <button onclick="checkValue();">innerHTML 확인</button>
+    <script>
+        function checkValue() {
+            // 아이디를 이용하여 요소 선택 후 값을 읽어오기
+            var divEl = document.getElementById("area1");
+
+            divEl.innerHTML = "innerHTML 속성으로 값 변경함";
+            // 읽어온 요소 값 경고장으로 출력
+
+            alert(divEl.innerHTML);
+        }
+    </script>
+
+    <hr>
+
+    <h3>console.log()로 개발자 도구 콘솔 화면에 출력하기</h3>
+    <p>개발자 도구 콘솔 화면에 출력을 하고자 할 때 사용하며, 디버깅 할 때 주로 사용된다.</p>
+    <button onclick="printConsole();">콘솔에 내용 출력</button>
+    <script>
+        function printConsole() {
+            console.log("콘솔 화면에 출력하기");
+        }
+    </script>
+
+    <hr>
+
+    <h3>window.confirm()을 이용한 데이터 입력</h3>
+    <p>어떤 질문에 대해 "예/아니오"의 결과를 얻을 때 사용한다.</p>
+    <p>확인 버튼과 취소 버튼이 나타나며, 확인 버튼을 클릭 시 true,
+       취소 버튼을 클릭 시 false를 리턴한다.
+    </p>
+    <div id="area2" class="area"></div>
+    <button onclick="checkSleepy();">졸린지 확인</button>
+    <script>
+        function checkSleepy() {
+            // window 클래스는 window를 떼고 써도 됨
+            var result = confirm("졸리면 확인, 아니면 취소를 누르세요");
+
+            // 콘솔에서 리턴 값 확인
+            console.log(result);
+
+            // 문자열을 저장할 비어있는 변수 선언
+            var str = "";
+
+            if(result) {
+                str = "졸려요~";
+            }else {
+                str = "안졸립니다!!";
+            }
+
+            console.log(str);
+
+            var area2 = document.getElementById("area2");
+
+            // 기존 area2 내용에 이어 쓰기
+            area2.innerHTML += "<br><h1>" + str + "</h1>";
+        }
+    </script>
+    
+    <hr>
+
+    <h3>window.prompt()를 이용한 데이터 입력</h3>
+    <p>버튼이 있는 대화 상자 출력하고 입력한 메시지 내용을 리턴 값으로 돌려받는다.</p>
+    <button onclick="testPrompt()">이름 입력</button>
+    <div id="area3" class="area"></div>
+    <script>
+        function testPrompt() {
+            var result = window.prompt("당신의 이름은 무엇인가요?");
+
+            var area3 = document.getElementById("area3");
+            area3.innerHTML += "앗! 당신이 바로 " + result + "이군요..반갑습니다.";
+        }
+    </script>
+
+</body>
+</html>

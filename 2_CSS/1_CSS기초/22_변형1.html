@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width:250px;
+            height:200px;
+        }
+
+        .trans1:hover {
+            /* 양수 음수로 X축(좌,우) 조절 가능 */
+            transform:translateX(50px);
+            /* 크로스 브라우징 구현 */
+        }
+        
+        .trans2:hover {
+            /* 양수 음수로 Y축(상하) 조절 가능 */
+            transform:translateY(-50px);
+            /* 크로스 브라우징 구현 */
+        }
+
+        .trans3:hover {
+            /* X축, Y축 인자 2개 전달하여 대각선으로 움직임 */
+            transform:translate(50px, 50px);
+        }
+    
+        .trans4:hover {
+            transform:scaleX(0.5);
+        }
+
+        .trans5:hover {
+            transform:scaleY(2);
+        }
+
+        .trans6:hover {
+            transform:scale(2, 2);
+        }
+        
+        .trans7:hover {
+            transform:rotate(45deg);
+        }
+
+        .trans8:hover {
+            transform:skewX(45deg);
+        }
+
+        .trans9:hover {
+            transform:skewY(45deg);
+        }
+
+        .trans10:hover {
+            transform:skew(10deg, 10deg);
+            /* -webkit-transform:skew(10deg, 10deg); */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>2차원 변형</h1>
+    <h3>좌우로 움직이기</h3>
+    <img src="sample/image/flower1.PNG" class="trans1">
+    <hr>
+    <h3>위아래로 움직이기</h3>
+    <img src="sample/image/flower2.PNG" class="trans2">
+    <hr>
+    <h3>대각선으로 움직이기</h3>
+    <img src="sample/image/flower3.PNG" class="trans3">
+    <hr>
+    <h3>가로로 확대 축소</h3>
+    <img src="sample/image/flower4.PNG" class="trans4">
+    <hr>
+    <h3>세로로 확대 축소</h3>
+    <img src="sample/image/flower5.PNG" class="trans5">
+    <hr>
+    <h3>전체 확대 축소</h3>
+    <img src="sample/image/river1.PNG" class="trans6">
+    <hr>
+    <h3>지정한 각도만큼 회전</h3>
+    <img src="sample/image/river2.PNG" class="trans7">
+    <hr>
+    <h3>지정한 각도만큼 가로로 뒤틀기</h3>
+    <img src="sample/image/city1.PNG" class="trans8">
+    <hr>
+    <h3>지정한 각도만큼 세로로 뒤틀기</h3>
+    <img src="sample/image/tower1.PNG" class="trans9">
+    <hr>
+    <h3>지정한 각도만큼 전체 뒤틀기</h3>
+    <img src="sample/image/forest1.PNG" class="trans10">
+    <hr>
+
+</body>
+</html>

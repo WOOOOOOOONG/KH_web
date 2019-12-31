@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-3</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function() {
+            $('tr').click(function() {
+                $('tr').css('background','white');
+                $(this).css('background','red');
+
+                var temp = $(this).children("td").eq(0).text();
+                $('#s1').html(temp);
+                var temp2 = $(this).children("td").eq(1).text();
+                $('#s2').html(temp2);
+                var temp3 = $(this).children("td").eq(2).text();
+                $('#s3').html(temp3);
+                var temp4 = $(this).children("td").eq(3).text();
+                $('#s4').html(temp4);
+            });
+        });
+    </script>
+</head>
+<body>
+        <table border="1">
+                <tr>
+                    <th>번호</th><th>제목</th>
+                    <th>조회수</th><th>작성일자</th>
+                </tr>
+                <tr>
+                    <td>3</td><td>3번제목</td>
+                    <td>0</td><td>11-07-13</td>
+                </tr>
+                <tr>
+                    <td>2</td><td>2번제목</td>
+                    <td>0</td><td>11-07-12</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1번제목</td>
+                    <td>0</td><td>11-07-11</td>
+                </tr>
+            </table>
+            선택된 행 :
+            <span id="s1"></span> / <span id="s2"></span>
+            / <span id="s3"></span> / <span id="s4"></span>
+</body>
+</html>

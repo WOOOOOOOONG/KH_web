@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        /* 시작 지점과 끝 지점 두 개만 있을 경우 */
+        @keyframes trans1 {
+            from {
+                background: green;
+                border: 1px soild black;
+            }
+            to {
+                background: yellow;
+                border-radius: 50%;
+                transform:perspective(300px) rotate(360deg);
+                border:1px solid red;
+            
+            }
+        }
+
+        /* 중간 적업이 있을 경우 */
+        @keyframes trans2 {
+            0%{
+                background-color: green;
+                border:3px solid black;
+            }
+            30%{
+                transform:translate(50px, 50px);
+            }
+            50%{
+                background-color:hotpink;
+                transform: scale(1.2);
+                border:3px solid yellow;
+            }
+            100%{
+                background-color:blue;
+                transform:rotate(45deg);
+                border:3px solid red;
+            }
+        }
+
+        .div1 {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+
+            /* keyframes에서 정한 이름을 작성, 적용할 요소 스타이일에 작성함 */
+            animation-name:trans1;
+            /* 애니메이션의 실행시간을 지정하는 속성 */
+            animation-duration: 5s;
+            /* 애니메이션을 얼만큼 반복할지 설정. infinite(계속 반복) */
+            animation-iteration-count: 10;
+            /* 반복할 때 처음부터 시작할 것인지 끝에서 역순으로 시작할지 선택 
+            alternate(역순 반복) */
+
+            animation-direction: normal;
+        }
+
+        
+
+        .div2 {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            animation-name:trans2;
+            animation-duration: 2s;
+            animation-direction: alterante;
+            animation-iteration-count: infinite;
+        }
+
+        img {
+            margin-left:100px;
+            width:500px;
+            height: 500px;
+            
+            /* 애니메이션 전체 속성을 지정할 수 있는 속성 */
+            /* 선택자 { animation : name duration timing-function delay iterator-count direction; } */
+            animation : trans1 5s 10 alternate;
+            }
+    </style>
+</head>
+<body>
+    <h1>애니메이션</h1>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <img src="sample/image/iconsample.PNG" alt="">
+
+
+
+
+</body>
+</html>

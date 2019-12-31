@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .area {
+            height: 250px;
+            border: 1px solid black;
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>객체 배열</h1>
+    <h3>객체와 배열을 사용한 데이터 관리</h3>
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area"></div>
+    <script>
+        function test1() {
+            var student0 = {name: "우별림", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            var student1 = {name: "임세웅", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            var student2 = {name: "이현진", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            var student3 = {name: "장한별", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            var student4 = {name: "신승환", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            var student5 = {name: "전준호", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            var student6 = {name: "박종원", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            var student7 = {name: "한종윤", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            var student8 = {name: "양지호", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            var student9 = {name: "오민의", java: 90, oracle: 56, HTML5: 56, CSS3: 44, javascript: 34};
+            
+            // 배열 선언
+            var students = [];
+            students.push(student0);
+            students.push(student1);
+            students.push(student2);
+            students.push(student3);
+            students.push(student4);
+            students.push(student5);
+            students.push(student6);
+            students.push(student7);
+            students.push(student8);
+            students.push(student9);
+            
+            console.log(students);
+
+            // 각 객체별 메소드 추가
+            // for ~ in 문은 배열에는 0부터 끝까지 시작하고, 객체가 오면 key값이 들어간다
+            for(var i in students) {
+                students[i].getSum = function() {
+                    return this.java + this.oracle + this.HTML5 
+                            + this.CSS3 + this.javascript;
+                }
+
+                students[i].getAvg = function() {
+                    return this.getSum() / 5;
+                }
+            }
+
+            console.log(students);
+
+            // 모든 학생의 정보가 담긴 배열의 메소드를 통해 총점과 평균 출력
+            // 이름, 총점, 평균
+            var area1 = document.getElementById("area1");
+            
+            area1.innerHTML = "";
+            for(var i in students) {
+                area1.innerHTML += "이름: " + students[i].name + ", 총점: " + 
+                        students[i].getSum() + ", 평균: " + students[i].getAvg() + "<br>";
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>생성자 함수</h3>
+    <p>new 키워드를 사용해 객체를 생성할 수 있는 함수를 의미한다.</p>
+    <button onclick="test2();">실행확인</button>
+    <div id="area2" class="area"></div>
+    <script>
+        function Student(name, java, oracle, html5, css3, javascript) {
+            // 속성 정의
+            this.name = name;
+            this.java = java;
+            this.oracle = oracle;
+            this.html5 = html5;
+            this.css3 = css3;
+            this.javascript = javascript;
+
+            // 메소드 정의
+            this.getSum = function() {
+                return this.java + this.oracle + this.html5 + this.css3 + this.javascript;
+            }
+
+            this.getAvg = function() { 
+                return this.getSum() / 5;
+            }
+
+            this.toString = function() { 
+                return this.name + ", 총점: " + this.getSum() + ", 평균: " + this.getAvg() + "<br>";
+            }
+        }
+
+        var students = [];
+        
+        function test2() {
+            var area2 = document.getElementById("area2");
+            var student1 = new Student("우별림", 100, 50, 80, 70, 80);
+            area2.innerHTML += student1;
+            
+            var student2 = new Student(prompt('이름을 입력하세요'),
+                                        parseInt(prompt('자바 점수를 입력하세요')),
+                                        parseInt(prompt('오라클 점수를 입력하세요')),
+                                        parseInt(prompt('HTML 점수를 입력하세요')),
+                                        parseInt(prompt('CSS3 점수를 입력하세요')),
+                                        parseInt(prompt('Javascript 점수를 입력하세요')));
+            area2.innerHTML += student2;
+            
+            students.push(student1);
+            students.push(student2);
+
+            console.log(students);
+        }
+    </script>
+
+    <h3>객체 관련 키워드</h3>
+    <h4>instanceof 키워드</h4>
+    <p>해당 객체가 어떤 생성자 함수로 생성이 되었는지 검사</p>
+    <button onclick="test3();">instranceof 확인</button>
+    <div id="area3" class="area"></div>
+    <script>
+        function CellPhone(pName, price) {
+            this.pName = pName;
+            this.price = price;
+        }
+
+        function test3() {
+            var myCellPhone = new CellPhone("갤럭시노트10", 1090000);
+            
+            var area3 = document.getElementById("area3");
+            area3.innerHTML += "";
+            area3.innerHTML += "myCellPhone instanceof CellPhone : " 
+                                + (myCellPhone instanceof CellPhone) + "<br>";
+                                
+            area3.innerHTML += "myCellPhone instanceof Student : "
+                                + (myCellPhone instanceof Student) + "<br>";
+                                // 없는 instance를 사용하면 안된다.
+                                // 다른 곳의 script에서 정의한 함수도 사용할 수 있는듯.
+        }
+    </script>
+</body>
+</html>

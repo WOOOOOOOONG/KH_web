@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            /* background-color:aqua; */
+            /* background-color:rgb(50, 150, 250); */
+            /* background-color:rgba(50, 150, 250, 0.7); */
+            
+            /* 색조, 채도, 명도 */
+            /* background-color:hsl(180, 100%, 70%); */
+            /* background-color:hsla(240, 100%, 50%, 0.5); */
+            background-color:#10aaff;
+
+        }
+        
+        #div-bg{
+            width:50%;
+            background-color:white;
+        }
+
+        .div-test{
+            background-color:white;
+            margin:30px; /* 외부 여백 */
+            padding:20px; /* 내부 여백 */
+            width:20%;
+            border: 5px dashed black;
+            float: left;
+            /* 일반적인 정렬과는 다르게 float 정렬되면 컨텐츠가 흐르듯이 배치 */
+        }
+    
+        #div1 {
+            background-clip: border-box;
+        }
+        #div2 {
+            background-clip: padding-box;
+        }
+        #div3 {
+            background-clip: content-box;
+        }
+
+        #bg-img {
+            width:70%;
+            height:800px;
+            border:1px solid black;
+            background-image: url('sample/image/bgsample.PNG');
+
+            /* 배경 이미지의 반복 방법을 지정 */
+
+            /* 반복(기본) */
+            /* background-repeat:repeat; */
+            /* 가로로만 반복 */
+            /* background-repeat: repeat-x; */
+            /* 세로로만 반복 */
+            /* background-repeat: repeat-y; */
+            /* 반복 없음 */
+            background-repeat: no-repeat;
+
+            /* 크기 조정 */
+
+            /* 원래 크기 */
+            /* background-size: auto; */
+            /* 요소 안에 배경 이미지가 다 들어오도록 이미지를 확대/축소 */
+            /* background-size: contain; */
+            /* 배경 이미지로 요소를 모두 덮을 수 있도록 이미지를 확대/ 축소 */
+            /* background-size: cover; */
+            /* background-size: 150px 100px; */
+            background-size:80% 80%;
+
+            /* 위치 설정 */
+            /* background-position: left top; */
+            /* background-position: right top;
+            background-position: center top;
+            background-position: left bottom;
+            background-position: right bottom;
+            background-position: center bottom;
+            background-position: left center;
+            background-position: right center; */
+            /* background-position: center center; */
+            /* background-position: 30px 50px; */
+            background-position: 50% 50%;
+
+            /* 스크롤 여부 */
+            /* background-attachment: scroll; */
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <h1>배경색과 배경 이미지</h1>
+    <pre> body { background-color : 색상명 | rgb | rgba | hsl | hsla | 16진수; } 로 배경색을 지정할 수 있다.</pre>
+    <a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank">색상명 참조 사이트로 이동</a>
+
+    <hr>
+    <h3>div 배경 테스트</h3>
+    <pre>div 영역을 설정하는 경우 배경색을 지정하기 위해서는 div에 배경색을
+        별도로 지정해야 한다.</pre>
+    <div id="div-bg">이 귀는 영락과 인간의 것이다. 풀이 그들은 작고 아니한 바로 곧 있음으로써 가지에 그리하였는가? 바이며, 굳세게 돋고, 끓는 가장 주며, 말이다. 구할 이상의 꽃이 길지 주는 스며들어 꾸며 불러 있는가? 뼈 이상 사는가 우리 없으면 약동하다. 착목한는 않는 밥을 가진 꽃 그리하였는가? 끝에 이상은 따뜻한 대한 찾아다녀도, 투명하되 영락과 품었기 피다. 사랑의 얼마나 희망의 청춘의 것이다. 사는가 많이 석가는 보내는 생생하며, 속에 피고 것이다.</div>
+
+    <h3>배경 적용 범위 조정</h3>
+    <pre>div영역의 배경 적용 범위를 지정할 때 background-clip 속성을 사용한다.</pre>
+    <div class="div-test" id="div1">이 귀는 영락과 인간의 것이다. 풀이 그들은 작고 아니한 바로 곧 있음으로써 가지에 그리하였는가? 바이며, 굳세게 돋고, 끓는 가장 주며, 말이다. 구할 이상의 꽃이 길지 주는 스며들어 꾸며 불러 있는가? 뼈 이상 사는가 우리 없으면 약동하다. 착목한는 않는 밥을 가진 꽃 그리하였는가? 끝에 이상은 따뜻한 대한 찾아다녀도, 투명하되 영락과 품었기 피다. 사랑의 얼마나 희망의 청춘의 것이다. 사는가 많이 석가는 보내는 생생하며, 속에 피고 것이다.</div>
+    <div class="div-test" id="div2">이 귀는 영락과 인간의 것이다. 풀이 그들은 작고 아니한 바로 곧 있음으로써 가지에 그리하였는가? 바이며, 굳세게 돋고, 끓는 가장 주며, 말이다. 구할 이상의 꽃이 길지 주는 스며들어 꾸며 불러 있는가? 뼈 이상 사는가 우리 없으면 약동하다. 착목한는 않는 밥을 가진 꽃 그리하였는가? 끝에 이상은 따뜻한 대한 찾아다녀도, 투명하되 영락과 품었기 피다. 사랑의 얼마나 희망의 청춘의 것이다. 사는가 많이 석가는 보내는 생생하며, 속에 피고 것이다.</div>
+    <div class="div-test" id="div3">이 귀는 영락과 인간의 것이다. 풀이 그들은 작고 아니한 바로 곧 있음으로써 가지에 그리하였는가? 바이며, 굳세게 돋고, 끓는 가장 주며, 말이다. 구할 이상의 꽃이 길지 주는 스며들어 꾸며 불러 있는가? 뼈 이상 사는가 우리 없으면 약동하다. 착목한는 않는 밥을 가진 꽃 그리하였는가? 끝에 이상은 따뜻한 대한 찾아다녀도, 투명하되 영락과 품었기 피다. 사랑의 얼마나 희망의 청춘의 것이다. 사는가 많이 석가는 보내는 생생하며, 속에 피고 것이다.</div>
+
+    <br clear="both">
+    <!-- float 속성을 해제하기 위해 사용(left, right, both)
+         이 영역 이후로는 더 이상 float가 동작하지 않는다. -->
+    
+    <hr>
+
+    <h3>배경 이미지 테스트</h3>
+    <pre>background-image 속성을 이용하여 배경 사진을 넣을 수 있다. 사진 크기에 따라 자동 반복하여 이미지가 나타난다.</pre>
+    <pre>배경 이미지의 반복 방법을 지정하기 위해 background-repeat 속성을 이용할 수 있다.</pre>
+    <pre>배경 이미지 요소보다 크거나 작은 경우 배경 이미지의 크기를 background-size 속성으로 변경할 수 있다.</pre>
+    <div id="bg-img"></div>
+
+
+
+
+</body>
+</html>

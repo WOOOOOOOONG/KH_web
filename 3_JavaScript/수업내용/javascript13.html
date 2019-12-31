@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .area {
+            background: orange;
+            border: 1px solid black;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <h1>함수2</h1>
+    <h3>매개변수로 함수 전달</h3>
+    <p>함수도 하나의 자료형이기 때문에 매개변수로 전달 가능하다.</p>
+
+    <h4>선언적 함수를 매개변수로 전달</h4>
+    <button onclick="callJustFunction(justFunction);">실행하기</button>
+
+    <script>
+        function callJustFunction(otherFunction) {
+            for(var i = 10; i > 0; i--) {
+                otherFunction(i);
+            }
+            alert('10번 클릭하느라 고생하셨습니다ㅎ');
+        }    
+
+        function justFunction(i) {
+            if(i > 5) {
+                alert(i + "번 더 클릭");
+            }else if(i > 3) {
+                alert(i + "번만 더 클릭하면 됩니다.");
+            }else if(i > 1) {
+                alert(i + "번만 더 클릭하면 됩니다!!!");
+            }else {
+                alert("한 번만 더 클릭!!!!!");
+            }
+        }
+    </script>
+
+    <br><hr>
+
+    <h4>익명 함수를 매개변수로 활용</h4>
+    <div id="area1" class="area"></div>
+    <script>
+        // 함수를 매개변수로 받는 함수
+        function callFunctionTenTimes(otherFunction) {
+            for(var i = 0; i < 10; i++) {
+                otherFunction(i);
+                console.log('hello');
+            }
+        }
+
+        // script 태그에서 바로 함수를 호출하는 형태
+        // -> 페이지 로드 후 바로 실행됨
+        callFunctionTenTimes(function(i) {
+            document.getElementById("area1").innerHTML
+            += (i+1) + "번째 함수 호출!<br>";
+        });
+    </script>
+
+    <br><hr>
+
+    <h4>익명 함수를 리턴하는 함수 : 함수명()(); 형태로 호출</h4>
+    <input type="text" id="text1">
+    <button onclick="returnFunction()();">실행확인</button>
+    <!-- 첫 번째 () : 함수 호출 / 두 번째 () : 리턴 된 함수 호출 -->
+    <script>
+        function returnFunction() {
+            var text1 = document.getElementById("text1");
+            return function() {
+                text1.disabled = true; // 비활성화
+                alert("비활성화 되어도 접근 가능 : " + text1.value);
+                
+            }
+        }
+    </script>
+</body>
+</html>

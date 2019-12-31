@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .area {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML에 접근하기</h1>
+    <h3>아이디로 접근하기</h3>
+    <div id="area1" class="area"></div>
+    <button onclick="accessId();">아이디로 접근</button>
+    <script>
+        function accessId() {
+            var area1 = document.getElementById("area1");
+            area1.style.backgroundColor = "yellow";
+            area1.innerHTML += "아이디로 접근 성공!!<br>";
+        }
+    </script>
+
+    <div id="area2" class="area"></div>
+    <button onclick="accessId2();">클릭마다 색 변경</button>
+    <script>
+        function accessId2() {
+            var area2 = document.getElementById("area2");
+            var bgColor = area2.style.backgroundColor;
+
+            if (bgColor == "red") {
+                area2.style.backgroundColor = "yellow";
+            } else {
+                area2.style.backgroundColor = "red";
+            }
+
+        }
+    </script>
+
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+    <button onclick="accessTagName();">태그명으로 접근</button>
+    <script>
+        function accessTagName() {
+            var list = document.getElementsByTagName("li");
+            // 문서 내의 모든 li태그들의 정보를 읽어와 배열 형태로 저장함
+
+            console.log("전달받은 li태그의 갯수 : " + list.length);
+            
+            var changeColor = 50;
+
+            for (var i = 0; i < list.length; i++) {
+                console.log(list[i]);
+                list[i].style.backgroundColor = "rgb(130, 220,"+changeColor+")";
+                changeColor += 50;
+            }
+
+        }
+    </script>
+
+    <hr>
+
+    <h3>name으로 접근</h3>
+    <form>
+        <fieldset>
+            <legend>취미</legend>
+            <table>
+                <tr>
+                    <td><input type="checkbox" name="hobby" value="game" id="game">
+                        <label for="game">게임</label></td>
+                    <td><input type="checkbox" name="hobby" value="music" id="music">
+                        <label for="music">음악감상</label></td>
+                    <td><input type="checkbox" name="hobby" value="movie" id="movie">
+                        <label for="movie">영화보기</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="hobby" value="book" id="book">
+                        <label for="book">독서</label></td>
+                    <td><input type="checkbox" name="hobby" value="travle" id="travle">
+                        <label for="travle">여행</label></td>
+                    <td><input type="checkbox" name="hobby" value="exercise" id="exercise">
+                        <label for="exercise">운동</label></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <div id="area3" class="area"></div>
+    <button onclick="accessName();">name으로 접근</button>
+    <script>
+        function accessName() {
+            var hobby = document.getElementsByName("hobby");
+
+            console.log("hobby의 길이 : " + hobby.length);
+
+            var checkItem="";
+
+            // 1부터 hobby 끝날때까지 인덱스 돌리는거인듯
+            for(var i in hobby) {
+                if(hobby[i].checked == true) {
+                    checkItem += hobby[i].value + "선택함 <br>";
+                }
+            }
+
+            console.log(checkItem);
+            document.getElementById("area3").innerHTML = checkItem;
+        }
+    </script>
+
+    <hr>
+    
+    <h3>text 박스의 value값 읽어오기</h3>
+    <form>
+        이름 : <input type="text" name="username" id="username">
+        <br>
+        <input type="button" onclick="readValue();" value="input값 확인">
+    </form>
+
+    <div id="area4" class="area"></div>
+
+    <script type="text/javascript">
+        function readValue() {
+            var input = document.getElementById("username");
+            if(input.value == "" || input.value.length == 0) {
+                // window는 자바스크립트 내장객체
+                alert("이름을 입력하세요");
+                input.focus();
+            }else {
+                document.getElementById("area4").innerHTML = input.value;
+            }
+        }
+    </script>
+</body>
+
+</html>

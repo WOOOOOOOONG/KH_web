@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>입력 양식 필터 선택자</h1>
+    <p>input 태그의 type 속성에 따라 문서 객체 선택 가능</p>
+    <label>텍스트 상자 : </label><input type="text"><br>
+    <label>버튼 : </label><input type="button"><br>
+    <label>체크박스 : </label><input type="checkbox"><br>
+    <label>파일 : </label><input type="file"><br>
+    <label>이미지 : </label><input type="image" src="image/flower1.png"><br>
+    <label>패스워드 : </label><input type="password"><br>
+    <label>라디오 버튼 : </label><input type="radio"><br>
+    <label>리셋 버튼 : </label><input type="reset"><br>
+    <label>submit 버튼 : </label><input type="submit"><br>
+
+    <script>
+        $(document).ready(function() {
+            $("input:text").css("background", "red");
+
+            $("input:button").attr("value", "왕버튼").css({"width":"200px","height":"100px"});
+            
+            $("input:checkbox").attr("checked", true).css({"width":"500px","height":"200px"});
+
+            // mouseenter() : 마우스가 요소 경계 내부로 들어왔을 때 이벤트 발생
+            $("input:image").mouseenter(function() {
+                $(this).attr("src", "image/river1.png");
+            })
+            // mouseleave() : 마우스가 요소 경계 외부로 나갔을 때 이벤트 발생
+            $("input:image").mouseleave(function() {
+                $(this).attr("src", "image/flower1.png");
+            })
+
+            // 파일 태그 배경 yellowgreen
+            $("input:file").css("background", "yellowgreen");
+
+            // 패스워드 태그 배경 yellow
+            $("input:password").css("background", "yellow");
+
+            // 라디오 태그 선택되게
+            $("input[type=radio]").attr("checked", true);
+
+            // 리셋 태그 배경 파랑 색깔 흰색
+            $("input:reset").css({"background":"blue","color":"white"});
+
+            // submit 태그 배경 보라 색깔 흰색
+            $("input[type=submit]").css({"background":"violet","color":"white"});
+        });
+    </script>
+</body>
+</html>

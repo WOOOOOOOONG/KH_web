@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 반응형 웹 구현을 위한 뷰 포트
+        width=device-width : 페이지의 너비를 기기의 스크린 너비로 설정.
+        렌더링 영역을 기기의 뷰 포트의 크기와 같게 만듦.
+        initial-scale=1.0 : 처음 페이지 로딩 시 확대/축소가 되지 않은
+        원래 크기를 사용하도록 함.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 웹에 호환성을 지정 (ie의 경우 호환 안되는 경우가 많아서) -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 전체 선택자 사용하여 모든 엘리먼트 border-box 속성 */
+        * {
+            box-sizing:border-box;
+        }
+
+        header {
+            background-color:rgb(153, 211, 235);
+            color:#ffffff;
+            padding:15px;
+        }
+
+        .menu ul {
+            list-style-type:none;
+            margin:0;
+            padding:0;
+        }
+
+        .menu li {
+            padding:8px;
+            margin-bottom:7px;
+            background-color:#2291b9;
+            color:#ffffff;
+            box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu li:hover {
+            background-color:#4ea0bb;
+        }
+
+        aside {
+            background-color:#33b5e5;
+            padding:15px;
+            color:#ffffff;
+            text-align:center;
+            font-size:14px;
+            box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        /* 화면을 세로로 12분할 */
+        .col-1 {
+            width:8.33%;
+        }
+        .col-2 {
+            width:16.66%;
+        }
+        .col-3 {
+            width:25%;
+        }
+        .col-4 {
+            width:33.33%;
+        }
+        .col-5 {
+            width:41.66%;
+        }
+        .col-6{
+            width:50%;
+        }
+        .col-7{
+            width:58.33%;
+        }
+        .col-8{
+            width:66.66%;
+        }
+        .col-9{
+            width:75%;
+        }
+        .col-10{
+            width:83.33%;
+        }
+        .col-11 {
+            width:91.66%;
+        }
+        .col-12{
+            width:100%;
+        }
+
+        [class*="col-"]{
+            float:left;
+            padding:15px;
+        }
+
+        /* 창이 600px 이하가 되면 변화 */
+        @media only screen and (max-width: 600px){
+            body {
+                background-color:lightpink;
+            }
+        }
+
+        /* 창이 768px 이하가 되면 col- 클래스는 모두 창의 100%의 크기를 가짐 */
+        @media only screen and (max-width: 768px){
+            /* For mobile phones : */
+            [class*="col-"] {
+                width:100%;
+            }
+        }
+
+        /* Moblie First를 하려면?
+           default를 width:100%으로 설정하고
+           min-width: 768px일 때 desktop의 비율로 적용함
+        */
+
+        /* 다섯 종류의 디바이스를 타겟으로 하여 비교 */
+        /* 창 크기에 따라 헤더 색상 조정 */
+        /* Extra small devices (phone, 600px and down) */
+        @media only screen and (max-width:600px){
+            header {
+                background:red;
+            }
+        }
+
+        /* Small devices (portrait tablets and large phoneds, 600px and up) */
+        @media only screen and (min-width: 600px){
+            header {
+                background:green;
+            }
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+            header {
+                background:blue;
+            }
+        }
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width:992px) {
+            header {
+                background:orange;
+            }
+        }
+
+        /* Extra large devices (large laptops and desktops, 1200px and up) */
+        @media only screen and (min-width: 1200px){
+            header {
+                background:rgb(153, 211, 235);
+            }
+        }
+
+        /* 크기가 작아지면 엘리먼트를 숨김 */
+        @media only screen and (max-width: 600px){
+            aside {
+                display:none;
+            }
+        }
+        
+        /* 창 크기에 따라 글씨 크기 조절 */
+        @media only screen and (min-width : 601px){
+            header {
+                font-size:20px;
+            }
+        }
+
+        @media only screen and (max-width : 600px){
+            header {
+                font-size:10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>반응형 웹(Responsive Web)</h1>
+    <p>반응형 웹 디자인이란 하나의 웹 사이트에서 PC, 스마트폰, 태블릿 PC 등
+        접속하는 디스플레이의 종류에 따라 화면의 크기가 자동으로 변하도록 만든
+        웹 페이지 접근 기법</p>
+    <ul>
+        <li>화면 설계 시 특정 뷰 포트 너비에 의존하지 않는다.</li>
+        <li>큰 고정 너비 요소를 사용하면 가로 스크롤이 발생할 수 있으므로 유의한다.</li>
+        <li>상대 너비를 사용하고 절대 위치의 값이 너무 크지 않게 조정한다.</li>
+        <li>CSS 미디어 쿼리를 사용한다.</li>
+    </ul>
+
+    <hr>
+
+    <h3>Grid View / Media Query</h3>
+
+    <header>
+        <h1>KH정보교육원</h1>
+    </header>
+
+    <section class="content">
+        <section class="col-3 menu">
+            <ul>
+                <li>강남 1관</li>
+                <li>강남 2관</li>
+                <li>강남 3관</li>
+            </ul>
+        </section>
+
+        <section class="col-6">
+            <h1>KH정보교육원</h1>
+            <p>UIUX엔지니어링 및 응용SW엔지니어링 양성과정 UIUX엔지니어링 및 응용SW엔지니어링 양성과정</p>
+            <p>UIUX엔지니어링 및 응용SW엔지니어링 양성과정 UIUX엔지니어링 및 응용SW엔지니어링 양성과정</p>
+        </section>
+
+        <section class="col-3">
+            <aside class="aside">
+                <h2>화면 설계</h2>
+                <p>2019.10.21</p>
+                <h2>화면 구현</h2>
+                <p>2019.11.06</p>
+                <h2>UI 테스트</h2>
+                <p>2019.11.13</p>
+            </aside>
+        </section>
+    </section>
+
+</body>
+</html>

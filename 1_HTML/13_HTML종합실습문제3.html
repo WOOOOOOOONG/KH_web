@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13_HTML종합실습문제3</title>
+</head>
+
+<h1>회원가입</h1>
+<table><tr><td>
+    <form>
+    <form method="POST">
+        <fieldset>
+            <table>
+                <legend>필수 입력 사항</legend>
+                <tr>
+                    <th>ID</th>
+                    <td><input type="text" placeholder="아이디 10글자 이내"> &nbsp;
+                    <button value="중복 확인">중복확인</button></td>
+                </tr>
+            <tr>
+                <br>
+                <th><label for="">비밀번호</label></th>
+                <td colspan="2"><input type="password" size="30" placeholder="영문,숫자,특수문자 포함 8자 이상"> </td>
+                
+            </tr>
+            <tr>
+                <th><label for="">비밀번호 확인</label></th>
+                <td><input type="password" size="30"></td>
+                
+            </tr>
+            <tr>
+                <label><th>Email</th></label>
+                <td>
+                    <input type="email">
+                    <select name="" id="">
+                        <option value="direct" selected>직접입력</option>
+                        <option value="naver">www.naver.com</option>
+                        <option value="daum">www.daum.net</option>
+                        <option value="google">www.google.com</option>
+                    </select>
+                </td>
+            </tr>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>추가 정보</legend>
+
+            <label for="">프로필 사진 </label>
+            <input type="file">
+            <br><br>
+
+            <label for="">성별 : </label>
+            <form type="radio" value="man" id="man" checked>
+            <label for="man">남자</label>
+
+            <input type="radio" value="wo" id="wo">
+            <label for="wo">여자</label>
+            <br><br>
+
+            <label for="">생년월일 : </label>
+            <input type="date">
+            <br><br>
+
+            <label for="">취미</label><br>
+            <input type="checkbox" id="baseball"> <label for="baseball">야구</label>
+            <input type="checkbox" id="basekball"> <label for="basekball">농구</label>
+            <input type="checkbox" id="football"> <label for="football">축구</label>
+            <br>
+            <input type="checkbox" id="study" checked> <label for="study">공부</label>
+            <input type="checkbox" id="music"> <label for="music">음악감상</label><br>
+            <input type="checkbox" id="other"> <label for="other">기타 : </label>
+            <input type="text">
+            <br><br>
+
+            <label for="">자기소개</label>
+            <br>
+            <textarea name="" id="" cols="30" rows="4"></textarea>
+            <br>
+        </fieldset>
+        
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" value="회원가입"> &nbsp;
+        <input type="reset" value="다시입력"> &nbsp;
+        <button>이전으로</button>
+    </form>
+    </form>
+    </td></tr>
+    </table>
+</html>

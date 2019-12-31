@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color:antiquewhite;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        header {
+            width: 100%;
+            height: 30%;
+        }
+
+        nav {
+            width: 100%;
+            height: 30%;
+        }
+    </style>
+
+    <!-- nav -->
+    <style>
+        nav header {
+            width: 100%;
+            height: 5%;
+        }
+
+        nav section {
+            width: 100%;
+            height: 50%;
+        }
+
+        #navi {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+
+            background-color: brown;
+        }
+
+        #navi ul {
+            float:left;
+        }
+
+        #navi>li {
+            float: left;
+            width: 25%;
+            height: 100%;
+            position: relative;
+            /* 하위 개념에 absolute 주려면 상위 개념에 relative 주는듯 */
+            text-align: center;
+        }
+
+        #navi li a {
+            display: block;
+            height: 100%;
+            box-sizing: border-box;
+            line-height: 30px;
+            /* 글사 사이의 높이 */
+
+            text-decoration: none;
+            font-family: "굴림";
+            font-weight: 900;
+            font-size: 18px;
+            color: deepskyblue;
+            padding: 5px 25px;
+        }
+    </style>
+
+    <!-- nav 사진 -->
+    <style>
+        .border {
+            width: 540px;
+            height: 500px;
+            position: absolute;
+            top:0;
+            left:0;
+            transform: translate(300px, 100px);
+        }
+
+        .picture {
+            width: 510px;
+            height : 450px;
+            position: absolute;
+            top:0;
+            left:0;
+            transform: translate(200px, 100px);
+        }
+
+        #pic2 {
+            transform: translate(300px, 0);
+        }
+
+        #pic3 {
+            transform: translate(-100px, 0);
+        }
+
+        #pic4 {
+            transform: translate(-600px, 0);
+        }
+
+        #pic5 {
+            transform: translate(-1000px, 0);
+        }
+
+        .border>img {
+            opacity: 0;
+        }
+
+        #simple:hover #pic2 {
+            opacity: 1;
+        }
+
+        #deep:hover #pic3 {
+            opacity: 1;
+        }
+
+        #ant:hover #pic4 {
+            opacity: 1;
+        }
+
+        #dokgo:hover #pic5 {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="background">
+        <h1>사진 게시판</h1>
+        <header></header>
+
+        <nav>
+            <header>
+            <ul id="navi">
+                <li id="simple"><a href="#">심플하게 산다</a>
+                    <div class="border">
+                            <img src="웹문서 구조 만들기 실습/img/2.jpg" class="picture" id="pic2">
+                    </div>
+                </li>
+                <li id="deep"><a href="#">딥 워크</a>
+                    <div class="border">
+                            <img src="웹문서 구조 만들기 실습/img/3.jpg" class="picture" id="pic3">
+                    </div>
+                </li>
+                <li id="ant"><a href="#">개미</a>
+                    <div class="border">
+                            <img src="웹문서 구조 만들기 실습/img/4.jpg" class="picture" id="pic4">
+                    </div>
+                </li>
+                <li id="dokgo"><a href="#">신경쓰지 않는 연습</a>
+                    <div class="border">
+                            <img src="웹문서 구조 만들기 실습/img/5.jpg" class="picture" id="pic5">
+                    </div>
+                </li>
+                
+            </ul>
+            </header>
+            
+            <article>
+                    
+
+            </article>
+        </nav>
+    </div>
+</body>
+
+</html>

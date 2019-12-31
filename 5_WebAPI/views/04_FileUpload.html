@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+    <style>
+        #preview, #imgArea {
+            border:1px solid lightgray;
+            min-width:500px;
+            min-height:200px;
+        }
+        .thumbnail, #practice{
+            border:1px solid lightgray;
+            width:350px;
+            height:200px;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>FileAPI</h1>
+    
+    <h3>텍스트 파일 프리뷰</h3>
+    <input type="file" id="txtfile">
+    <pre id="preview">텍스트 파일 내용 출력 영역</pre>
+    <script>
+        // input file 태그(txtfile)에 변화가 있을 때 -> 파일 첨부가 이루어졌을 때
+        $("#txtfile").change(function(){
+
+            // 만약 파일이 존재한다면
+            if(this.files && this.files[0]){
+
+                // FileReader 객체 생성
+                var reader = new FileReader();
+
+                // 텍스트 파일로 읽기 설정
+                reader.readAsText(this.files[0]);
+
+                // 파일 읽어들이기 성공했을 때 호출 되는 이벤트 핸들러
+                reader.onload = function(){
+                    // result : 파일의 컨텐츠
+                    console.log(reader.result);
+                    $("#preview").text(reader.result);
+                }
+
+            }
+        });
+    </script>
+
+    <h3>이미지 파일 프리뷰</h3>
+    <input type="file" id="imgfile">
+    <div id="imgArea"></div>
+    <script>
+        $("#imgfile").change(function(){
+            if(this.files && this.files[0]){
+                var reader = new FileReader();
+                // 파일 내용을 읽어 들여 dataURL 형식의 문자열로 설정
+                reader.readAsDataURL(this.files[0]);
+
+                reader.onload = function(){
+                    console.log(reader.result);
+                    // div에 이미지 넣기
+                    $("#imgArea").html("<img src=" + reader.result + ">");
+                }
+
+            }
+        });
+    </script>
+    <h1>연습 문제</h1>
+    <div id="thumbnail1" class="thumbnail"></div>
+    <div id="thumbnail2" class="thumbnail"></div>
+    <div id="thumbnail3" class="thumbnail"></div>
+
+    <div id="files">
+        <input type="file" id="imgfile1" name="imgfile1" onchange="preview(this,1)">
+        <input type="file" id="imgfile2" name="imgfile2" onchange="preview(this,2)">
+        <input type="file" id="imgfile3" name="imgfile3" onchange="preview(this,3)">
+    </div>
+
+    <script>
+        // 내용 작성 부분의 공간을 클릭할 때 파일 첨부 창이 뜨도록 설정하는 함수
+        // **********input이 div 안에 있는 상태에서 쓰면 안됨********
+        $(function () {
+            $("#files").hide();
+
+            $("#thumbnail1").click(function () {
+                $("#imgfile1").click();
+            });
+            $("#thumbnail2").click(function () {
+                $("#imgfile2").click();
+            });
+            $("#thumbnail3").click(function () {
+                $("#imgfile3").click();
+            });
+        });
+
+        function preview(value, num) {
+            // value => input type="file"
+            // num => 조건문으로 각 번호에 맞춰서 위의 미리보기 img에 적용시킬것
+
+            // file이 존재하는지 조건문
+            if (value.files && value.files[0]) {
+                // 파일을 읽어들일 FileReader 객체 생성
+                var reader = new FileReader(); 
+
+                // 파일 내용을 읽어들여 dataURL 형식의 문자열로 설정
+                reader.readAsDataURL(value.files[0]); 
+
+                // 파일 읽기가 다 완료되었을 때 실행되는 메소드
+                reader.onload = function (e) {
+                    $("#thumbnail"+num).html("<img src=" + reader.result + " width=350 height=200>");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

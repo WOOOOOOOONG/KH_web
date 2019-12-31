@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .test1 {
+            /* width, height 속성은 content의 크기를 나타냄 */
+            width: 300px;
+            height: 200px;
+
+            /* border : 테두리 영역 */
+            border: 20px solid blue;
+
+            /* padding : content와 border 사이의 영역 */
+            padding: 20px;
+
+            /* margin : 타 요소와의 간격을 지정하는 영역 */
+            /* 해당 border 밖의 요소와 간격을 주는 것임 */
+            margin: 30px;        
+            }
+
+        #test2 {
+            width: 300px;
+            height: 200px;
+            border: 20px solid yellow;
+            padding: 20px;
+
+            /* box-sizing : 지정되는 width, height 값이 적용되는 
+               영역 범위 설정, 기본 값 : content-box */
+            box-sizing: border-box;
+            /* border-box : width, height 값이 content + padding + border */
+        }
+    </style>
+</head>
+<body>
+    <h2>영역 관련 속성</h2>
+    <div class="test1">
+        1) content : 내용이 표시되는 영역<br>
+        2) border : 요소의 테두리 영역<br>
+        3) padding : <br>
+        content와 border 사이의 영역<br>
+        4) margin : <br>
+        타 요소와의 간격을 지정하는 영역
+    </div>
+    <div class="test1">
+        현재 div의 테두리를 포함한 가로 길이<br>
+        = width 값 + 양쪽 padding값 + 양쪽 border값<br>
+        = 300px + (20px * 2) + (20px * 2) <br>
+        = 380px <br> <br>
+
+        현재 div의 테두리를 포함한 세로 길이 <br>
+        = height 값 + 상하 padding값 + 상하 border값 <br>
+        = 200px + (20px * 2) + (20px * 2) <br>
+        = 280px <br>
+    </div>
+
+    <hr>
+
+    <h2>div 내부에 div 넣기</h2>
+    <div class="test1">
+        <div id="test2"></div>
+    </div>
+</body>
+</html>

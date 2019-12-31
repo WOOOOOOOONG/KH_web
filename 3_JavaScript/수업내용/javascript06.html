@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .area {
+            border : 1px solid red;
+            height : 180px;
+        }
+    </style>
+</head>
+<body>
+    <h1>데이터 형변환</h1>
+
+    <h3>문자열과 숫자의 '+' 연산</h3>
+    <p>
+        문자열 + 숫자 = 문자열<br>
+        숫자 + 숫자 + 문자열 = 숫자가 먼저 계산되고 뒤의 문자열과 합쳐짐<br>
+        (Java와 같음) <br>
+        문자열 뒤로는 괄호치지 않으면 숫자여도 다 문자처리 되는듯
+    </p>
+    <button onclick="testPlus();">문자열과 숫자의 '+' 연산</button>
+    <br><br>
+    <div id="area1" class="area"></div>
+    <script>
+        function testPlus(){
+            var area1 = document.getElementById("area1");
+
+            var test1 = 7 + 7 + "7";
+            var test2 = 7 + "7" + 7;
+            var test3 = "7" + 7 + 7;
+            var test4 = "7" + (7 + 7);
+
+            area1.innerHTML = ""; //area1의 기존 내용 삭제
+            
+            // 자바스크립트에서 문자열을 나타내는 리터럴은 '', ""
+            // 두가지가 존재. 큰 따옴표와 작은 따옴표 혼용 시
+            // 바깥 쪽에 표기 된 따옴표가 문자열 리터럴 표시
+            // 안쪽에 표기된 따옴표는 문자로 취급 됨
+            area1.innerHTML += '7 + 7 + "7" = ' + test1 + "<br>";
+            area1.innerHTML += '7 + "7" + 7 = ' + test2 + "<br>";
+            area1.innerHTML += '"7" + 7 + 7 = ' + test3 + "<br>";
+            area1.innerHTML += '"7" + (7 + 7) = ' + test4 + "<br>";
+        }
+    </script>
+
+    <h3>강제 형변환</h3>
+    <p>
+        자바스크립트에서는 문자열->숫자형 변환 시<br>
+        Number() 내장객체 또는
+        parseInt(), parseFloat() 내장함수를 이용하여 강제형 변환
+    </p>
+    <button onclick="castingTest();">casting 테스트</button>
+    <div id="area2" class="area"></div>
+    <script>
+        function castingTest(){
+            var area2 = document.getElementById("area2");
+
+            var iNum = 2;
+            var sNum = "3";
+            var fNum = "1.234";
+
+            var test = iNum + sNum;
+            var test2 = iNum + Number(sNum);
+            var test3 = iNum + parseInt(sNum);
+            var test4 = iNum + parseFloat(sNum);
+            
+            var test5 = iNum + fNum;
+            var test6 = iNum + Number(fNum);
+            var test7 = iNum + parseInt(fNum);
+            var test8 = iNum + parseFloat(fNum);
+
+            area2.innerHTML = "";
+            area2.innerHTML += test + "<br>";
+            area2.innerHTML += test2 + "<br>";
+            area2.innerHTML += test3 + "<br>";
+            area2.innerHTML += test4 + "<br>";
+
+            area2.innerHTML += test5 + "<br>";
+            area2.innerHTML += test6 + "<br>";
+            area2.innerHTML += test7 + "<br>";
+            area2.innerHTML += test8 + "<br>";
+
+        }
+    </script>
+
+</body>
+</html>

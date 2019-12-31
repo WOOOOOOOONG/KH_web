@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .area {
+            background: lightgray;
+            border: 1px solid black;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Window 객체가 창을 의미한다면 
+        Document 객체는 윈도우에 로드된 문서를 의미한다 -->
+    <h1>DOM(Document Object Model)</h1>
+    <p>HTML에 있는 태그들을 구조화(트리) 하였을 때 각각의 태그를 노드(Node)라고 한다.</p>
+
+    <h3>텍스트 노드가 있는 노드 생성</h3>
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area"></div>
+    <script>
+        function test1() {
+            // element 생성
+            var title = document.createElement("h3");
+            // <h3></h3>을 의미
+
+            // textnode 생성
+            var textNode = document.createTextNode("안녕하세요?");
+            // h?, p 태그 등에 들어가는 텍스트를 의미
+
+            // <h3>안녕하세요?</h3> -> 노드를 연결
+            title.appendChild(textNode);
+
+            // area1에 출력
+            document.getElementById("area1").appendChild(title);
+            // area1(div 요소)에 title이라는 요소 노드를 연결
+        }
+    </script>
+
+    <hr>
+
+    <h3>텍스트 노드가 없는 노드 생성</h3>
+    <button onclick="test2();">실행확인</button>
+    <div id="area2" class="area"></div>
+    <script>
+        function test2() {
+            // img 태그 생성
+            var imgTest = document.createElement('img');
+
+            // 속성 지정
+            imgTest.src = "https://www.kheducenter.or.kr:452/resources/images/common/top_logo.jpg";
+            imgTest.width = "200";
+            imgTest.height = "100";
+            
+            // 없는 속성은 줄 수 없음
+            imgTest.myProperty = "123";
+            // 없는 속성을 주기 위해서는 setAttribite()를 사용해야 함
+            imgTest.setAttribute('myProperty', "123");
+
+            console.log(imgTest.getAttribute("myProperty"));
+
+            document.getElementById("area2").appendChild(imgTest);
+        }
+    </script>
+
+    <hr>
+
+    <h3>노드 삭제</h3>
+    <button onclick="test3();">이미지 삭제</button>
+    <script>
+        function test3() {
+            // 삭제할 노드 찾기
+            var img = document.getElementsByTagName('img');
+            
+            // 삭제할 노드의 부모 찾기
+            var area2 = document.getElementById("area2");
+
+            // 찾은 부모에 대한 노드 삭제
+            area2.removeChild(img[0]); // 첫번째 삭제
+            area2.firstChild.remove(); // 첫번째 삭제
+            area2.lastChild.remove(); // 마지막 삭제
+        }
+    </script>
+
+    <hr>
+
+    <h3>스타일 지정</h3>
+    <button onclick="test4();">실행 확인</button>
+    <div id="area4" class="area"></div>
+    <script>
+        function test4() {
+            var area4 = document.getElementById("area4");
+
+            area4.style.backgroundColor = "orangered";
+            area4.style.borderRadius = "50px";
+
+            area4.style.transition = "all 2s";
+        }
+    </script>
+</body>
+</html>

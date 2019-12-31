@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #navi {
+            list-style-type: none;
+            text-decoration: none;
+        }
+        
+        li {
+            display: block;
+            width: 90px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 14px;
+        }
+
+        #navi>li {
+            width: 6%;
+            float: left;
+            
+            margin: 0;
+            padding: 0;
+        }
+
+        #navi ul {
+            margin: 0;
+            padding: 0;
+            
+            opacity: 0;
+        }
+
+        #navi ul li{
+            display: block;
+            list-style-type: none;
+            text-decoration: none;
+
+            margin: 0;
+            padding: 0;
+            float: left;
+        }
+
+        #li2:hover ul,#li3:hover  ul{
+            background:red;
+
+            opacity: 1;
+        }
+
+        #navi>li>ul {
+            background: pink;
+        }
+
+        #navi>li>ul>li:hover {
+            background:crimson;
+        }
+
+        #navi li {
+            background: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>서브 메뉴가 펼쳐지는 네비게이션 만들기</h1>
+
+        <hr>
+
+        <ul id="navi">
+            <li id="start" class="ex"><a href="#">Home</a></li>
+            <li id="li2"><a href="#">웹개발</a>
+                <ul>
+                    <li><a href="#">웹디자인</a></li>
+                    <li><a href="#">HTML + CSS</a></li>
+                    <li><a href="#">JQuery</a></li>
+                    <li><a href="#">웹+ 모바일</a></li>
+                </ul>
+            </li>
+            <li id="li3"><a href="">게시판</a>
+                <ul>
+                    <li><a href="#">Q & A</a></li><br>
+                    <li><a href="#">방명룍</a></li>
+                </ul>
+            </li>
+            <li><a href="views/test/productForm.html">상품주문서</a></li>
+        </ul>
+
+</body>
+
+</html>

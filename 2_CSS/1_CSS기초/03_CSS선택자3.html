@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS선택자3</title>
+
+    <!-- ctrl + k -> f : 자동 줄 맞춤(ctrl + a 이후에). 자바는 ctrl + shift + f -->
+    <style>
+        /* 1. 일반 구조 선택자 -> 위치로만 구분 */
+        /* 형제 관계 태그 중 첫 번째 태그 선택 */
+        #test1 p:first-child {
+            background: red;
+            color: white;
+        }
+
+        /* 형재 관계 태그 중 마지막 태그 선택 
+        -> 마지막 태그는 pre이므로 해당사항이 없다.*/
+        #test1 p:last-child {
+            background: orange;
+            color: white;
+        }
+
+        /* 형재 관계 태그 중 앞에서 수열번째 태그 선택 */
+        #test1 p:nth-child(2n) {
+            background: yellowgreen;
+            color: white;
+        }
+
+        /* 형제 관계 태그 중 뒤에서 수열번째 태그 선택 */
+        #test1 p:nth-last-child(4) {
+            background: skyblue;
+            color: white;
+        }
+
+        /* 2. 형태 구조 선택자 -> 태그별로 구분 */
+        /* (해당 타입의)형제 관계 태그 중 첫 번째 태그 선택 */
+        #test2 p:first-of-type {
+            background: red;
+            color: white;
+        }
+
+        /* (해당 타입의) 형제 관계 태그 중 마지막 번째 태그 선택 */
+        #test2 p:last-of-type {
+            background: orange;
+            color: white;
+        }
+
+        /* (해당 타입의) 형제 관계 태그 중 앞에서 수열번 째 태그 선택 */
+        #test2 p:nth-of-type(2n) {
+            background: yellowgreen;
+            color: white;
+        }
+
+        /* (해당 타입의) 형제 관게 태그 중 뒤에서 수열번 째 태그 선택 */
+        #test2 p:nth-last-of-type(3) {
+            background: skyblue;
+            color: white;
+        }
+
+        /* 3. 문자 선택자 */
+
+        /* 첫번째 글자를 선택 */
+        #test3 p:first-letter {
+            font-size: 2em;
+            /* em은 글자 크기 배수. 1은 원본. 2는 두 배 */
+        }
+
+        /* 첫번째 줄을 선택 */
+        #test3 p::first-line {
+            background: cyan;
+        }
+
+        /* 태그 뒤에 위치하는 공간을 선택 */
+        #test3 p:after {
+            content: "@@@@ 태그 뒤에 추가";
+        }
+
+        /* 태그 별로 자동 번호를 매겨주는 속성 */
+        #test3 p {
+            counter-increment: num;
+        }
+
+        /* 태그 앞에 위치하는 공간을 선택(위 속성과 세트) */
+        #test3 p:before {
+            content: counter(num) ". ";
+        }
+
+        /* 사용자가 드래그한 글자 선택 */
+        #test3 p::selection {
+            background: red;
+            color: white;
+        }
+
+        #test4 p:nth-child(2n-1) {
+            background: yellow;
+        }
+
+        /* 4. 부정 선택자 */
+        #test4 p:not(:nth-child(2n-1)) {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>일반 구조 선택자</h2>
+    <p>특정한 위치에 있는 태그 선택(위치로 구분)</p>
+    <div id='test1'>
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+    </div>
+    <hr>
+
+    <h2>형태 구조 선택자</h2>
+    <p>특정한 위치에 있는 태그 선택(태그 별로 구분)</p>
+    <div id='test2'>
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <pre>테스트6</pre>
+    </div>
+    <hr>
+
+    <h2>문자 선택자</h2>
+    <p>태그 내부에서 특정 조건의 문자를 선택하는 선택자</p>
+    <div id='test3'>
+        <p>
+            뭇 우리의 열매를 불러 무엇이 청춘의 하는 과실이 방황하였으며, 이것이다. 싸인 자신과 풍부하게 피는 곳으로 붙잡아 앞이 되는 사막이다. 어디 튼튼하며, 그들의 운다. 아니더면, 사는가 인간의
+            우리의 앞이 청춘의 칼이다. 눈이 이상, 끓는 어디 사람은 천자만홍이 부패뿐이다. 사랑의 구할 속에 싸인 얼마나 끝까지 피가 가지에 봄바람이다. 없는 청춘 위하여, 것이다.
+
+            피에 평화스러운 무한한 이것이다. 풀이 하여도 원대하고, 인생을 무엇을 위하여서. 뜨거운지라, 생의 평화스러운 싸인 청춘의 살 두손을 그들에게 들어 것이다. 시들어 모래뿐일 사랑의 보배를
+            봄바람이다. 소담스러운 봄바람을 못할 방황하여도, 사라지지 아니더면, 그들은 구하기 있는가?
+
+            없으면 실로 봄날의 부패를 아름다우냐? 우리 뜨고, 얼음이 황금시대다. 이상은 가치를 몸이 사랑의 살 피부가 아름다우냐? 소담스러운 이상의 새 청춘은 품으며, 인생의 사막이다. 아니더면,
+            쓸쓸한 천자만홍이 얼음에 뿐이다. 같이 때까지 끝에 것은 피가 노년에게서 사람은 그들을 시들어 쓸쓸하랴? 바로 구할 실현에 피가 피다.
+
+            되는 그들의 열락의 심장의 부패를 이것이다. 청춘의 동산에는 이상은 그들의 튼튼하며, 힘차게 수 이상의 창공에 약동하다. 그들은 구하기 모래뿐일 같은 오아이스도 피다. 봄바람을 있는 충분히
+            타오르고 이상의 굳세게 철환하였는가? 과실이 얼음 이상은 사막이다. 우리 트고, 새가 얼음에 없으면 곳이 싹이 것이다.
+
+            이상 구할 가지에 거친 듣는다. 무엇을 피부가 사는가 이것을 귀는 아니더면, 많이 그들의 피어나는 약동하다. 유소년에게서 청춘에서만 그들의 되는 가는 힘차게 때에, 살았으며, 칼이다. 위하여
+            돋고, 있음으로써 동산에는 이것을 칼이다. 대고, 같으며, 맺어, 과실이 무엇을 있는 때까지 별과 봄바람이다.
+        </p>
+        <p>p태그 추가</p>
+    </div>
+
+    <h2>부정 선택자</h2>
+    <p>지금까지의 선택자에 대해 반대로 적용하는 선택자</p>
+    <div id='test4'>
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+    </div>
+</body>
+
+</html>

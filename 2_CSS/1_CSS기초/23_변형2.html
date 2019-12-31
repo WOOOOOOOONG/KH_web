@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width:250px;
+            height:200px;
+        }
+        
+        .trans1:hover {
+            /* perspective(투영점) : 원근감 
+               z축과 같은 방향, z축 이동거리보다 투영점이 더 가까우면
+               보이지 않는다 */
+            transform: perspective(300px) translate3d(50px, 0px, 100px);
+        }
+
+        .trans2:hover {
+            /* 투영점을 잡아주지 않으면 아무런 변화가 없는 것처럼 보임 */
+            transform:perspective(300px) translateZ(100px);
+        }
+
+        .trans3:hover {
+            /* 투영점을 잡아주지 않으면 그냥 세로 길이가 축소된 것처럼 보임*/
+            transform:perspective(300px) rotateX(30deg);
+        }
+
+        .trans4:hover {
+            /* 투영점을 잡아주지 않으면 그냥 가로 길이가 축소된 것처럼 보임*/
+            transform:perspective(300px) rotateY(30deg);
+        }
+
+        .trans5:hover {
+            transform:perspective(300px) rotateZ(30deg);
+        }
+
+        .trans6:hover {
+            transform:perspective(300px) rotate3d(2.5, 1.5, -1.5, 30deg);
+        }
+        /* 크로스 브라우징 구현 */
+
+    </style>
+</head>
+<body>
+    <h1>3차원 변형</h1>
+    <h3>지정한 크기만큼 x, y, z 이동</h3>
+    <img src="sample/image/flower1.PNG" class="trans1">
+    <hr>
+    <h3>지정한 크기만큼 z축으로 이동</h3>
+    <img src="sample/image/flower2.PNG" class="trans2">
+    <hr>
+    <h3>지정한 크기만큼 x축 방향으로 회전</h3>
+    <img src="sample/image/flower3.PNG" class="trans3">
+    <hr>
+    <h3>지정한 크기만큼 y축 방향으로 회전</h3>
+    <img src="sample/image/flower4.PNG" class="trans4">
+    <hr>
+    <h3>지정한 크기만큼 z축 방향으로 회전</h3>
+    <img src="sample/image/flower5.PNG" class="trans5">
+    <hr>
+    <h3>지정한 크기만큼 x, y, z축 방향으로 회전</h3>
+    <img src="sample/image/river1.PNG" class="trans6">
+    <hr>
+
+
+</body>
+</html>

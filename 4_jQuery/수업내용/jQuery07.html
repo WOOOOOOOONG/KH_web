@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .wrap * {
+            border: 1px solid lightgray;
+            display: block;
+            padding: 5px;
+            margin: 15px;
+            color: gray;
+        }
+
+        .type {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>순회(탐색) 메소드</h1>
+    <h3>descendants(자손, 후손) 메소드 :
+        선택된 요소의 하위 요소들을 선택할 수 있는 메소드
+    </h3>
+    <pre>
+    $('요소명').children([매개변수])
+    - 선택된 요소의 모든 자식 객체 리턴(바로 아래 자식만)
+    - 매개변수가 있으면 매개변수와 일치하는 자식 객체만 리턴
+
+    $('요소명').find(매개변수)
+    - 선택된 요소의 인자와 일치하는 모든 후손 객체 리턴
+    </pre>
+
+    <div class="wrap">
+        <div class="type"> div(great-grandparent)
+            <ul>ul (grand parent)
+                <li>li (direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="type">div(grand parent)
+            <p>p(direct Parent)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // .css() 매개변수로 스타일 작성하는 것이 불편하므로
+        // 별도의 자바 스크립트 객체로 미리 작성해 둠
+        var style1 = {"color":"red", "border":"2px solid red"};
+        var style2 = {"color":"blue", "border":"2px solid blue"};
+        var style3 = {"color":"green", "border":"2px solid green"};
+        var style4 = {"color":"orange", "border":"2px solid orange"};
+
+        // children() 
+        // 클래스명이 wrap인 태그의 자손(다음 레벨의 div)의 스타일 설정
+        $(".wrap").children().css(style1);
+
+        // 클래스명이 wrap인 태그의 자손의 자손 스타일 설정
+        $(".wrap").children().children().css(style2);
+
+        // 클래스명이 wrap인 태그의 자손의 자손 중 ul 태그의 스타일 설정
+        $(".wrap").children().children("ul").css(style3);
+
+        // find()
+        // 클래스명이 wrap인 모든 후손 중 span의 스타일을 설정
+        $(".wrap").find("span").css(style4);
+
+        // li태그의 스타일 변경
+        $(".wrap").find("li").css({"color":"purple","border":"2px solid purple"});
+    </script>
+</body>
+
+</html>

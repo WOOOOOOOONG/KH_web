@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+        div {
+            width: 300px;
+            height: 30px;;
+            background:yellowgreen;
+            color: orangered;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid green;
+            cursor: pointer;
+        }
+
+        p.contents {
+            border: 1px solid lightgray;
+            width: 300px;
+            height: 200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>slide 메소드 테스트</h1>
+    <h3>slideDown()과 slideUp()</h3>
+    <p> $('선택자').slideUp(speed, easing, callback); 
+        $('선택자').slideDown(speed, easing, callback);
+    </p>
+
+    <div>첫 번째 메뉴</div>
+    <p class="contents">111</p>
+    <div>두 번째 메뉴</div>
+    <p class="contents">222</p>
+    <div>세 번째 메뉴</div>
+    <p class="contents">333</p>
+    <div>네 번째 메뉴</div>
+    <p class="contents">444</p>
+    <div>다섯 번째 메뉴</div>
+    <p class="contents">555</p>
+
+    <script>
+        $(function() {
+            $('div').click(function() {
+                // if($(this).next("p").css('display') == 'none') { // 메뉴 다음에 p태그가 숨겨져 있다면
+                //     // 다른 위치의 p태그는 닫아주고
+                //     $(this).siblings("p.contents").slideUp();
+                //     // 클릭된 p태그는 열어줌
+                //     $(this).next().slideDown();
+                // }else {
+                //     $(this).next().slideUp();
+                // }
+                $(this).siblings("p.contents").slideUp();
+                $(this).next("p").slideToggle(1000);
+            });
+        });
+    </script>
+</body>
+</html>

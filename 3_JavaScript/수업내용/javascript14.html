@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>클로저</h1>
+    <p>
+        지역 변수의 scope(범위)는 선언된 함수 내부로 <br>
+        함수가 실행될 때 생성되고 함수가 종료될 때 사라진다. <br>
+        하지만 함수를 리턴하는 함수를 이용하면 <br>
+        규칙을 위반하고 사라진 지역변수에 접근이 가능해진다.
+    </p>
+    <button onclick="test1('홍길동')()">실행확인</button>
+    <script>
+        function test1(name) {
+            var output = "Hello" + name + "님!";
+
+            // 클로저
+            function innerFn() {
+                alert(output);
+            }
+
+            return innerFn();
+        }
+        // 이미 생명주기가 끝난 외부 함수의 변수를 참조하고 있는 함수
+    </script>
+
+    <hr>
+
+    <button onclick="test3(this);">Javascript - function</button> <!-- 여기는 button이 this지 -->
+    <button onclick="test3(this);">Javascript - object</button>
+    <script>
+        function test2(subject) {
+            var output = subject + "입니다.";
+
+            // 함수 외부의 것을 사용할 수 있다
+            return function() {
+                return "오늘 배운 내용은 " + output;
+            }
+        }
+
+        function test3(button) {
+            var subject = button.innerHTML;
+            alert(test2(subject)());
+        }
+    </script>
+</body>
+</html>

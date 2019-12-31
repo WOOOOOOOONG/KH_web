@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .div-test {
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        .div1 {
+            background: red;
+        }
+
+        .div2 {
+            background: orange;
+        }
+
+        .div3 {
+            background: yellow;
+        }
+
+        .div4 {
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>표준 이벤트 모델(addEventListener)</h1>
+    <pre>
+            w3에서 공식적으로 지정한 이벤트 모델
+            한 번에 여러 개 이벤트 핸들러 설정 가능
+            IE는 9버전부터 지원
+    
+            (참고)HTML DOM 이벤트 종류
+            https://www.w3schools.com/jsref/dom_obj_event.asp
+    </pre>
+
+    <button id="btn">실행확인</button>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+
+            btn.addEventListener('click', function() {
+                alert("표준 이벤트 테스트");
+            });
+
+            /* 
+            고전 이벤트 모델로 했을 땐 이벤트를 두 개 걸지 못했지만,
+            addEventListener를 사용할 땐 두 개 이상도 가능하다. 
+            */
+            btn.addEventListener('click', function() {
+                btn.style.background = "red";
+            });
+        }
+    </script>
+
+    <h3>이벤트 버블링</h3>
+    <p>자식 노드에서 부모 노드로 이벤트가 전달된다.</p>
+    <!-- 브라우저는 특정 화면 요소에서 이벤트가 발생했을 때 그 
+    이벤트를 최상위에 있는 화면 요소까지 전파시킴 -->
+    <div onclick="test1('1번 div');" class="div-test div1">
+        <div onclick="test2('2번 div')" class="div-test div2">
+            <div onclick="test3('3번 div');" class="div-test div3">
+                <div onclick="test4('4번 div');" class="div-test div4">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function test1(msg) {
+            alert(msg);
+        }
+    </script>
+
+    <hr>
+
+    <h3>이벤트 버블링 막기</h3>
+    <div onclick="test2(event, '1번 div');" class="div-test div1">
+        <div onclick="test2(event, '2번 div');" class="div-test div2">
+            <div onclick="test2(event, '3번 div');" class="div-test div3">
+                <div onclick="test2(event, '4번 div');" class="div-test div4"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function test2(e, msg) {
+            var event = e || window.event;
+
+            alert(msg);
+
+            // ie 9버전 이하 적용에 버블링을 막을 때
+            event.cancelBubble = true;
+
+            event.stopPropagation(); // 버블링 막는 메소드
+        }
+    </script>
+</body>
+</html>

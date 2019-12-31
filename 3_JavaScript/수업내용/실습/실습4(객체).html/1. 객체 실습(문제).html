@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<style>
+    #print{
+        height: 100px;
+    }
+    #div2{
+        height: 300px;
+        width:500px;
+        border:1px solid black;
+        
+    }
+</style>
+
+ <h1> 객체 실습 문제 </h1>
+    
+문제1. <br>
+다음 입력 버튼을 클릭하면 이름,나이,주소를 prompt로 입력 받은 후 입력 받은 정보를 <br>
+member 라는 객체에 저장하여라.<br>
+이 후 출력 버튼을 클릭하면 member 객체 안에 있는 정보를 <br>
+출력 창에 출력되도록 만들어라.<br>
+(입력을 받지 않은 상태에서 출력 버튼 클릭시 입력을 먼저 해달라는 알림을 띄우도록 하여라)<br>
+ex) <br>
+이름 : OOO <br>
+나이 : OO세 <br>
+주소 : XXX XXX XXXX ... <br>
+
+<fieldset>
+    <legend style="color:red;">출력창</legend>
+    <div id="print">
+        
+    </div>
+</fieldset><br>
+
+<button onclick="insertMember();">입력</button>
+<button onclick="printMember();">출력</button>
+
+<script>
+    var input = false;
+    var member = {
+            name: " ",
+            age: " ",
+            address: " "
+    }
+
+    function insertMember() {
+        member['name'] = prompt("이름을 입력하세요");
+        member['age'] = prompt("나이를 입력하세요");
+        member['address'] = prompt("주소를 입력하세요");
+        input = true;
+        console.log(member);
+    }
+
+    function printMember() {
+        var print = document.getElementById('print');
+        
+        if(input == false) { // == if(member==undefined) {};
+            alert("입력을 먼저 해주세요.");
+        } 
+        else {
+            print.innerHTML = "이름 : " + member['name'] + "<br>";
+            print.innerHTML += "나이 : " + member['age'] + "<br>";
+            print.innerHTML += "주소 : " + member['address'] + "<br>";
+        }
+    }
+</script>
+
+<br><br>
+<hr><hr>
+<br><br>
+     
+문제2. <br>
+다음 입력 버튼 클릭시 학생정보를 3명 저장받아(for문 사용) <br>
+테이블을 생성하여 출력하는 코드를 작성하여라. <br>
+단, 학생 정보는 객체로 처리하여 저장후 테이블에 입력하고<br>
+모든 학생 정보는 객체 배열에 저장하여 console.log(objectArr)로 출력시 <br>
+객체 배열 정보가 console.log에 나와야 함 <br>
+<center>
+<div id="div2">
+        <table id="memberInfo" border="1px" width="300px" height="250px">
+            <tr><th>이름</th><th>나이</th><th>주소</th></tr>
+            <tr><td name="name"></td><td name="age"></td><td name="addr"></td></tr>
+            <tr><td name="name"></td><td name="age"></td><td name="addr"></td></tr>
+            <tr><td name="name"></td><td name="age"></td><td name="addr"></td></tr>
+        </table>
+</div>  
+<labal style="color:red;">학생정보 테이블</labal>
+</center>
+    
+<button onclick="student();">입력 및 출력</button>
+<div id="test"></div>
+<script>
+    function studentT(name, age, address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+    function student() {
+        var students = [];
+        for(var i = 0; i < 3; i++) {
+            students[i] = new studentT(prompt("이름을 입력하시오"),
+                            parseInt(prompt("나이를 입력하시오")),
+                            prompt("주소를 입력하시오"));
+        }
+        
+        console.log(students);
+
+        var names = document.getElementsByName("name");
+        var ages = document.getElementsByName("age");
+        var addrs = document.getElementsByName("addr");
+
+        /*
+        for(var i = 0; i < 3; i++) {
+            names[i].innerHTML = students[i].name;
+            ages[i].innerHTML = students[i].age;
+            addrs[i].innerHTML = students[i].address;
+        }
+        */
+
+        for(var i in students) {
+            names[i].innerHTML = students[i].name;
+            ages[i].innerHTML = students[i].age;
+            addrs[i].innerHTML = students[i].address;
+        }
+    }
+</script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

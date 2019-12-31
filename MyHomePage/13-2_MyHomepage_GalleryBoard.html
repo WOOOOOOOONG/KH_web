@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <!-- 전체 구역 나누기 -->
+    <style>
+        #header {
+            width: 100%;
+            height: 20%;
+            text-align: center;
+        }
+
+        #nav {
+            width: 100%;
+            height: 5%;
+        }
+
+        #section {
+            width: 100%;
+            height: 60%;
+        }
+    </style>
+
+    <!-- body -->
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+    </style>
+
+    <!-- nav -->
+    <style>
+        .nav-link {
+            color: chocolate;
+        }
+    </style>
+
+    <!-- section -->
+    <style>
+        #aside {
+            width: 240px;
+            height: 100%;
+            float: left;
+        }
+
+        #inSection {
+            width: 70%;
+            height: 100%;
+            float: left;
+        }
+
+        .textArea {
+            background: white;
+            /* width: 80%;
+            height: 1150px; */
+            width: 0;
+            height: 0;
+        }
+
+        #textarea {
+            margin-top: 25px;
+            margin-left: 30px;
+            border-radius: 10px;
+            padding: 25px;
+            opacity: 0;
+        }
+
+        .picture {
+            width: 200px;
+            height: 250px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <h1>Book Recommend</h1>
+    </header>
+
+    <nav>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="13-1_MyHomepage_Main.html">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="13-2_MyHomepage_GalleryBoard.html">이달의 책 추천</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="13-3_MyHomepage_board.html">게시판</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section>
+        <aside id="aside">
+            <ul id="navi">
+                <li id="simple">심플하게 산다
+                    <div class="border">
+                        <a href="#" class="bookReview" id="book1"><img src="img/2.jpg" class="picture" id="pic2"></a>
+                    </div>
+                </li>
+                <br>
+                <li id="deep">딥 워크
+                    <div class="border">
+                        <a href="#" class="bookReview" id="book2"><img src="img/3.jpg" class="picture" id="pic3"></a>
+                    </div>
+                </li>
+                <br>
+                <li id="ant">개미
+                    <div class="border">
+                        <a href="#" class="bookReview" id="book3"><img src="img/4.jpg" class="picture" id="pic4"></a>
+                    </div>
+                </li>
+                <br>
+
+                <li id="dokgo">신경쓰지 않는 연습
+                    <div class="border">
+                        <a href="#" class="bookReview" id="book4"><img src="img/5.jpg" class="picture" id="pic5"></a>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+
+        <section id="inSection">
+            <div class="textArea" id="textarea"></div>
+        </section>
+
+        <script>
+            $('#book1').click(function () {
+                $('#textarea').css('opacity','1');
+                $('#textarea').animate({"width":"80%","height":"1150px"},500);
+                $('#textarea').html("-책 제목 <br>" 
+                     + "심플하게 산다 <br><br>"
+                     + "-저자 소개<br>"
+                    + "저자 : 도미니크 로로<br>"
+                    + "저자 도미니크 로로(DOMINIQUE LOREAU)는 프랑스 출신 수필가로 소르본 대학에서 영문학 석사를 취득했고 영국, 미국, 일본 등에서 교사 생활을 했다. 요가와 수묵화에 능통하고 자유, 아름다움, 조화를 삶의 지표로 삼고 있다. 동양적인 아름다움에 빠져 1970년대 말부터 일본에 살기 시작했고, 서구적 방식과는 다른 생활에서 ‘심플하게 사는 것’의 가치를 깨달았다. 적게 가지고 단순하게 살수록 삶은 더 풍요롭다고 말하는 이 책은 프랑스와 유럽, 일본 등에서 베스트셀러가 되었다. 저작으로는 《다시 쓰는 내 인생의 리스트》, 《핵심의 기술》, 《소식의 즐거움》 등이 있다. 심플한 삶을 통해 인간적 성숙을 이루려는 그녀의 노력은 더 많이 가지려는 현대인들의 삶을 다시 생각하게 한다. <br><br>"
+                    + "-책 소개 <br>"
+                    + "욕망을 채우느라 삶을 잃어버린 우리들을 위한 일상 성찰! <br>"
+                    + "『심플하게 산다』는 동양적인 아름다움에 빠져 1970년대 말부터 일본에 살기 시작한 프랑스 출신의 저자 도미니크 로로가 삶의 핵심을 ‘심플함’에서 찾고, 아무리 풍족해도 만족하지 못하는 이 시대의 역설을 지적한 책이다. ‘심플한 삶’이란 적게 소유하는 대신 삶의 본질과 핵심으로 통하는 것을 뜻한다. 저자는 적게 가지고 소박하게 사는 ‘심플한 삶’을 통해 욕심으로 인한 부당함과 편견, 악취미, 낡은 습관을 극복해야 한다고 이야기한다. 이 책은 우리의 삶을 ‘물건’, ‘몸’, ‘마음’ 세 부분으로 나누어, 단순하지만 인간의 일생을 이루는 모든 것을 살펴본다. 이를 통해 외면에서 내면으로 향하는 ‘심플한 삶’을 알려주고, 단순하고 소박한 삶을 실천하면서 깨달은 예리한 성찰과 도움이 될 만한 조언들을 고스란히 전해준다."
+                    + "<br><br>"
+                    + "출처 : https://book.naver.com/bookdb/book_detail.nhn?bid=6985048");
+            });
+
+            $('#book2').click(function() {
+                $('#textarea').css('opacity','1');
+                $('#textarea').animate({"width":"80%","height":"1150px"},500);
+                $('#textarea').html("-책 제목 <br>" 
+                     + "딥 워크 <br><br>"
+                     + "-저자 소개<br>"
+                    + "저자 : 칼 뉴포트<br>"
+                    + "저자 칼 뉴포트 CAL NEWPORT는 조지타운 대학교 컴퓨터공학과 조교수이며 분산 알고리즘 이론을 연구한다. 다트머스 대학교를 최우수 장학생으로 졸업하고 MIT에서 컴퓨터공학 박사 학위를 받았다. 미국 아이비리그 우등생 클럽인 파이 베타 카파(PHI BETA KAPPA)의 회원이었다. 학습 전문가로서 다수의 텔레비전, 라디오 방송에 출연했으며 이 분야 최고의 인기 블로그 ‘스터디 핵스(STUDY HACKS)’를 운영하고 있다.<br>"
+                    + "스터디 핵스에 올린 딥 워크에 대한 글이 수십만 뷰를 기록하며 폭발적인 반응을 불러일으켰고, 이후 딥 워크를 실행하기 위한 방법론과 사고방식을 탐구한 끝에 이 책을 완성했다. MIT 박사과정 시절 무서운 집중력을 보였던 천재적인 교수에게서 딥 워크의 단초를 깨쳤다는 저자는 이후 자신도 딥 워크를 통해 ‘저녁과 주말이 있는 삶’을 유지하면서 변함없이 연구 실적을 올리고 책까지 쓸 수 있었다고 고백한다.<br>"
+                    + "이 책 『딥 워크』에서 신경과학과 심리학에 바탕을 둔 체계적인 분석과 지극히 실용적이고 설득력 있는 조언으로 “자기계발 분야의 특별한 작가”(《뉴욕 타임스 북 리뷰》)라는 극찬을 받았다. 저서로 열정보다 실력이 우선임을 주장해 큰 반향을 일으킨 『액트 빅, 씽크 스몰(SO GOOD THEY CAN'T IGNORE YOU)』, 학습법을 다룬 『성공하는 사람들의 대학생활백서(HOW TO WIN A COLLEGE)』, 『대학성적 올에이 지침서(HOW TO BECOME A STRAIGHT-A STUDENT)』가 있다.<br><br>"
+                    + "-책 소개<br>"
+                    + "오래 일하지 말고, 깊이 일하라!<br>"                    
+                    + "IT 기술의 발달로 시공간의 제약이 사라지고 있다. 『딥 워크』는 이렇게 바뀌어가는 업무 환경 속에서 진정으로 중요한 일에 몰입하는 법을 설명하는 책이다. 저자 칼 뉴포트는 MIT에서 인공지능으로 박사 학위를 받고 현재 조지타운 대학에 재직 중인 전도유망한 컴퓨터공학자로 최신 디지털 기술이 일의 영역에 미치는 영향을 심도 있게 논의해왔다. 그리고 그는 주의를 산만하게 하는 요소가 넘쳐 나는 현대 사회에 필요한 단 한 가지 스킬을 ‘딥 워크’를 해내는 능력으로 정의했다.<br>"
+                    + "‘딥 워크’란 자신이 진정 원하는 중요한 일에 집중할 수 있는 환경을 만들고 그것에 몰두하는 능력을 뜻하는데 단순히 계획을 짜서 일을 하는 것을 말하는 것은 아니다. 운동선수들이 훈련 외에도 몸을 관리하는 것처럼, 딥 워크를 하기 위해서는 정신을 끊임없이 훈련해야 한다. 여기에는 단순히 의지를 다지는 정도를 넘어서 온전하게 집중하는 상태를 유지하는 환경과 습관을 개발하고 익히는 것이 핵심이다.<br>"
+                    + "이 책은 신경과학 및 심리학적 근거를 바탕으로 딥 워크란 무엇인지, 우리에게 어떤 혜택을 주는지 설명하고, 빌 게이츠부터 조앤 롤링, 애덤 그랜트, 월터 아이작슨 등 위대한 업적을 쌓고 탁월한 성과를 올린 인물들의 사례를 들어 딥 워크를 중심으로 업무를 조직하는 구체적인 단계를 제시한다. 갈수록 경쟁이 심해지고 끊임없이 최신 기술이 업데이트되는 21세기 환경에서 이 책은 집중력으로 성공하기를 원하는 모든 사람이 반드시 읽어야 할 지침서다.<br><br>"
+                    + "출처 : https://book.naver.com/bookdb/book_detail.nhn?bid=11895180"
+                    );
+            });
+
+            $('#book3').click(function() {
+                $('#textarea').css('opacity','1');
+                $('#textarea').animate({"width":"80%","height":"1150px"},500);
+                $('#textarea').html(
+                    "-책 제목 <br>"
+                    + "개미<br><br>"
+                    + "-저자 소개<br>"
+                    + "베르나르 베르베르<br>"
+                    + "프랑스에서보다 한국에서 더 많은 인기를 얻고 있는 작가로도 알려져 있기도 하며, 톨스토이, 셰익스피어, 헤르만 헤세 등과 함께 한국인이 가장 좋아하는 외국 작가로 선정된 바 있는 소설가이다. 베르나르 베르베르는 1961년 프랑스 툴루즈에서 태어났다. 「별들의 전쟁」세대에 속하기도 하는 그는 고등학교 때는 만화와 시나리오에 탐닉하면서 『만화 신문』을 발행하였고, 이후 올더스 헉슬리와 H.G. 웰즈를 사숙하면서 소설과 과학을 익혔다.<br>"
+                    + "베르나르는 인간 중심의 세계관에서 벗어나 전혀 새로운 눈높이, 예를 들면 개미의 눈높이에서 바라본 세상을 바라보도록 함으로써 현실을 새로운 각도에서 살펴볼 수 있게 한다. 300만 년 밖에 되지 않는 인간의 오만함을 1억만년이 넘는 시간동안 살아남아온 개미들의 눈에 빗대 경고하고 있다.<br>"
+                    + "베르나르 베르베르가 열네 살 때부터 쓰기 시작한 거대한 잡동사니의 창고이면서 그의 보물 상자이기도 한『상대적이며 절대적인 지식의 백과사전』이라는 책은 개미들의 문명에서 영감을 받고 만들어진 것으로, 박물학과 형이상학, 공학과 마술, 수학과 신비 신학, 현대의 서사시와 고대의 의례가 어우러진 독특한 작품 형식을 선보인다.<br><br>"
+                    + "-책 소개<br>"
+                    + "〈개미〉는 인간 세계와 개미 세계의 만남과 대립에 이어 두 문명이 서로 이해하고 화합을 이루게 되는 장을 그려 내고 있다.<br>"
+                    + "〈개미〉는 우선 표면적으로는 소설에서 설정된 인간 사회와 개미 사회에서 일어나는 실종?살인 등을 추적해서 그 원인을 밝히는 추리 소설 양식과 개미들의 생태 등이 과학적 준거 위에서 치밀하게 관찰?묘사되는 과학 소설 양식이 한꺼번에 잘 녹아 있는 데서 감각적 재미가 얻어진다.<br>"
+                    + "그 자체로 흥미로운 〈추리+과학〉과 소설 양식의 얽힘은 그러나 단순히 그곳에서 머물지 않고 소설 속의 세 가지 이야기, 즉 인간들의 삶, 개미 사회의 삶, 백과사전 기록 등의 서사가 병치?나열되는 가운데 더욱 큰 미궁에 빠뜨리는 추리와 더욱 치밀해지는 놀라운 관찰들로 이어지면서 재미를 증폭시켜 간다. 그리고 그 재미는 고스란히 문학이 결코 놓치지 않아야 할 철학적 주제와 만나고 있는 것으로써 이 소설의 가치를 증폭시켜 놓고 만다.<br>"
+                    + "그 철학적 주제란 추리와 과학을 뒤섞은 방법 안에서 때로는 〈성냥개비 여섯 개로 정삼각형 네 개를 만드는 방법은?〉이라는 식의 가벼운 기호 놀이로, 자주는 작중의 허구 백과사전에서 명제화하는 〈자연은 획일성을 싫어하고 다양성을 좋아한다. 자연은 바로 그 다양성 속에서 본래의 능력을 발휘하는 것으로 보인다〉 등의 둔중한 잠언으로 서서히 고정 관념의 전환, 나아가 인간 중심적 세계관의 전환을 유도하고 있다. 개미의 사고력과 운명을 가진 문화적 동물로 인식하게 되며, 독자가 〈개미〉를 읽어 가는 동안 줄곧 〈어쩌면 인간도 한 마리의 개미에 지나지 않을지도 모른다〉는 의구심을 떨칠 수 없게 하는 것이다.<br><br>"
+                    + "출처 : https://book.naver.com/bookdb/book_detail.nhn?bid=215654"
+                );
+            });
+
+            $('#book4').click(function() {
+                $('#textarea').css('opacity','1');
+                $('#textarea').animate({"width":"80%","height":"1150px"},500);
+                $('#textarea').html(
+                    "-책 제목<br>"
+                    + "신경쓰지 않는 연습<br><br>"
+                    + "-저자 소개<br>"
+                    + "나토리 호겐<br>"
+                    + "저자 나토리 호겐 名取芳彦은 1958년 도쿄 도 에도가와 구 고이와(小岩)에서 태어난 나토리 호겐은 현재 못토이후도(元結不動) 미쓰조인(密藏院) 주지로 있으며, 신곤(眞言)종 부잔(豊山)파 포교연구소 연구원이자 민속 축제 다이시코(大師講) 찬불가의 장인이기도 하다. 미쓰조인에서 사불(寫佛) 강좌 및 찬불가 지도 등 적극적인 포교활동을 실행하고 있다. 주요 저서로 베스트셀러인 『반야심경, 마음의 대청소(般若心經、心の大そうじ)』외에 『실천편 반야심경 얽매이지 않는 삶(實踐編 般若心經 こだわらない生き方)』, 『‘올바른 것’에 얽매이지 않아도 된다(「正しいこと」にとらわれなくても大丈夫)』, 『마음이 맑고 가벼워지는 반야심경(心がすっきりかるくなる 般若心經)』, 『3일 만에 놀라울 정도로 마음이 맑아지는 책(3日間で驚くほど心が晴れる本)』, 『번뇌력(煩惱力)』등이 있으며, JAPAN TEMPLE VAN 홈페이지에 실린 ‘나토리 호겐의 좋은 이야기(전 200화)’도 호평을 얻고 있다.<br><br>"
+                    + "-책 소개<br>"
+                    + "마음의 힘을 풀어주는 106가지 가르침.<br>"
+                    + "사람은 많은 이유로 괴롭다. ‘나’를 화나게 한 사람이 용서가 되지 않기도 하고, 돈이나 직장 문제에 좋은 생각이 떠오르지 않아 힘들기도 하다. 때로는 마음이 생각하는 대로 움직이지 않아 괴롭고, 때로는 건강이나 미래가 불안하여 고민이다. 일본의 베스트셀러 작가 ‘행동하는 승려’로 알려진 스님 나토리 호겐은 번뇌하는 사람들에게 '인생에는 기억에 남겨야 할 장면이 있는가 하면, 피사체로 선택하지 않는 것이 더 바람직한 장면이 있다'고 말하며, 인생의 괴로움을 다른 각도에서 포착해보기를 권한다.<br>"
+                    + "『신경 쓰지 않는 연습』은 불안, 번뇌, 분노, 불행 등을 행복으로 바꾸는 106가지 가르침을 담아낸 책이다. ‘쓸데없이 신경을 쓰는 일’을 통해 자신의 마음을 괴롭히기보다 사소한 일에 집착하지 않는 법, 있는 그대로를 인정하고 받아들이는 법, 흐름에 몸을 맡기고 주어진 상황을 소화하는 법 등 일상 생활에서 적용할 수 있는 106가지의 방법을 통해 읽는 이에게 힘이 잔뜩 들어가 있는 마음을 부드럽게 풀고 긴장하지 않겠다는 용기를 전해준다.<br><br>"
+                    + "출처 : https://book.naver.com/bookdb/book_detail.nhn?bid=9955454"
+                );
+            });
+        </script>
+    </section>
+</body>
+
+</html>

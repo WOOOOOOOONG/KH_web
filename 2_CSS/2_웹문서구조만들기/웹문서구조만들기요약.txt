@@ -1,0 +1,8 @@
+웹문서구조 : header, section(aside, article, section), footer
+section은 다른 section이나 header, footer에도 포함될 수 있다
+
+전체 크기 지정 후 구역별 width나 height 차지하는 비율을 기재한다.
+
+나눈 구역에서 또 나눴다면 그것도 비율을 준다.
+
+안에다 할 작업을 한다.

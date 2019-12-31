@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .area {
+		border:1px solid red;
+        height:200px;
+	    }
+
+        #area1 div {
+            border: 1px solid black;
+            background: red;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>고전 이벤트 모델</h1>
+    <p>고전 이벤트 모델을 사용하여 추가하기 버튼을 한 번 클릭하면 
+        가로, 세로 100px, 1px의 직선 검은 테두리를 가진 빨간색 div를 area1 내부에 추가하고
+        한 번 더 클릭하면 같은 스타일의 노란색 div를 area1 내부에 추가한다.
+        삭제하기 버튼을 누르면 마지막에 추가 된 div를 삭제한다.
+    </p>
+    <button id="add">추가하기</button>
+    <button id="remove">삭제하기</button>
+    <div id="area1" class="area"></div>
+    <script>
+        var add = document.getElementById("add");
+        var remove = document.getElementById("remove");
+        var area1 = document.getElementById("area1");
+
+        var count = 0;
+        add.onclick = function() {
+            if(count % 2 == 0) {
+                area1.appendChild(document.createElement('div'));
+            }else if(count % 2 == 1){
+                var div = document.createElement('div');
+                // div.style.border = "1px solid yellow";
+                div.style.background = "yellow";
+                area1.appendChild(div);
+            }
+            count++;
+        }
+
+        remove.onclick = function() {
+            var div = document.getElementsByTagName("div");
+            area1.lastChild.remove();
+        }
+    </script>
+
+   
+    <h1>인라인 이벤트 모델</h1>
+    <p>인라인 이벤트 모델을 사용하여 해당 form 태그를 제출할 때 아이디를 6자 이상 입력했는지, 패스워드가 일치하는 지
+        유효성 검사를 하세요. 아이디가 6자 미만일 경우 "아이디는 6자 이상으로 입력하세요"라고 경고창을 띄우고 해당
+        input 태그를 선택하고, 비밀번호가 일치하지 않을 경우 "비밀번호가 일치하지 않습니다."라고 경고창을 띄우고
+        비밀번호 확인 input 태그를 선택하여 제출되지 않도록 하세요.
+        </p>
+    <form>
+    <label>아이디 : </label><input type="text" id="userId" name="userId">
+    <label>비밀번호 : </label><input type="text" id="userPwd" name="userPwd">
+    <label>비밀번호 확인 : </label><input type="text" id="userPwd2" name="userPwd2">
+    <input type="submit" value="제출" onclick="return submitTest();">
+    </form>
+    <script>
+        function submitTest() {
+            var userId = document.getElementById("userId").value;
+            var userPwd = document.getElementById("userPwd");
+            var userPwd2 = document.getElementById("userPwd2");
+            
+            
+            if(String(userId).length < 6) {
+                alert("아이디는 6자 이상으로 입력하세요");
+                return false;                
+            }
+            if(userPwd.value != userPwd2.value) {
+                alert("비밀번호가 일치하지 않습니다.");
+                userPwd2.select();
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    <h1>표준 이벤트 모델</h1>
+    <p>표준 이벤트 모델을 사용하여 해당 input 태그에 focus(커서가 들어감)가 되면 배경색을 붉은 색으로 바꾸고 
+        blur(커서가 나옴)가 되면 배경색을 다시 흰색으로 바꾸세요.</p>
+    <label>이름 : </label><input type="text" id="username" name="username">
+    <script>
+        window.onload = function() {
+            var username = document.getElementById("username");
+
+            username.addEventListener('focus', function (e) {
+                e.target.style.backgroundColor = "red";
+            });
+
+            username.addEventListener('blur', function (e) {
+                e.target.style.backgroundColor="white";
+            })
+        }
+    </script>
+</body>
+</html>

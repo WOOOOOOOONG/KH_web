@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>content 관련 메소드</h1>
+    <h3>html() 메소드</h3>
+    <p>선택된 요소의 content 영역을 리턴하거나 설정하는 메소드이다. <br>
+    getter로 사용 시 해당 요소를 태그까지 포함하여 얻어오고 <br>
+    setter로 사용 시 작성된 html 태그를 실제 태그로 인식시킨다.
+    </p>
+
+    <h1 id="test1"><a>네이버로 이동</a></h1>
+    <h1 id="test2"></h1>
+
+    <script>
+        $(document).ready(function() {
+            // getter
+            var tmp = $("#test1").html();
+
+            console.log("html 메소드 리턴 값 : " + tmp);
+
+            // setter
+            // 얻어오기는 글자 다 가져오고, setter는 그대로 설정하되 속성도 적용시킴
+            $("#test2").html(tmp);
+
+            $("#test2").children("a").attr("href","http://www.naver.com");
+        });
+    </script>
+
+    <div class="testClass1">1</div>
+    <div class="testClass1">2</div>
+    <div class="testClass1">3</div>
+
+    <script>
+        $(document).ready(function() {
+            // jQuery 메소드 : text(), html() 및 val()에는 콜백 함수도 함께 제공됨.
+            // 콜백 함수에는 선택된 요소 목록의 현재 요소 인덱스와 원래(이전)값 두개의 매개변수가 있음
+            // 그다음 함수에서 새 값으로 사용할 문자열 반환
+
+            $(".testClass1").html(function(index, html)  /* 이름은 지어준거지만 순서는 무조건 index, html 순서 */{
+                return "<h1>이전 값 : " + html + ", index : " + index + "</h1>";
+            }); // 지금 쓰는게 콜백함수
+            // 이전에 있는 값을 control하고 싶을 때 사용
+            // 원래 기본적으로 index값을 가지고 있다.
+        })
+    </script>
+
+    <h3>text() 메소드</h3>
+    <p>선택된 요소의 content 영역을 리턴하거나 설정하는 메소드이다. <br>
+    getter로 사용시 태그는 무시하고, <br>
+    setter로 사용시 html태그를 문자 자체로 인식한다.
+    </p>
+    <!-- text는 getter는 요소 빼고 가져오고 setter는 요소도 문자로 적용해서 가져오는 듯 -->
+
+    <h1 id="test3"><a>구글로 이동</a></h1>
+    <h1 id="test4"></h1>
+
+    <script>
+        $(document).ready(function() {
+            // getter
+            var tmp = $("#test3").text();
+            console.log("text3 메소드 리턴 값 : " + tmp);
+
+            // setter
+            $("#test4").text(tmp);
+            // a태그 속성 적용할 수 없음
+        });
+    </script>
+
+    <div class="testClass2">1</div>
+    <div class="testClass2">2</div>
+    <div class="testClass2">3</div>
+
+    <script>
+        $(document).ready(function() {
+            // class 처음부터 끝까지 차례대로 출력
+            $(".testClass2").text(function(index, text) {
+                return "<h1>이전 값 : " + text + ", index : " + index + "</h1>";
+            });
+            
+        });
+    </script>
+</body>
+</html>

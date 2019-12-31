@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        .area {
+            border: 1px solid red;
+            height: 420px;
+        }
+    </style>
+</head>
+<body>
+    <h1>문자열 / 숫자</h1>
+    <h3>문자열(string)</h3>
+    <p>
+        " " 또는 ' '로 묶여 있는 리터럴 <br>
+        String이라는 자바스크립트 내장객체가 존재하며 <br>
+        문자열과 관련된 기본적인 메소드(함수)를 제공함
+    </p>
+    <button onclick="showStringMethod();">문자열 처리 메소드</button>
+    <div id="area1" class="area"></div>
+    <script type="text/javascript">
+        function showStringMethod() {
+            var str1 = "Hello World";
+            var area1 = document.getElementById("area1");
+
+            area1.innerHTML = ""; // area1의 기존 내용 삭제
+            area1.innerHTML += "toUpperCase() : " + str1.toUpperCase() + "<br>";
+            area1.innerHTML += "toLowerCase() : " + str1.toLowerCase() + "<br>";
+
+            area1.innerHTML += "length : " + str1.length + "<br>";
+
+            area1.innerHTML += "앞에서부터 첫 l의 위치 : " + (str1.indexOf("l") + 1) + "번째에 위치 <br>"; // 숫자 1이 아닌 영어 L임
+            area1.innerHTML += "뒤에서부터 첫 l의 위치 : " + ((str1.lastIndexOf("l")) + 1) + "번째에 위치 <br>";
+
+            for(var i = 0; i < str1.length; i++) {
+                area1.innerHTML += i + "번째 인덱스 : " + str1.charAt(i) + "<br>";
+            }
+
+            area1.innerHTML += "문자열 일부만 리턴 : " + str1.substring(6, str1.length) + "<br>";
+
+            var str2 = "사과, 바나나, 복숭아, 키위, 파인애플";
+            var fruits = str2.split(", ");
+            
+            area1.innerHTML += "str2.split()한 배열 : " + fruits + "<br>";
+            console.log(fruits);
+        }   
+    </script>
+
+    <hr>
+    
+    <h3>숫자(number)</h3>
+    <p>
+        정수, 부동소수점, Infinity, NaN 리터럴 <br>
+        Math라는 자바스크립트 내장 객체가 존재하며 <br>
+        수학과 관련된 기본적인 메소드를 제공함.
+    </p>
+    <button onclick="showMathMethod();">숫자 처리 메소드</button>
+    <div id="area2" class="area"></div>
+    <script type="text/javascript">
+        function showMathMethod() {
+            var num1 = -123;
+            var area2 = document.getElementById("area2");
+
+            area2.innerHTML = ""; // 기존 내용 삭제
+
+            area2.innerHTML += "절대값 : " + Math.abs(num1) + "<br>";
+
+            area2.innerHTML += "임의의 난수 발생 : " + Math.random(num1) + "<br>";
+
+            area2.innerHTML += "반올림 : " + Math.round(123.456) + "<br>";
+            area2.innerHTML += "내림 : " + Math.floor(123.456) + "<br>";
+            area2.innerHTML += "올림 : " + Math.ceil(123.456) + "<br>";
+
+            
+        }
+    </script>
+</body>
+</html>

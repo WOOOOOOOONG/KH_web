@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>선택자 우선순위</title>
+
+    <style>
+        /* 태그 스타일 */
+        div {
+            width:300px;
+            height:300px;
+            background: orangered;
+        }
+
+        /* class 스타일 */
+        .test1 {
+            background: yellow;
+            color: white;
+        }
+
+        /* id 스타일 */
+        #test1 {
+            background: pink;
+        }
+
+        #test2 {
+            width: 300px;
+            height: 300px;
+            background: yellow;
+            color: black;
+        }
+
+        .test2 {
+            background: black;
+            color: white;
+            /* 선택자 우선순위 때문에 위에서 한 id 선택자에 밀려 적용이 안됨. */
+        }
+
+        p {
+            background: red;
+            color: white;
+            /* font-size는 원래 적용이 안되어있으므로 이건 적용됨 */
+            font-size: 2em;
+        }
+
+        /* 인라인 스타일이 적용되어 있어도 태그선택자에 !important가 적용되어 있기 때문에 우선순위가 높아짐. */
+        p {
+            background: orangered !important;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>선택자 우선순위</h1>
+    <p>
+        기본적으로 CSS 속성은 위에서부터 아래로 적용되지만, 같은 태그에 여러개의 CSS속성이 설정된 경우에는
+        우선순위에 따라 스타일이 적용된다.
+    </p>
+    <pre> 태그선택자 < 클래스선택자 < 아이디선택자 < 인라인스타일 < !important 순서로 우선순위를 가진다</pre>
+    <!-- 인라인 스타일 : body에서 div 사용하는 속성에 직접 style 지정하는 것 -->
+    <!-- !important는 선택자 구문 내 요소 지정에서 사용 -->
+    <hr>
+    
+    <h2>선택자 우선순위 테스트</h2>
+    <div id='test1' class='test1' style='background: purple'>우선순위 테스트 div 영역</div>
+    <p id='test2' class='test2' style="background:yellowgreen">우선순위 테스트 p 영역</p>
+
+
+</body>
+</html>

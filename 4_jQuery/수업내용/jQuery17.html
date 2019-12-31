@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        #flower2 {
+            opacity:0.4;
+        }
+    </style>
+</head>
+<body>
+    <h1>fade() 메소드</h1>
+    <pre>
+    - fadeIn : 점점 진하게 변하면서 보여지는 효과
+    - fadeOut : 점점 희미하게 변하면서 사라지는 효과
+    - fadeTo : 설정한 값까지 희미해지는 효과 (opacity 값으로 투명도 설정)
+    - fadeToggle : fadeIn과 fadeOut을 동시에 적용하는 메소드
+
+    $('선택자').fadeIn/Out/Toggle([속도], [구간별속도], [callback]);
+    $('선택자').fadeTo([속도], [투명도], [구간별속도], [callback]);
+    </pre>
+
+    <h3>fadeIn(), fadeOut()</h3>
+    <button id="fadein">fadeIn()</button>
+    <button id="fadeout">fadeOut()</button><br>
+
+    <img id="diningtable" src="image/diningtable.gif">
+
+    <script>
+        $(function(){
+            $("#fadein").click(function(){
+                $("img").fadeIn(1000);
+            });
+            $("#fadeout").click(function(){
+                $("img").fadeOut(1000);
+            });
+        });
+    </script>
+
+    <hr>
+
+    <h3>fadeToggle()</h3>
+    <button id="toggle">toggle()</button>
+    <br>
+    <img id="cute" src="image/cute1.gif">
+
+    <script>
+        $(function(){
+            $("#toggle").click(function(){
+                $("#cute").fadeToggle(1000, function(){
+                    alert('토글 완료');
+                });
+            });
+        });
+    
+    </script>
+
+    <hr>
+    <h3>fadeTo()</h3>
+    <img id="flower2" src="image/flower2.PNG">
+
+    <script>
+        $(function(){
+            $("#flower2").hover(function(){
+                $(this).fadeTo(700, 1);
+            }, function(){
+                $(this).fadeTo(700, 0.4);
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+    <style>
+        .image{
+            width:200px;
+            height:150px;
+        }
+
+        .div {
+            width:500px;
+            min-height:100px;
+            border:1px solid black;
+        }
+
+        #area {
+            display:inline-block;
+            width:205px;
+            height:155px;
+        }
+
+        .lists {
+            border: 1px solid black;
+            width: 1280px;
+            height: 155px;
+            padding: 5px;
+            margin: 10px;
+        }
+
+        .items {
+            width: 250px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and Drop</h1>
+    <p>
+        마우스를 이용하여 파일이나 데이터를 애플리케이션 간에 전달하는 기능<br>
+        특히 웹 애플리케이션에서는 화면 상에 나타나는 요소를 옮기거나
+        웹 브라우저와 다른 웹 브라우저 간의 자료를 전달하기 위해 사용됨<br><br>
+        끌기 할 요소에 draggable 속성과 끌기 관련 이벤트인 dragstart, dragend, drag 이벤트 처리<br>
+        놓기 영역 요소에는 dragenter, dragover, dragleave 이벤트 처리<br>
+        (놓기 영역에 요소를 끌어다 놓을 경우 drop 이벤트 발생)
+    </p>
+
+    <h2>끌기 이벤트</h2>
+    <pre>
+    - dragstart : 요소를 끌기 시작했을 때 발생
+    - drag : 요소를 끌기 도중에 발생
+    - dragend : 요소를 끌기 끝났을 때 발생
+    </pre>
+    <div id="imgs">
+        <img id='img1' class='image' src="../images/tour1.jpg" draggable='false'>
+        <img id="img2" class='image' src="../images/tour2.jpg" draggable='true'>
+    </div>
+
+    <div id="div1" class='div'></div>
+    <script>
+        var src = document.getElementById('imgs');
+        var isDragging;
+        var srcId;
+        
+        src.ondragstart = function(e){
+            srcId = e.target.id;
+            // console.log(srcId);
+            $('#div1').append('srcId : ' + srcId + '<br>');
+            $('#div1').append('dragstart : ' + srcId + '<br>');
+            isDragging = false;
+        }
+
+        src.ondrag = function(e){
+            if(!isDragging){
+                $('#div1').append('drag : ' + srcId + '<br>');
+                isDragging = true;
+            }
+        }
+
+        /*
+            isDragging의 역할은 drag를 하고 있으면 계속 drag 이벤트가 호출됨
+            이를 막기 위해서 한 번만 호출되게 하기 위해서 하는 것
+        */
+
+        src.ondragend = function(e){
+            $('#div1').append('dragend : ' + srcId + '<br>');
+        }
+        
+    </script>
+
+    <h2>놓기 이벤트</h2>
+    <pre>
+    - dragenter : 끌기한 요소가 놓기 영역으로 들어왔을 때 발생
+    - dragover : 끌기한 요소가 놓기 영역에 있을 때 발생
+    - dragleave : 끌기한 요소가 놓기 영역을 떠날 때 발생
+    - drop : 끌기한 요소를 놓기할 때 발생
+    </pre>
+    <img id='img3' class='image' src='../images/tour3.jpg' draggable="true">
+    <div id="area" class='div'></div>
+    <div id="div2" class="div"></div>
+    <script>
+        var src = document.getElementById('img3');
+        var target = document.getElementById('area');
+        var isDraggingOver;
+        var srcId, targetId;
+
+        target.ondragenter = function(e){
+            targetId = e.target.id;
+            $('#div2').append('targetId : ' + targetId + "<br>");
+            $("#div2").append('dragenter : ' + targetId + "<br>");
+            isDraggingOver = false;
+        }
+
+        target.ondragover = function(e){
+            // HTML 요소들의 기본 값은 드롭을 받아들이지 않게 되어 있으므로
+            // drop이 가능하도록 설정하려면 이벤트의 preventDefault()
+            // 메소드로 기본 값을 취소 처리
+            e.preventDefault();
+            // -> 위 코드가 없으면 객체를 놓았을 때 drop 대신 leave 발생
+
+            if(!isDraggingOver){
+                $('#div2').append('dragover : ' + targetId + "<br>");
+                isDraggingOver = true;
+            }
+            /* 
+                isDraggingOver의 역할
+                dragenter 같은 경우 한 번만 일어나는데
+                dragover는 그 영역에 있으면 계속 일어나므로 계속 된
+                이벤트 발생을 방지하기 위한 역할
+            */
+        }
+        
+        target.ondragleave = function(e){
+            $('#div2').append('dragleave : ' + targetId + "<br>");
+        }
+
+        target.ondrop = function(e){
+            $('#div2').append('drop : ' + targetId + "<br>");
+        }
+
+    </script>
+
+    <h2>연습문제</h2>
+    <div id="originList" class="lists">
+        <img id="item1" class="items" src="../images/tour1.jpg" draggable="true">
+        <img id="item2" class="items" src="../images/tour2.jpg" draggable="true">
+        <img id="item3" class="items" src="../images/tour3.jpg" draggable="true">
+        <img id="item4" class="items" src="../images/tour4.jpg" draggable="true">
+        <img id="item5" class="items" src="../images/tour5.jpg" draggable="true">
+    </div>
+    <div id="myList" class="lists"></div>
+
+    <script>
+        var src1 = document.getElementById('originList'); // 시작점1
+        var src2 = document.getElementById('myList'); // 시작점2
+        var target1 = document.getElementById('myList'); //도착점1
+        var target2 = document.getElementById('originList'); // 도착점2
+        
+        var srcId1, srcId2; // item의 id 저장용
+
+        // 1
+        src1.ondragstart = function(e) {
+            srcId1 = e.target;
+        }
+
+        target1.ondragover = function(e) {
+            // leave가 아닌 drop 뜨게
+            e.preventDefault();
+        }
+
+        target1.ondrop = function(e) {
+            target1.append(srcId1);
+            
+        }
+
+        // 2
+        src2.ondragstart = function(e) {
+            srcId2 = e.target;
+        }
+
+        target2.ondragover = function(e) {
+            e.preventDefault();
+        }
+
+        target2.ondrop = function(e) {
+            target2.append(srcId2);
+            
+        }
+    </script>
+</body>
+</html>

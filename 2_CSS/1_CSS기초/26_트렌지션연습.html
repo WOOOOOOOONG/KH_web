@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .rect {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        #changeColor:hover {
+            transition: all 2s;
+            background: yellow;
+        }
+
+        #changeColorWidth:hover {
+            transition: all 2s;
+            background: yellow;
+            width: 200px;
+        }
+
+        
+        .rectSpeed {
+            width:100px;
+            height:100px;
+            background: red;
+            border: 1px solid black;
+            transition-duration:10s; 
+        }
+
+        input:checked ~ .rectSpeed {
+            background: yellow;
+            width: 100%;
+        }
+
+        /* 트랜지션이 진행되는 구간별로 시간을 지정하는 속성 */
+        .tran3 {
+            transition-timing-function: linear;
+        }
+        .tran4 {
+            transition-timing-function: ease;
+        }
+        .tran5 {
+            transition-timing-function: ease-in;
+        }
+        .tran6 {
+            transition-timing-function: ease-out;
+        }
+        .tran7 {
+            transition-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>트랜지션</h1>
+    <p>시간에 따라 웹 요소의 스타일 속성이 조금씩 바뀌는 것을 의미</p>
+    
+    <h3>트랜지션 진행시간 지정하기</h3>
+    <div class="rect" id="changeColor"></div>
+    <hr>
+
+    <h3>트랜지션 진행별 시간 설정하기</h3>
+    <div class="rect" id="changeColorWidth"></div>
+    <hr>
+
+    <h3>트랜지션 진행별 속도 지정하기</h3>
+    <p>transition-timing-function: linear | ease | ease-in | ease-out | ease-in-out | cublic-bezier(n, n, n, n)</p>
+    <label>시작 : </label><input type="checkbox" id="start"><br><br>
+
+    <label>linear</label>
+    <div class="rectSpeed" id="linear"></div><br>
+
+    <label>ease</label>
+    <div class="rectSpeed" id="ease"></div><br>
+
+    <label>ease-in</label>
+    <div class="rectSpeed" id="ease-in"></div><br>
+
+    <label>ease-out</label>
+    <div class="rectSpeed" id="ease-out"></div><br>
+
+    <label>ease-in-out</label>
+    <div class="rectSpeed" id="ease-in-out"></div><br>
+    
+    <hr>
+
+    <h3>트랜지션 시간 지연하기</h3>
+    <div class="rect" id="timeDelay"></div>
+    <hr>
+    
+</body>
+</html>

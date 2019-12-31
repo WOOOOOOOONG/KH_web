@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <!-- head -->
+    <style>
+        body {
+            background-color:antiquewhite;
+        }
+        header {
+            text-align: center;
+        }
+        header h1 {
+            margin-top: 30px;
+        }
+    </style>
+
+    <!-- nav -->
+    <style>
+            .nav-link {
+                color: chocolate;
+            }
+        </style>
+
+    <!-- 글 -->
+    <style>
+        .ta1 {
+            opacity: 0;
+        }
+
+        #textarea {
+            width: 70%;
+            height: 400px;
+            opacity: 0;
+            margin-left: 200px;
+        }
+
+        .ta2 {
+            position: absolute;
+            left: 0px;
+            top: 167px;
+        }
+    </style>
+
+    <!-- Q & A -->
+    <style>
+        .ta2 {
+            opacity: 0;
+        }
+
+        #textarea2 {
+            width: 70%;
+            height: 50px;
+            opacity: 0;
+            padding: 10px;
+            margin-left: 200px;
+            
+            position:absolute;
+            left: 0;
+            top: 430px;
+            text-align: center;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">게시판</h1>
+    </header>
+
+    <nav>
+            <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="13-1_MyHomepage_Main.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="13-2_MyHomepage_GalleryBoard.html">이달의 책 추천</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="13-3_MyHomepage_board.html">게시판</a>
+                    </li>
+                  </ul>
+    </nav>
+
+    <div id="menu">
+        <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="preview">서평</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="QandA">불만사항</a>
+                </li>
+              </ul>
+        <script>
+            
+            var ta1, ta2;
+            
+            
+            
+            $('#preview').click(function () {
+                $('.ta1').css('opacity', '1');
+                ta2 = $('.ta2').detach();
+                $('#textarea2').css('opacity','1');
+            });
+
+            $('#QandA').click(function() {
+                ta1 = $('.ta1').detach();
+                $('body').append($(ta2));
+                $(ta2).css('opacity','1');
+                $('.ta1').css('opacity','0');
+                $('#textarea').css('opacity','0');
+            });
+        </script>
+    </div>
+
+    <!-- 서평 -->
+    <table class="table ta1">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">제목</th>
+                <th scope="col">작성자</th>
+                <th scope="col">작성일자</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" class="review1"><a href="#">1</a></th>
+                <td><a href="#" class="review1">심플하게 산다</a></td>
+                <td><a href="#" class="review1">신승환</a></td>
+                <td><a href="#" class="review1">2019-09-30</a></td>
+            </tr>
+            <tr id="review2">
+                <th scope="row"><a href="#" class="review2">2</a></th>
+                <td><a href="#" class="review2">딥 워크</a></td>
+                <td><a href="#" class="review2">임세웅</a></td>
+                <td><a href="#" class="review2">2019-06-17</a></td>
+            </tr>
+            <tr id="review3">
+                <th scope="row"><a href="#" class="review3">3</a></th>
+                <td><a href="#" class="review3">생각하지 않는 사람들</a></td>
+                <td><a href="#" class="review3">진영희</a></td>
+                <td><a href="#" class="review3">2019-05-05</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="textarea"></div>
+    <script>
+        $(".review1").click(function () {
+            $('#textarea').css("opacity", "1");
+            $('#textarea').html("매일 집 구석구석 쌓여있는 버리지 못한 물건들을 보면서, 언젠간 한번 엎어야지 하면서 그 언젠가를 미뤘었다. 그런데 나같은 게으른 사람들이 꽤 많았나보다. 어느새 서점가는 '정리'와 관련된 책으로 도배되기 시작했다.<br>");
+            $('#textarea').html($('#textarea').html() + "그래서 관심좀 가져봤다. 정리, 그 중에서도 '심플하게 산다' 라는 책은 2년 전 인터넷을 검색하다가 추천받은 책이다. 끝까지 품고갈 인생책을 추천해달라는 글이었는데, 댓글에 이 책에 대한 추천이 있었다. 얼마나 좋길래, 정리에 관한 책이 인생책이 됐을까. 궁금해서 읽어봤다.<br>");
+            $('#textarea').html($('#textarea').html() + "책을 읽고난 직후의 느낌을 한 마디로 말하자면, 어떤 좋은 스님이 좋은 말씀을 해주신 기분이었다. 잘 된 정리로 인해 발견할 새로운 나를 위한 자기계발서에 가까웠다. 자기계발서에 대한 거부감이 있던 나로서는 뜻하지 않게 읽게 된 자기계발서st 책에 조금 당황했지만 그리 나쁘지 않았다. 이 책은 이렇게 열심히 살면 성공할 수 있다가 아니라, 조금만 바꾸면 더 나은 자신을 발견하게 된다라는게 주요 메세지 였으니까. 그리고 그 주장을 펼쳐가는 방식이 꽤 합리적이었고 설득적이었다.<br>");
+            $('#textarea').html($('#textarea').html() + "어쨌든 이 책은 엄청 새롭다기보단 한꺼풀만 더 띠어내면 볼 수 있는건데 못본 것들에 대해 다시금 일깨워주는 책이다. 책에서 얘기하고 있는 미니멀리즘 생활방식은 크게 두가지로 나뉜다. 책의 전반부는 주변을 정리하는 법, 후반부는 자신을 정리하는 법에 대해 말하고 있다. 개인적으로는 마음가짐을 정리하는 부분이 와닿았다.<br>");
+            $('#textarea').html($('#textarea').html() + "흔히들 하는 말중에 그 사람 책상을 보면 그 사람이 어떤 마음 상태를 가지고 있는 지 알 수 있다던데. 동의한다. 그런데 책을 읽은 후 2년이 지난 지금 내 책상은....(숙연)<br>");
+            $('#textarea').html($('#textarea').html() + "개인적으로 아이폰 메모장에 두고두고 읽을 부분들을 발췌해놓고 시간날 떄마다 찾아 읽어보고 있다. 그러면 흐트러진 정신상태를 되짚어보고 어떻게 살아야 할지 다시 가닥을 잡을 수 있다. 아래의 내용은 그 발췌기록들이다.<br>");
+            $('#textarea').html($('#textarea').html() + "<hr>");
+        });
+
+        $(".review2").click(function () {
+            $('#textarea').css("opacity", "1");
+            $('#textarea').html("정말 극찬하고 싶은 책이다. 사실 알고보면 자기계발서의류나 별 새로운 내용이 없는데.. 지난 몇개월 동안 딥워크를 하지 못한 나의 자신을 반성하게 만드는 책이라고 생각한다. <br>");
+            $('#textarea').html($('#textarea').html() + "대표일수록 너무 많은 의사결정과 사안들에 대해서 생각을 해야되기 때문에 딥워크에 실패하는 것 같다. (BUT, 핑계대지말고...) 그래서 끊임없이 의식적으로 몰입하는 습관을 가져야되는데 그 마음가짐을 가질 수 있도록 동기부여하는 책이다. <br><br>");
+            $('#textarea').html($('#textarea').html() + "칼 뉴포트의 <딥 워크>는 몰입의 중요성을 말하는 책이다. 조지타운대 컴퓨터공학과 교수인 저자가, 자신의 경험과 심리학적인 연구를 바탕으로 몰입이 왜 중요한지, 몰입을 방해하는 다른 요소를 왜 치워야 하는지에 대해 말하는 책이다. 몰입이 현대 사회에서 가지는 의미와, 몰입을 돕는 구체적인 방법이 제시되어 있다.<br>");
+            $('#textarea').html($('#textarea').html() + "특히 이 책은 지식 노동자들에게 정말 중요한 이야기를 하고 있다. 대부분의 회사는 9시간 근무를 철칙으로 하고 있는데, 식사시간과 중간중간 쉬는시간을 넉넉히 빼 하루 6시간을 제대로 노동한다고 했을 때, 나는 그 6시간을 온전히 일에 집중했는가에 따라 업무 성과는 확연히 달라진다. 이를 위해 업무의 질을 바꾸는 '딥 워크'를 중요하게 여기고 집중하는 방법을 알아야 한다.");
+            $('#textarea').html($('#textarea').html() + "<hr>");
+        });
+
+        $(".review3").click(function () {
+            $('#textarea').css("opacity", "1");
+            $('#textarea').html("<h3>독서하는 뇌, 검색하는 뇌를 향하여 나아가다.</h3><br><br>");
+            $('#textarea').html($('#textarea').html() + "저자 '니콜라스 카'는 책의 세상으로부터 인터넷 세상으로 넘어가는 과도기를 보낸 인물입니다. 과도기는 '독서'의 시간과 '검색'의 시간으로 변화하는 시간의 사이에 있으며 오늘날에도 영향을 미칩니다. 이러한 과도기를 보낸 저자는 자신의 몸에 어느날 변화가 나타났음을 감지합니다. 정확히 말하면 '사고'에 이상이 온것을 느낍니다. 언제부터인가 '긴 글'을 읽을 수 없게되었으며 '문맥'을 놓치고 '집중력 저하'와 '불안증상'이 나타나기 시작합니다. 저자는 자신의 변화를 곰곰히 되짚어 봅니다. 그리고 저자의 환경이 확연히 달라졌음을 인식합니다.<br>");
+            $('#textarea').html($('#textarea').html() + "오랜 시간을 투자해서 글을 읽고 정보를 습득하던 저자는 웹 기술을 통해 정보를 검색하고 웹을 만능 미디어로 활용하며 정보를 습득합니다. 그리고 이러한 삶의 변화는 '독서'를 통한 정보 습득에서 '검색'을 통한 정보 습득이라는 정보 습득방식의 변화에도 영향을 주었습니다. '많은 정보'를 '편리'와 '질', '시간'적 측면에서 발전했으니 좋은게 아니냐고 말할 수도 있겠지만 분명 저자의 '불편한 모습'(집중력 저하'와 불안증상)은 무언가 문제가 있습니다.<br><br><br>");
+            $('#textarea').html($('#textarea').html() + "<h3>의문의 보고서 그리고 나를 점검하다.</h3><br>");
+            $('#textarea').html($('#textarea').html() + "<생각하지 않는 사람들>의 저자 '니콜라스 카'는 '뇌'연구의 다양한 연구와 결과를 가지고 '뇌'가 변화할 수 있는 조건아래 있음을 주장합니다. 아시다시피 '뇌'는 우리의 몸과 생각을 주관합니다. '뇌'가 변했다는 것은 '사고가 변화'된다는 것뿐 만이나 '행동양식'과 '삶'의 변화도 함께 야기합니다. 저자가 말하는 '뇌'는 불변이 아닌 변화 가능하다는 전제제시는 우리의 '뇌'가 편리함을 좇는 과정 가운데 과거와는 다른 형태가 되었을 가능성을 설명합니다. 만일 <생각하지 않는 사람들>을 읽으면서 자신의 독해 능력이 과거와 달라졌다면 그리고 글을 쓰거나 주장을 말할때 '단문' 중심의 '단편'이 되었다면 삶을 점검해 보시는게 좋습니다. 어쩌면 필자와 여러분도 저자가 처했던 '달라진 사고'가 나타날 수 있습니다. '검색'의 편리함이 '정보'를 얻고 이해하는 능력을 길렀다면 동시에 우리의 '생각하는 뇌'를 지워버리고 있습니다.<br><br><br>");
+            $('#textarea').html($('#textarea').html() + "<hr>");
+        });
+    </script>
+
+    <!-- Q & A -->
+    <table class="table ta2">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">문의제목</th>
+                <th scope="col">작성자</th>
+                <th scope="col">작성일자</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" class="QandA1"><a href="#">1</a></th>
+                <td class="QandA1"><a href="#">홈페이지 렉이 심해요</a></td>
+                <td class="QandA1"><a href="#">익명1</a></td>
+                <td class="QandA1"><a href="#">2019-10-31</a></td>
+            </tr>
+            <tr>
+                <th scope="row" class="QandA2"><a href="">2</a></th>
+                <td class="QandA2"><a href="#">내용이 부실해요</a></td>
+                <td class="QandA2"><a href="#">익명2</a></td>
+                <td class="QandA2"><a href="#">2019-10-29</a></td>
+            </tr>
+            <tr>
+                <th scope="row" class="QandA3"><a href="">3</a></th>
+                <td class="QandA3"><a href="#">진짜 못참겠네요</a></td>
+                <td class="QandA3"><a href="#">익명3</a></td>
+                <td class="QandA3"><a href="#">2019-10-27</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="textarea2"></div>
+    <script>
+        $(".QandA1").click(function () {
+            $('#textarea2').css('border', "1px solid lightgray");
+            $('#textarea2').css("opacity", "1");
+            $('#textarea2').html("매번 들어올 때마다 렉이 너무 심합니다");
+        });
+
+        $(".QandA2").click(function () {
+            $('#textarea2').css('border', "1px solid lightgray");
+            $('#textarea2').css("opacity", "1");
+            $('#textarea2').html("좀 더 신경써주세요");
+        });
+
+        $(".QandA3").click(function () {
+            $('#textarea2').css('border', "1px solid lightgray");
+            $('#textarea2').css("opacity", "1");
+            $('#textarea2').html("일 하기 싫어요 ?");
+        });
+    </script>
+
+</body>
+
+</html>

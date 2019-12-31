@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #navi li {
+            list-style-type: none;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        #navi>ul>li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: black;
+            background: blue;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 50px;
+            text-align: center;
+        }
+        
+        #navi>ul>li>ul {
+            padding: 0px;
+            background:cornflowerblue;
+            opacity: 0;
+        }
+
+        li a:hover {
+            background:darkblue;
+            color: white;
+        }
+
+        #navi>ul>li:hover ul {
+            transition: all 1s;
+            opacity: 1;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1>네비게이션 바</h1>
+
+    <div id="navi">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">웹개발</a>
+                <ul>
+                    <li><a href="#">웹디자인</a></li>
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">jQuery</a></li>
+                    <li><a href="#">웹+모바일</a></li>
+                </ul>
+            </li>
+            <li><a href="#">게시판</a>
+                <ul>
+                    <li><a href="#">Q & A</a></li>
+                    <li><a href="#">방명록</a></li>
+                </ul>
+            </li>
+            <li><a href="#">프로필</a></li>
+        </ul>
+    </div>
+</body>
+</html>

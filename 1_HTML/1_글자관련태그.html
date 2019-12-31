@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- html5 문서 형식 선언 -->
+<html lang="ko">
+    <!-- <html> : html 문서(페이지)의 내용을 정의-->
+    <!-- lang 속성 : 페이지가 어떤 언어로 되어있나 표시(검색 엔진 검색 시 참고)-->
+    <head>
+        <!-- <head> : 문서 제목, 스크립트, 스타일 시트의 링크 또는 선언을 포함하는 문서의 일반적인 정보(메타데이터)를 정의.
+            <title>, <meta>, <link>, <sytle>, <script> 등을 사용한다.-->
+            
+        <meta charset="utf-8"> <!-- 문자 인코딩 선언-->
+        <title>1_글자 관련 태그</title>
+    </head>
+    <body>
+        <!-- <body> : html 문서의 내용(Content) 정의-->
+
+        <!-- <hn> : 제목을 입력할 때 사용하는 태그, 폰트의 크기가 태그에 따라 정해져 있음 -->
+        <h3>&lt;hn&gt; : 제목을 입력하는 태그</h3>
+        <!-- 괄호 입력을 위한 특수문자 태그& lt, &gt;-->
+        <h1>h1 태그입니다</h1>
+        <h2>h2 태그입니다</h2>
+        <h3>h3 태그입니다</h3>
+        <h4>h4 태그입니다</h4>
+        <h5>h5 태그입니다</h5>
+        <h6>h6 태그입니다</h6>
+        <!-- 결과 페이지 보는 방법1 : 크롬 창으로 확인
+            1. F1(명령 팔레트) 누르고 CONTIGURE TASK 입력
+            2. 템플릿에서 TASKS.JSON 파일 만들기 선택
+            3. MsBuild 빌드 대상을 실행합니다 선택
+            4. tasks.json 파일 재작성
+        -->
+
+        <!-- 실행 : ctrl + shift + b -->
+        
+        <!-- 결과 페이지 보는 방법2 : live preview
+            1. 확장 탭에서 Live HTML Preview 설치(1.29까지만 지원)
+            2. F1(명령 팔레트) 누르고 show side(or full) preview)입력
+            또는 ctrl + q -> s
+        -->
+        
+        <h3>&lt;hr&gt; : 줄 바꾸면서 수평선 넣는 태그(hr)</h3>
+        <hr>
+
+        <h3>&lt;br&gt; : 줄 바꿈 태그</h3>
+        br태그는<br>
+        줄을 바꾸는 태그
+        <hr>
+
+        <h3>&lt;p&gt; : 단락을 구분하는 태그</h3>
+        <p>첫 번째 단락입니다.</p>
+        <p>두 번째 단락입니다.</p>
+        <hr>
+
+        <h3>문단을 나누는 태그(p, pre)</h3>
+        문단 영역을 나누는 태그로는 p 태그와 pre 태그가 있다.
+        <p>
+            &lt;p&gt; 태그는 문단 영역을 나누는 태그이지만 한 개의 공백만 표시하며
+            <br>
+            줄 바꿈 입력을 별도의 태그로 지정해주어야 한다.
+        </p>
+        <br>
+        <pre>
+            &lt;pre&gt; 태그는 여러칸        띄우기 혹은 줄 바꿈 등을
+            포함하여 입력한 내용 그대로 표현하는 태그이다.
+        </pre>
+
+        <h3>그 밖의 텍스트를 다루는 태그들</h3>
+        일반 글꼴<br>
+        <b>&lt;b&gt; 글자를 굵게 표시하는 태그</b>
+        <br>
+        <strong>&lt;strong&gt; 글자를 굵게 표시하는 태그</strong><br>
+        <i>&lt;i&gt; 글자를 기울이는 태그</i><br>
+        <em>&lt;em&gt; 글자를 기울이는 태그</em>
+        
+        <!-- b는 단순 스타일만 바꾼다면 strong은 실제 중요한 내용이라는 의미를 담고 있어서 
+            스크린 리더를 사용하는 경우 음성에서도 강조가 된다. 
+            i와 em(emphasized) 역시 em은 강조를 의미하며 스크린 리더에서 차이가 있음.
+            => 웹 접근성 -->
+
+        <!-- 인용문구를 나타내는 태그 -->
+        <blockquote cite="https://www.naver.com">
+            &lt;blockquote&gt; : 인용문구를 나타내는 태그<br>
+            - cite 속성 : 인용된 사이트 주소를 작성<br>
+            직접 표시되진 않지만 검색 엔진에는 노출됨
+        </blockquote>
+
+        <q>&lt;q&gt; : 인용 문구를 나타내는 태그 </q><br>
+        <br>
+        <mark>&lt;mark&gt; : 형관펜 효과를 나타내는 태그</mark><br>
+        <u>&lt;u&gt; : 글자에 밑줄을 긋는 태그</u><br>
+        <small>&lt;small;&gt; : 글자를 작게 표시하는 태그</small><br>
+        기본 글자에 <sub>아래첨자</sub>를 나타내는 &lt;sub&gt; 태그와
+        <sup>윗첨자</sup>를 나타내는 &lt;sup&gt; 태그이다.<br>
+        <s>글자에 취소선을 넣는 태그(s)</s><br><br>
+
+        &lt;abbr&gt; : 마우스 오버 시 툴팁형태로 출력하는 태그<br>
+        <abbr title="Internet Of Things">IoT</abbr>란 각종 사물에 센서와
+        통신 기능을 내장해 인터넷에 연결하는 기술이다. <br><br>
+
+        &lt;cite&gt; : 참고한 웹 문서를 이텔릭체로 나타내는 태그
+        <p>참고 사이트 : <cite>https://www.naver.com</cite></p>
+
+        <br><br>
+
+        &lt;code&gt; : 컴퓨터 인식을 위한 소스코드를 담는 태그<br>
+        <pre>
+            <code>
+                public class Student{
+                    private String name;
+                    private int age;
+                    private String classRoom;
+                }
+            </code>
+        </pre>
+
+        &lt;kbd&gt; : 키보드 같은 사용자 입력 내용을 표시하는 태그
+        <p>
+            <kbd>Ctrl</kbd> + <kbd>x</kbd>를 입력하세요.
+        </p>
+
+
+    </body>
+
+    
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 전체 구역 나누기 -->
+    <style>
+        body {
+            background: antiquewhite;
+        }
+
+        body {
+            width: 100%;
+            height: 1000px;
+        }
+
+        header {
+            width: 100%;
+            height: 20%;
+        }
+
+        nav {
+            background-color: antiquewhite;
+            width: 100%;
+            height: 5%;
+        }
+
+        section {
+            width: 100%;
+            height: 55%;
+        }
+
+        footer {
+            width: 100%;
+            height: 20%;
+        }
+    </style>
+
+    <!-- header 구역 -->
+    <style>
+        #header1>h1 {
+            position: relative;
+            top: 0;
+            left: 5%;
+
+            font-size: 110px;
+        }
+    </style>
+
+    <!-- nav 구역 -->
+    <style>
+        nav {
+            float: left;
+            background-color:brown;
+
+            margin-bottom: 10px;
+        }
+        
+        #navi {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            background-color:brown;
+        }
+
+        #navi>li {
+            float: left;
+            width: 25%;
+            height: 100%;
+            position:relative;
+            /* 하위 개념에 absolute 주려면 상위 개념에 relative 주는듯 */
+            text-align: center;
+            background-color:brown;
+        }
+
+        #navi li a {
+            display: block;
+            height: 100%;
+            box-sizing: border-box;
+            line-height: 40px;
+            /* 글사 사이의 높이 */
+
+            text-decoration: none;
+            font-family: "굴림";
+            font-weight: bold;
+            font-size: 18px;
+            color:black;
+            padding: 5px 25px;
+            background-color:brown;
+        }
+
+        
+    </style>
+
+    <!-- section 구역 -->
+    <style>
+        /* 전체 구분 */
+        #sectionAside {
+            width: 20%;
+            height: 100%;
+            float: left;
+        }
+
+        #sectionArticle1 {
+            width: 45%;
+            height: 100%;
+
+            float: left;
+        }
+
+        #sectionArticle2 {
+            width: 25%;
+            height: 100%;
+
+            float: left;
+        }
+
+        /* sectionAside 구역 */
+        #sectionAside img {
+            width: 240px;
+            height: 500px;
+
+        }
+
+        /* sectionArticle1 구역 */
+        #sectionArticle1 {
+            box-sizing: border-box;
+
+            position: relative;
+        }
+
+        #searchForm {
+            width: 80%;
+            height: 7%;
+
+            /* **position이 absolute이고 위치값을 0으로 만들고 margin auto를 하면 가로세로 중앙 정렬 가능(( */
+            position: absolute;
+            top: 10px;
+            bottom: 0;
+            left: 50px;
+            right: 0;
+        }
+
+        #search {
+            height: 100%;
+            width: 80%;
+            float: left;
+        }
+
+        #searchButton {
+            height: 100%;
+            width: 20%;
+            float: left;
+        }
+
+        #searchText {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        #searchSubmit {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            background-color:gainsboro;
+            border-radius: 7px;
+        }
+
+        /* sectionArticle2 구역 */
+        #sectionArticle2 header {
+            width: 100%;
+            height: 30%;
+        }
+
+        #sectionArticle2 section {
+            width: 100%;
+            height: 70%;
+        }
+
+        #login_form {
+            width: 300px;
+            height: 150px;
+        }
+
+        #login_form_input {
+            width: 100%;
+            height: 80%;
+        }
+
+        #login_input_id_pwd {
+            width: 65%;
+            height: 60%;
+            float: left;
+
+            position: relative;
+            top:20px;
+        }
+
+        #login_input_btn {
+            width: 35%;
+            height: 60%;
+            float: left;
+
+            position: relative;
+            top:18px;
+            left: 5px;
+        }
+
+        #login_input_id {
+            width: 100%;
+            height: 50%;
+        }
+
+        #login_input_pwd {
+            width: 100%;
+            height: 50%;
+        }
+
+        #input_id {
+            width: 100%;
+            height: 100%;
+            /* div에만 box-sizing:border-box 속성을 주었기 때문 */
+            box-sizing: border-box;
+            font-size: 12px;
+            border-radius: 7px;
+        }
+
+        #input_pwd {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            font-size: 12px;
+            border-radius: 7px;
+        }
+
+        #login_btn {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        #login_form_join {
+            width: 100%;
+            height: 20%;
+            text-align: center;
+        }
+
+        #sectionArticle2 section img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <!-- section -> article1 영역 -->
+    <style>
+        .border {
+            width: 80%;
+            height: 75%;
+            display: inline-block;
+            position: absolute;
+            top:15%;
+            left: 10%;
+            
+        }
+
+        .picture {
+            margin: 15px;
+            width: 40%;
+            height: 40%;
+            transform: translate(17px, 17px);
+        }
+    </style>
+
+    <!-- footer 구역 -->
+    <style>
+        footer {
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+
+    <!-- 반응형 웹 -->
+    <style>
+        @media only screen and (max-width: 600px){
+            nav {
+                background-color:lightpink;
+            }
+        }
+
+        @media only screen and (max-width:600px){
+            nav {
+                background:red;
+            }
+        }
+
+        /* Small devices (portrait tablets and large phoneds, 600px and up) */
+        @media only screen and (min-width: 600px){
+            nav {
+                background:antiquewhite;
+            }
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+            nav {
+                background:blue;
+            }
+        }
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width:992px) {
+            nav {
+                background:orange;
+            }
+        }
+
+        /* Extra large devices (large laptops and desktops, 1200px and up) */
+        @media only screen and (min-width: 1200px){
+            nav {
+                background:antiquewhite;
+            }
+        }
+
+        /* 크기가 작아지면 엘리먼트를 숨김 */
+        @media only screen and (max-width: 600px){
+            nav {
+                display:none;
+            }
+        }
+        
+        /* 창 크기에 따라 글씨 크기 조절 */
+        @media only screen and (min-width : 601px){
+            nav {
+                font-size:20px;
+            }
+        }
+
+        @media only screen and (max-width : 600px){
+            nav {
+                font-size:10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header1">
+        <h1>Reading</h1>
+    </header>
+
+    <nav>
+        <ul id="navi">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">게시판</a>
+            <li><a href="13-2_MyHomepage_GalleryBoard.html">사진 게시판</a></li>
+            <li><a href="13-3_MyHomepage_board.html">일반 게시판</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <aside id="sectionAside">
+            <a href="#"><img src="웹문서 구조 만들기 실습/img/1.jpg"></a>
+        </aside>
+
+        <article id="sectionArticle1">
+            <form id="searchForm">
+                <div id="search">
+                    <input type="text" id="searchText" placeholder="책 제목을 검색하세요">
+                </div>
+                <div id="searchButton">
+                    <button type="submit" id="searchSubmit">검색</button>
+                </div>
+            </form>
+
+            <div class="border">
+                        <a href="#">
+                            <img src="웹문서 구조 만들기 실습/img/2.jpg" class="picture view">
+                        </a>
+                        <a href="#">
+                            <img src="웹문서 구조 만들기 실습/img/3.jpg" class="picture view">
+                        </a>
+
+                        <br>
+
+                        <a href="#">
+                            <img src="웹문서 구조 만들기 실습/img/4.jpg" class="picture view">
+                        </a>
+                        <a href="#">
+                            <img src="웹문서 구조 만들기 실습/img/5.jpg" class="picture view">
+                        </a>
+        </article>
+
+        <article id="sectionArticle2">
+            <header>
+                    <form method="GET" id="login_form_input" action="">
+                        <div id="login_input_id_pwd">
+                            <div id="login_input_id">
+                                <input type="text" id="input_id" name="input_id" placeholder="ID를 입력하세요">
+                            </div>
+                            <div id="login_input_pwd">
+                                <input type="password" id="input_pwd" name="input_pwd" placeholder="PWD를 입력하세요">
+                            </div>
+                        </div>
+                    
+                        <div id="login_input_btn">
+                            <button type="submit" id="login_btn">로그인</button>
+                        </div>
+                    
+                    </form>
+                    
+                    <div id="login_form_join">
+                        <a href="#">회원가입</a>
+                        <a href="#">ID/PWD찾기</a>
+                    </div>
+            </header>
+
+            <section>
+                <a href="#"><img src="웹문서 구조 만들기 실습/img/공자.jpg"></a>
+            </section>
+        </article>
+    </section>
+
+    <footer>
+        <section></section>
+            <a href="#">이용약관</a> |
+            <a href="#">개인정보취급방침</a> |
+            <a href="#">인재채용</a> |
+            <a href="#">고객센터</a>
+
+            <p>ⓒ 2019 INSTAGRAM FROM FACEBOOK</p>
+    </footer>
+</body>
+</html>

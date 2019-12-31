@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .area {
+            background: lightgray;
+            border:1px solid black;
+            height: 100px;
+        }
+
+        pre {
+            border: 1px dashed black;
+            font-size: 1.2em;
+            font-weight: 600;
+        }      
+    </style>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <h3>고전 이벤트 모델</h3>
+    <pre>
+        요소 객체가 갖고 있는 이벤트 속성에 이벤트 핸들러를 연결하는 방법으로,
+        이벤트 객체를 제거할 땐 속성 값에 null을 넣어주면 된다.
+    </pre>
+    <button id="test1">test1() 실행확인</button>
+    <button id="test2">test2() 실행확인</button>
+    <div id="area1" class="area"></div>
+    
+    
+    <script>
+        var test1 = document.getElementById("test1");
+        var test2 = document.getElementById("test2");
+
+        test1.onclick = function() {
+            var area1 = document.getElementById("area1");
+            area1.innerHTML += "test1()이 실행되었습니다.<br>";
+        }
+
+        // 이전 내용은 무시됨 -> 하나의 이벤트밖에 걸지 못함 ㅋㅋ
+        test1.onclick = function() {
+            alert("!");
+        }
+
+        test2.onclick = function() {
+            var area1 = document.getElementById("area1");
+            area1.innerHTML += "test2()가 실행되면서 test1() 이벤트 제거.<br>";
+            test1.onclick = null; // 이벤트 제거
+        }
+    </script>
+
+    <hr>
+
+    <h3>이벤트 발생 객체</h3>
+    <pre>
+        이벤트 발생 객체는 매개변수(e, window.event)로 이벤트 정보를 전달함.
+        핸들러 내부에서 e.target 또는 this로 이벤트가 발생된 요소 선택 가능
+    </pre>
+    <button id="test3">test3() 실행확인</button>
+    <div id="area2" class="area"></div>
+    <script>
+        var test3 = document.getElementById("test3");
+
+        test3.onclick = function(e) {
+            // e : 이벤트가 발생한 객체
+            // e.target, this : 이벤트가 발생한 객체
+            // window.event : ie8 이전 버전의 e
+            var event = e || window.event;
+
+            console.log(event);
+            console.log(event.target);
+            console.log(this);
+
+            event.target.style.backgroundColor = "red";
+            this.style.color = "white";
+        }
+    </script>
+
+    <hr>
+
+    <h3>인라인 이벤트 모델</h3>
+    <button onclick="test4();">실행확인</button>
+    <div id="area3" class="area"></div>
+    <script>
+        function test4() {
+            var area3 = document.getElementById("area3");
+
+            area3.innerHTML += "test4()가 실행되었습니다.";
+        }
+    </script>
+
+    <br>
+
+    <h3>기본 이벤트의 제거</h3>
+    <pre>
+        태그에 기본적으로 설정되어 있는 이벤트 제거
+        -> 이벤트 핸들러의 return 값을 false로 하면 제거됨
+
+        기본 이벤트 ex)
+        - a 태그 : 페이지 이동
+        - submit : 입력 양식 제출 후 페이지 갱신
+    </pre>
+    <p>a 태그는 클릭하면 다른 페이지로 이동을 한다.</p>
+    submit을 누르면 자동으로 입력 양식을 제출하고 새로고침 한다.
+    <form id="memberJoin">
+        <label>비밀번호 : </label><input type="password" name="password" id="password" required>
+        <label>비밀번호 확인 : </label><input type="password" name="password2" id="password2" required>
+        <input type="submit" value="제출" onclick="return test5();">
+    </form>
+    <script>
+        function test5() {
+            var password = document.getElementById("password").value;
+            var password2 = document.getElementById("password2").value;
+
+            console.log("password : " + password);
+            console.log("password2 : " + password2);
+
+            // 비밀번호가 같은지 확인해서 다르면 제출되지 않도록 처리(-> 유효성 검사라고 함)
+            if(password == password2) {
+                alert('비밀번호가 일치합니다');
+            }else {
+                alert('비밀번호가 일치하지 않습니다.');
+                document.getElementById("password2").select();
+                // select 선택
+
+                // submit의 기본 이벤트 제거를 위해 false 리턴
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

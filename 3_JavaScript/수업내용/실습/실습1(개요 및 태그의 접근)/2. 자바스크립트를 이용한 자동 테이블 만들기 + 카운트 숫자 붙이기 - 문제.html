@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>학생정보 입력</title>
+</head>
+<body>
+    <h1> 자동 테이블 만들기 + 카운트 </h1>
+    
+<button onclick="table_make();">테이블 생성</button>
+<table style="text-align: center"></table>
+<script>
+        function table_make() {
+            var rows = prompt("행을 입력하세요");
+            var cols = prompt("열을 입력하세요");
+            var index = 1;
+            document.write("<table border='1px'>");
+            for(var i = 0; i < rows; i++) {
+                document.write("<tr>");
+                for(var j = 0; j < cols; j++) {
+                    document.write("<td border='1px' width='100px' height='100px' style='text-align:center'>");
+                    document.write(index);
+                    document.write("</td>");
+                    index++;
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
+
+    
+</body>
+</html>

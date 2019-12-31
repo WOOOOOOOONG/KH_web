@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div {
+            border : 1px solid red;
+            box-sizing: border-box;
+        }
+
+        #login_form {
+            width: 300px;
+            height: 150px;
+        }
+
+        #login_form_input {
+            width: 100%;
+            height: 80%;
+        }
+
+        #login_input_id_pwd {
+            width: 65%;
+            height: 100%;
+            float: left;
+        }
+
+        #login_input_btn {
+            width: 35%;
+            height: 100%;
+            float: left;
+        }
+
+        #login_input_id {
+            width: 100%;
+            height: 50%;
+        }
+
+        #login_input_pwd {
+            width: 100%;
+            height: 50%;
+        }
+
+        #input_id {
+            width: 100%;
+            height: 100%;
+            /* div에만 box-sizing:border-box 속성을 주었기 때문 */
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+
+        #input_pwd {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+
+        #login_btn {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+
+        #login_form_join {
+            width: 100%;
+            height: 20%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 전체 로그인폼을 감싸는 div -->
+    <div id="login_form">
+        <form method="GET" id="login_form_input" action="">
+            <!-- 입력을 받는 input태그가 위치할 div -->
+            <div id="login_input_id_pwd">
+                <!-- id입력 -->
+                <div id="login_input_id">
+                    <input type="text" id="input_id" name="input_id" placeholder="ID를 입력하세요">
+                </div>
+                <!-- pwd 입력 -->
+                <div id="login_input_pwd">
+                    <input type="password" id="input_pwd" name="input_pwd" placeholder="PWD를 입력하세요">
+                </div>
+            </div>
+
+            <!-- 로그인 버튼이 위치할 div -->
+            <div id="login_input_btn">
+                <button type="submit" id="login_btn">로그인</button>
+            </div>
+            <!-- 회원가입 페이지 이동용 a태그가 위치할 div -->
+            
+        </form>
+        
+        <div id="login_form_join">
+                <a href="#">회원가입</a>
+                <a href="#">ID/PWD찾기</a>
+        </div>
+        <!-- 회원가입 페이지 이동용 a태그가 위치할 div -->
+    </div>
+</body>
+
+</html>

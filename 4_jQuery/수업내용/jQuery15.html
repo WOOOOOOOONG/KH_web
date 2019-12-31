@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <h1>시각적 효과</h1>
+    <p>Effect 메소드 : 페이지에 애니메이션 효과를 만들기 위한 메소드 집함</p>
+    <pre>
+    1. $('선택자').메소드명();
+    2. $('선택자').메소드명([speed]);
+    3. $('선택자').메소드명([speed], [easing], [callback]);
+    - speed : 실행 속도(밀리세컨즈) / 숫자 or slow, fast
+    - easing : 변경되는 지점별 속도 / linear, swing 가능
+    - callback : 메소드 실행 후 실행할 함수
+    </pre>
+
+    <h3>show()와 hide()</h3>
+    <p>문서 객체를 크게 하며 보여주거나 작게하며 사라지게 한다</p>
+    <p>
+        $('선택자').show(speed, easing, callback);
+        $('선택자').hide(speed, easing, callback);
+    </p>
+
+    <button id="show">보여주기</button>
+    <button id="hide">숨기기</button>
+    <img id="river" src="image/river1.PNG">
+    <script>
+        $(function() {
+            $('#show').click(function() {
+                $('#river').show(1000);
+                // height/width가 천천히 보여짐
+            });
+
+            $('#hide').click(function() {
+                $('#river').hide(1000);
+            });
+        })
+    </script>
+
+    <br>
+
+    <button id="toggle">토글하기</button>
+    <br>
+    <img id="dog" src="image/sibadog.gif">
+
+    <script>
+        $(function() {
+            $('#toggle').click(function() {
+                // if($('#dog').css('display') == 'inline') { // display가 화면 보여지는 것에 대한 속성
+                //     $('#dog').hide(1000);
+                // }else {
+                //     $('#dog').show(1000);
+                // }
+                $('#dog').toggle(1000);
+            });
+
+            
+        });
+    </script>
+</body>
+</html>

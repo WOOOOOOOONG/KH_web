@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        p {
+            width: 500px;
+            height: 100px;
+            background: lightgray;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>함수(Function)</h1>
+
+    <!-- 다양한 방법으로 작성하여 이벤트를 호출 -->
+
+    <!-- 일반 방법 -->
+    <h3>function 함수명() { 소스코드 작성 }</h3>
+    <button onclick="test1();">실행 확인</button>
+    <p id="p1"></p>
+    <script>
+        function test1() {
+            document.getElementById("p1").innerHTML = "test1() 함수 실행됨";
+        }
+    </script>
+
+    <hr>
+
+    <!-- 익명함수 -->
+    <h3>익명함수(이벤트 핸들러 작성시 주로 사용)<br>
+        변수명 = function() { 소스코드 작성 }</h3>
+    <button onclick="test2();">실행 확인</button>
+    <p id="p2"></p>
+    <script>
+        // onclick명과 변수명을 동일하게 함
+        var test2 = function() {
+            document.getElementById("p2").innerHTML = "test2() 함수 실행됨";
+        }
+    </script>
+
+    <hr>
+    
+    <h3>스스로 실행하는 함수 : (function(){})();</h3>
+    <p id="p3"></p>
+    <script>
+        (function() {
+            document.getElementById("p3").innerHTML = "자동으로 혼자 실행됨";
+        })();
+    </script>
+
+    <hr>
+
+    <h3>함수의 매개변수(전달인자)</h3>
+    <button id="btn1">실행확인</button>
+    <p id="p4"></p>
+    <script>
+        function test4(value) {
+            document.getElementById("p4").innerHTML += value + "<br>";
+        }
+
+        // 태그가 아닌 스크립트를 이용하여 버튼에 onclick 이벤트 선언하기
+        document.getElementById("btn1").onclick = function() {
+            // 정상 호출
+            test4(window.prompt("메시지를 입력하세요"));
+
+            // 지정된 매개변수보다 많은 개수를 호출하는 것을 허용한다
+            // 하지만 지정한 개수만큼만 실행한다
+            test4("안녕하세요", "반갑습니다");
+
+            // 지정된 매개변수보다 적게 호출하는 것도 허용한다
+            // 대신 결과는 undefined
+            test4();
+        };
+    </script>
+
+    <hr>
+
+    <h3>함수의 리턴 처리</h3>
+    <button onclick="test5();">실행 확인</button>
+    <p id="p5"></p>
+    <script>
+        function returnFunction() {
+            return Math.floor((Math.random() * 100) + 1);
+        }
+
+        function test5() {
+            // 함수를 호출한 부분이 리턴값으로 대체됨
+            // 변수를 이용하여 리턴값을 저장하여 사용하거나 피룡한 부분에서 직접 호출하여 사용
+            
+            // var value = returnFunction();
+            document.getElementById("p5").innerHTML = returnFunction();
+        }
+    </script>
+
+    <hr>
+
+    <h3>가변인자 함수 테스트</h3>
+    <button onclick="test6();">실행 확인</button>
+    <p id="p6"></p>
+    <script>
+        /* 
+           매개변수의 개수가 변하는 함수를 말하며
+           모든 함수 내부에 arguments라는 객체가 자동으로 생성되어
+           배열 형태의 객체로 매개변수를 저장하게 됨.
+
+           매개변수가 지정되지 않은 값이 넘어오면 arguments 객체에 
+           배열처럼 인덱스를 부여하고 순서대로 저장
+        */
+        function sumAll() {
+            p6 = document.getElementById("p6");
+            p6.innerHTML = "";
+
+            p6.innerHTML += "arguments의 타입 : " + typeof(arguments) + "<br>";
+            p6.innerHTML += "arguments의 길이 : " + arguments.length + "<br>";
+            p6.innerHTML += "arguments : " + arguments + "<br>";
+
+            console.log(arguments);
+
+            var sum = 0;
+            for(var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            document.getElementById("p6").innerHTML += "더하기 결과 : " + sum;
+        }
+        
+        function test6() {
+            // 전달 값의 개수가 사용시 달라짐
+            // sumAll(11, 22, 33, 44, 55);
+            sumAll(11, 22, 33, 44, 55, 66, 77, 88, 99);
+        }
+    </script>
+
+    <hr>
+
+    <h3>내부(중첩된) 함수 테스트</h3>
+    <label>삼각형 밑변 : </label><input type="number" min="1" max="100" id="width"><br>
+    <label>삼각형 높이 : </label><input type="number" min="1" max="100" id="height"><br>
+    <button onclick="test7();">실행확인</button>
+    <p id="p7"></p>
+    <script>
+
+        function hypotenuse(w, h) {
+            function square(x) {
+                console.log("내부 함수 구동 확인");
+                return x * x;
+            }
+            return Math.sqrt(square(w) + square(h));
+        }
+
+        function test7() {
+            var width = document.getElementById("width").value;
+            var height = document.getElementById("height").value;
+
+            document.getElementById("p7").innerHTML = 
+                    "빗변 길이(피타고라스의 정리) : " + hypotenuse(width, height);
+        }
+    </script>
+</body>
+</html>

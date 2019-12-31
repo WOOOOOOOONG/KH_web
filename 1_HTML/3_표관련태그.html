@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>3_표관련태그</title>
+    <style>
+        table {
+            background-color:aqua;
+        }
+        thead {
+            background-color:greenyellow;
+        }
+        tbody {
+            background-color:orange;
+        }
+        tfoot {
+            background-color:yellow;
+        }
+
+        figure {
+            margin-top : 0px;
+        }
+    </style>
+</head>
+<body>
+    <h3>&lt;table&gt;</h3>
+    <p>
+        웹 문서에서 자료 정리를 위해 주로 사용되는 태그<br>
+        행과 열로 이루어져 있고, 행과 열이 만나는 지점을 셀이라고 함<br>
+        - border 속성 : table의 테두리 두께 지정
+    </p>
+
+    <h3>&lt;tr&gt;</h3>
+    <p>한개의 행(row)을 만드는 태그</p>
+
+    <h3>&lt;td&gt;</h3>
+    <p>한 개의 열을 만드는 태그</p>
+
+    <h3>&lt;th&gt;</h3>
+    <p>열에 대한 제목을 표시하는 태그<br>
+        가운데 정렬 및 굵게 표시됨
+    </p>
+    
+    <h3>&lt;caption&gt;</h3>
+    <p>테이블의 제목이나 내용을 추가하는 태그</p>
+
+    <hr>
+    <h1>기본적인 표 만들기</h1>
+
+    <table border="1">
+        <caption><b>웹 브라우저의 종류</b></caption>
+        <tr>
+            <th>브라우저 명</th>
+            <th>제조사</th>
+            <th>홈페이지</th>
+        </tr>
+        <tr>
+            <td>익스플로러</td>
+            <td>Ms</td>
+            <td>https://www.microsoft.com</td>
+        </tr>
+        <tr>
+            <td>크롬</td>
+            <td>google</td>
+            <td>https://www.google.com</td>
+        </tr>
+        <tr>
+            <td>사파리</td>
+            <td>애플</td>
+            <td>https://www.apple.com</td>
+        </tr>
+        <tr>
+            <td>파이어폭스</td>
+            <td>Mozilla</td>
+            <td>https://www.mozilla.org</td>
+        </tr>
+    </table>
+
+    <figure>
+        <figcaption>
+            figure를 이용해서 테이블의 설명 혹은 img의 설명에 주로 사용한다.
+        </figcaption>
+        <figcaption>
+            설명 내용을 여러줄로 표기할수도 있다.
+        </figcaption>
+    </figure>
+
+    <hr>
+
+    <h1>표의 행과 열 합치기</h1>
+    <h3>회원 정보</h3>
+    <table border="1">
+        <tr>
+            <td colspan="2" rowspan="2" width="130px" height="130px">사진</td>
+            <!--
+                width : 현재 태그의 넓이 지정
+                hieght : 현재 태그의 높이 지정
+            -->
+            <td width="80px">이름</td>
+            <td height="200px"></td>
+        </tr>
+        <tr>
+            <td>연락처</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td width="70" height="50">주소</td>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td height="100px">자기소개</td>
+            <td colspan="3"></td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h1>테이블 태그의 구조 설정</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>임세웅</td>
+                <td>24</td>
+                <td>인천시 서구 석남동</td>
+            </tr>
+            <tr>
+                <td>김미애</td>
+                <td>25</td>
+                <td>서울시 강남구 역삼동</td>
+            </tr>
+            <tr>
+                <td>이한솔</td>
+                <td>30</td>
+                <td>소울시 은평구 녹번동</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">총 인원</td>
+                <td>3명</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

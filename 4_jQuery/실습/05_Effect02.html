@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style type="text/css">
+        .wrap {
+            width : 550px;
+        }
+        .wrap img {
+            width:50px;
+            height:30px;
+            cursor : pointer;
+            position : relative;
+            margin-top:15px;
+        }
+    </style>
+</head>
+<body>
+        <div class="wrap">
+            <img onclick="go(this, 3000)" src="../수업내용/image/car.jpg" /><br>
+            <img onclick="go(this, 2000)" src="../수업내용/image/car.jpg" /><br>
+            <img onclick="go(this, 1000)" src="../수업내용/image/car.jpg" /><br>
+            <img onclick="go(this, 500)" src="../수업내용/image/car.jpg" /><br>
+            <img onclick="go(this, 250)" src="../수업내용/image/car.jpg" /><br>
+            <img onclick="go(this, 10000)" src="../수업내용/image/car.jpg" /><br>
+        </div>
+        <div>
+            <br>
+            <p>자동차를 클릭해서 출발시키세요</p>
+            <button type="button" onclick="back()">제자리로</button>
+        </div>
+        
+        <script type="text/javascript">
+            function go(car, speed){
+                $(car).animate({left:500,top:220}, speed);
+            }
+        
+            function back(){
+                $('.wrap img').animate({left:0, top:0}, 1000);
+            }
+        </script>
+</body>
+</html>

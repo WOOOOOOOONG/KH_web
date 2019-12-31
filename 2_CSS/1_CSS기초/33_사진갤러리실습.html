@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .border {
+            width: 300px;
+            height: 200px;
+            background: black;
+            display: inline-block;
+            position: absolute;
+            top:15%;
+            left: 42%;
+        }
+
+        .picture {
+            width: 85px;
+            height: 65px;
+            transform: translate(17px, 17px);
+        }
+
+        /* 사진 숨김 */
+        .picture.hide {
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            width: 170px;
+            height: 130px;
+            position: absolute;
+            transform: translate(0, 20px);
+            transition: all 0.8s;
+        }
+
+        /* 사진 다시 나오게 */
+        .border>span>a:hover #flower1{
+            z-index: 1;
+            opacity: 1;
+        }
+        .border>span>a:hover #flower2{
+            z-index: 1;
+            opacity: 1;
+        }
+        .border>span>a:hover #flower3{
+            z-index: 1;
+            opacity: 1;
+        }
+        .border>span>a:hover #flower4{
+            z-index: 1;
+            opacity: 1;
+        }
+        .border>span>a:hover #flower5{
+            z-index: 1;
+            opacity: 1;
+        }
+        .border>span>a:hover #forest1{
+            z-index: 1;
+            opacity: 1;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <h1>사진 갤러리 실습</h1>
+    <hr>
+    
+    <div class="border">
+        <span>
+            <a href="#flower1">
+                <img src="sample/image/flower1.PNG" class="picture view">
+                <img src="sample/image/flower1.PNG" class="picture hide" id="flower1">
+            </a>
+            
+        </span>
+        
+        <span>
+            <a href="#flower2">
+                <img src="sample/image/flower2.PNG" class="picture view">
+                <img src="sample/image/flower2.PNG" class="picture hide" id="flower2">
+            </a>
+            
+        </span>
+
+        <span>
+            <a href="#flower3">
+                <img src="sample/image/flower3.PNG" class="picture view">
+                <img src="sample/image/flower3.PNG" class="picture hide" id="flower3">
+            </a>
+        </span>
+
+        <br>
+
+        <span>
+            <a href="#flower4">
+                <img src="sample/image/flower4.PNG" class="picture view">
+                <img src="sample/image/flower4.PNG" class="picture hide" id="flower4">
+            </a>
+           
+        </span>
+
+        <span>
+            <a href="#flower5">
+                <img src="sample/image/flower5.PNG" class="picture view">
+                <img src="sample/image/flower5.PNG" class="picture hide" id="flower5">
+            </a>
+        </span>
+
+        <span>
+            <a href="#forest1">
+                <img src="sample/image/forest1.PNG" class="picture view">
+                <img src="sample/image/forest1.PNG" class="picture hide" id="forest1">
+            </a>
+        </span>
+
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>

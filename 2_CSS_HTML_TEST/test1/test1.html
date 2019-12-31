@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test1</title>
+
+    <!-- header, nav, section(=content), footer 영역 지정 -->
+    <style>
+        
+        header {
+            width: 100%;
+            height: 20%;
+        }
+
+        nav {
+            width: 100%;
+            height: 5%;
+        }
+
+        #content {
+            width: 100%;
+            height: 400px;
+
+            background-color: gray;
+        }
+
+        footer {
+            width: 100%;
+            height: 80px;
+
+            text-align: center;
+            background-color: skyblue;
+        }
+
+    </style>
+
+    <!-- header, nav 지정 -->
+    <style>
+        
+        #headerLeft {
+            width: 30%;
+            height: 100%;
+        }
+
+        #headerMid {
+            width: 50%;
+            height: 100%;
+        }
+
+        #headerRight {
+            width: 20%;
+            height: 100%;
+        }
+
+        #logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        #menu li{
+            margin-right: 40px;
+            float: left;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <section id="headerLeft">
+            <label id="logo"><img src="resources/images/logo.gif"></label>
+        </section>
+
+        <section id="headerMid">
+
+        </section>
+
+        <section id="headerRight">
+            <label>ID : </label>
+            <input type="text"><br>
+            <label>PWD : </label>
+            <input type="password"><br>
+            <input type="submit" value="로그인"> &nbsp;
+            <button>회원가입</button>
+        </section>
+    </header>
+
+    <nav>
+        <ul id="menu">
+                <li><a href="#">메인</a></li>
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">자유게시판</a></li>
+                <li><a href="#">갤러리</a></li>
+                <li><a href="#">회원관리</a></li>
+                <li><a href="#">채팅하기</a></li>
+        </ul>
+    </nav>
+
+    <section id="content">
+        
+    </section>
+
+    <footer>
+        <p>
+            "Copyright © 1998-2019 KH Information Educational Institute All Right Reserved"
+        </p>
+    </footer>
+
+</body>
+</html>

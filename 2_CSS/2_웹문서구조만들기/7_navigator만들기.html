@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div {
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+
+        #navi-wrapper {
+            width: 1000px;
+            height: 40px;
+        }
+
+        #navi {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        #navi>li {
+            float: left;
+            width: 15%;
+            height: 100%;
+            position:relative;
+            /* 하위 개념에 absolute 주려면 상위 개념에 relative 주는듯 */
+            text-align: center;
+        }
+
+        #navi li a {
+            display: block;
+            height: 100%;
+            box-sizing: border-box;
+            line-height: 30px;
+            /* 글사 사이의 높이 */
+
+            text-decoration: none;
+            font-family: "굴림";
+            font-weight: 900;
+            font-size: 18px;
+            color: deepskyblue;
+            padding: 5px 25px;
+        }
+
+        #navi li a:hover {
+            color: orange;
+        }
+
+        #navi li>ul {
+            list-style-type: none;
+            width: 100%;
+            position: absolute;
+            padding: 0;
+            opacity: 0;
+            transition: all 0.6s;
+        }
+
+        #navi li:hover ul {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navi-wrapper">
+        <ul id="navi">
+            <li><a href="#">Java</a></li>
+            <li><a href="#">Oracle</a></li>
+            <li><a href="#">Front-end</a>
+                <ul>
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">CSS3</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">JQuery</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Server</a>
+                <ul>
+                    <li><a href="#">JDBC</a></li>
+                    <li><a href="#">Servlet</a></li>
+                    <li><a href="#">JSP</a></li>
+                    <li><a href="#">AJAX</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Framework</a>
+                <ul>
+                    <li><a href="#">MyBatis</a></li>
+                    <li><a href="#">Spring</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

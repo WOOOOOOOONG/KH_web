@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 전체 틀 -->
+    <style>
+        pre {
+            font-weight: 600;
+        }
+        
+        body {
+            width: 1000px;
+            height: 800px;
+            margin: 50px 30px;
+        }
+
+        header {
+            width: 100%;
+            height: 10%;
+
+            float: left;
+        }
+
+        nav {
+            width: 100%;
+            height: 5%;
+
+            float: left;
+        }
+
+        #content {
+            height: 65%;
+            width: 100%;
+        }
+
+        footer {
+            height: 30%;
+            width: 100%;
+
+            font-weight: 500;
+            text-align: center;
+        }
+
+        #header-1 {
+            height: 100%;
+            width: 20%;
+            float:left;
+        }
+
+        #header-2 {
+            height: 100%;
+            width: 60%;
+            float:left;
+        }
+
+        #header-3 {
+            height: 100%;
+            width: 20%;
+            float:left;
+        }
+
+        aside {
+            width: 15%;
+            height: 100%;
+
+            float: left;
+
+            margin: 10px;
+        }
+
+        #content-1 {
+            width: 55%;
+            height: 100%;
+            
+            float: left;
+        }
+
+        #content-2 {
+            width: 23%;
+            height: 100%;
+
+            float:left;
+        }
+
+        #content-1 img {
+            margin: 10px 0 0 10px;
+            width: 46%;
+            height: 180px;
+        }
+        
+        #content-2 header {
+            width: 100%;
+            height: 20%;
+        }
+
+        #content-2 #article1 {
+            width: 100%;
+            height: 50%;
+        }
+
+        #content-2 #article2 {
+            width: 100%;
+            height: 30%;
+        }
+    </style>
+
+    <style>
+        #navi {
+            list-style-type : none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #navi li {
+            float:left;
+            width: 25%;
+            height: 100%;
+            text-align: center;
+        }
+
+        #navi a {
+            display: block;
+            height: 100%;
+            box-sizing: border-box;
+            line-height: 30px;
+
+            text-decoration: none;
+            font-family: "굴림";
+            font-weight: 900;
+            font-size: 18px;
+            background: green;
+            color: white;
+            padding: 5px 25px;
+        }
+
+        aside a {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <!-- content-2 : 로그인창 -->
+    <style>
+        #login_form_input {
+                    width: 100%;
+                    height: 60%;
+                }
+        
+                #login_input_id_pwd {
+                    width: 60%;
+                    height: 70%;
+                    margin: 10px 0 0 0;
+                    float: left;
+                }
+        
+                #login_input_btn {
+                    width: 25%;
+                    height: 60%;
+                    margin: 13px 0 0 15px;
+                    float: left;
+                }
+        
+                #login_input_id {
+                    width: 100%;
+                    height: 50%;
+                }
+        
+                #login_input_pwd {
+                    width: 100%;
+                    height: 50%;
+                }
+        
+                #input_id {
+                    width: 100%;
+                    height: 100%;
+                    /* div에만 box-sizing:border-box 속성을 주었기 때문 */
+                    box-sizing: border-box;
+                    font-size: 12px;
+                }
+        
+                #input_pwd {
+                    width: 100%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    font-size: 12px;
+                }
+        
+                #login_btn {
+                    width: 100%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    font-size: 12px;
+                }
+        
+                #login_form_join {
+                    width: 100%;
+                    height: 20%;
+                    text-align: center;
+                }
+        </style>
+</head>
+
+<body>
+    <header>
+        <section id="header-1"><a href="#"><img src="웹문서 구조 만들기 실습/img/logo.jpg"></a></section>
+
+        <section id="header-2">
+            <a href="#"><img src="웹문서 구조 만들기 실습/img/mainlogo.jpg"></a>
+        </section>
+
+        <section id="header-3"></section>
+    </header>
+
+    <nav>
+        <ul id="navi">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Board</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="content">
+        <aside>
+            <a href="#"><img src="웹문서 구조 만들기 실습/img/left_img.jpg"></a>
+        </aside>
+
+        <section id="content-1">
+            <a href="#"><img src="웹문서 구조 만들기 실습/img/main_img1.jpg" alt="안녕"></a>
+            
+            <a href="#"><img src="웹문서 구조 만들기 실습/img/main_img2.jpg"></a>
+            <pre>          나무를 심는 사람들                  아이들에게 녹색미래를..</pre>
+
+            <a href="#"><img src="웹문서 구조 만들기 실습/img/main_img3.jpg"></a>
+            <a href="#"><img src="웹문서 구조 만들기 실습/img/main_img4.jpg"></a>
+            <pre>          설악산을 살리는 길                     사라지는 북극곰들</pre>
+        </section>
+
+        <section id="content-2">
+            <header>
+                <form method="GET" id="login_form_input" action="">
+                    <!-- 입력을 받는 input태그가 위치할 div -->
+                    <div id="login_input_id_pwd">
+                        <!-- id입력 -->
+                        <div id="login_input_id">
+                            <input type="text" id="input_id" name="input_id" placeholder="ID를 입력하세요">
+                        </div>
+                        <!-- pwd 입력 -->
+                        <div id="login_input_pwd">
+                            <input type="password" id="input_pwd" name="input_pwd" placeholder="PWD를 입력하세요">
+                        </div>
+                    </div>
+
+                    <!-- 로그인 버튼이 위치할 div -->
+                    <div id="login_input_btn">
+                        <button type="submit" id="login_btn">로그인</button>
+                    </div>
+                    <!-- 회원가입 페이지 이동용 a태그가 위치할 div -->
+                </form>
+                <div id="login_form_join">
+                    <a href="#">회원가입</a>
+                    <a href="#">ID/PWD찾기</a>
+                </div>
+            </header>
+            <article id="article-1">
+                <a href="#"><img src="웹문서 구조 만들기 실습/img/right_img.jpg"></a>
+            </article>
+            <article id="article-2">
+                <a href="#"><img src="웹문서 구조 만들기 실습/img/me_chat.jpg"></a>
+            </article>
+        </section>
+    </section>
+
+    <footer>
+        <div id="footer">
+            <p>
+                ⓒExample from JAVA Web Developer Junior
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

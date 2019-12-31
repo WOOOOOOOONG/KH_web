@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- animate() 컬러 속성 추가하기 : jQueryUi는 컬러 플러그인을 포함하고 있음 -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <title>Document</title>
+    <style>
+        .test {
+            width:200px;
+            height:200px;
+            background:orangered;
+        }
+
+        .image, .image2 {
+            position:relative;
+        }
+    
+        #scroller {
+            margin:auto;
+            width: 155px;
+            height: 105px;
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>애니메이션</h1>
+    <p>애니메이션 효과를 만들기 위한 메소드 집합</p>
+    
+    <h3>animate() 메소드</h3>
+    <p>
+        <code>$('선택자').animate(properties [, duration] [, easing] [, complete])</code><br>
+        properties : 변경할 css 속성을 객체로 전달 <br>
+        duration : 기본 값은 400, millisec | slow | fast <br>
+        easing : 속도 옵션. swing | linear 기본 값은 swing. <br>
+                더 많은 easing function은 jqueryUI 또는 별도의 plugin을 사용해야 함<br>
+        complete : 애니메이션이 완료 되었을 때 호출 될 콜백함수 작성 <br>
+    </p>
+
+    <button id="btn1">실행</button>
+    <div id="test1" class="test"></div>
+
+    <script>
+        // w3schools에서 기본 지원 되는 속성 확인
+        // https://www.w3schools.com/jquery/eff_animate.asp
+        // color 같은 경우 기본적으로 지원하지 않음
+        // jquery-ui의 color 플러그인을 import 해서 사용해야 함
+        // https://api.jqueryui.com/color-animation/
+
+        $(function(){
+            $("#btn1").click(function(){
+                $("#test1").animate({width:"500px", backgroundColor:"blue"}, 1000, function(){
+                    alert('애니메이션 적용 완료');
+                });
+
+            });
+        });
+    </script>
+
+    <hr>
+
+    <h3>이미지 animate()1</h3>
+    <img src="image/cute1.gif" width="150px" height="100px" class="image">
+    <script>
+        $(document).ready(function(){
+            $(".image").click(function(){
+                $(this).animate({'left':'-158px'}, 'slow');
+                // body의 기본 margin 8px 존재함
+            });
+        });
+    
+    </script>
+
+    <hr>
+
+    <h3>이미지 animate()2</h3>
+    <p>
+        가운데 위치한 div 컨테이너 앞에서 img를 우측으로 밀어서 감추어 보자<br>
+        div 컨테이너의 css 속성 width, height, overflow 등을 설정!
+    </p>
+    <div id="scroller">
+        <img src="image/피카츄.gif" width="150px" height="100px" class="image2">
+    </div>
+    <script>
+        $(document).ready(function(){
+            $(".image2").click(function(event){
+                $(this).animate({'left':'155px'},1000);
+            });
+        });
+    </script>
+
+</body>
+</html>

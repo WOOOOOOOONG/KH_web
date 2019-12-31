@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function clear() {
+            $("table *").removeAttr("style");
+        }
+
+        function click1() {
+            clear();
+            $("table tr:odd").css("color","yellow");
+            $("tr>td:first").css("color","black");
+            $("tr:last").css("color","black");
+        }
+
+        function click2() {
+            clear();
+            $("table tr:even").css("color","yellow");
+            $("table tr:first").css("color","black");
+            $("tr:even td:first").css("color","black");
+        }
+
+        function click3() {
+            clear();
+            $("table tr:odd td:odd").css("color","yellow");
+            $("table tr:even td:odd").css("color","yellow");
+            $("tr:last td").css("color","black");
+        }
+        
+        function click4() {
+            clear();
+            $("table tr:even td:even").css("color","yellow");
+            $("table tr:odd td:even").css("color","yellow");
+            $("tr:last td").css("color","black");
+            $("tr td:first").css("color","black");
+            $("tr:even td:first").css("color","black");
+        }
+    </script>
+</head>
+<body>
+    <table border="1">
+        <tr><th>구분</th><th>A</th><th>B</th></tr>
+        <tr><td>가</td><td>10</td><td>10</td></tr>
+        <tr><td>나</td><td>20</td><td>20</td></tr>
+        <tr><td>계</td><td>30</td><td>30</td></tr>
+    </table>
+    <input type="button" value="[가]색 변경" onclick="click1()">
+    <input type="button" value="[나]색 변경" onclick="click2()">
+    <input type="button" value="[A]색 변경" onclick="click3()">
+    <input type="button" value="[B]색 변경" onclick="click4()">
+</body>
+</html>

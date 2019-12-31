@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            /* 캡션 위치 */
+            caption-side:bottom;
+            /* 표 너비 높이 테두리 속성 */
+            width:300px;
+            height:400px;
+            border:1px solid black;
+
+            /* 테두리 따로 표시 or 같이 표시 */
+            /* border-collapse:collapse; */
+            border-collapse:separate;
+
+            /* 테두리 2개일 때 가까운 쪽의 테두리 사이 거리 지정 */
+            border-spacing:50px 50px;
+            /* 테두리 2개일 때 빈 셀에 대한 표시 여부 */
+            empty-cells:hide;
+
+            /* td의 넓이를 width로 지정해도 셀의 내용이 길어지면 자동으로 
+               길어지고 table의 width 지정 값에 따라 안의 셀들이 조절
+               되는 것이 default이나 td의 크기를 width로 고정하는 속성 */
+            table-layout:fixed;
+
+            /* td를 벗어난 내용을 안에서 작성되게 하려면 */
+            word-break:break-all;
+        }
+
+        table td {
+            /* 컬럼 너비 높이 테두리 속성 */
+            width:80px;
+            border:1px solid black;
+            /* 수평 정렬 */
+            text-align:center;
+            /* 수직 정렬 */
+            vertical-align:top;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>성적표</caption>
+        <tr>
+            <td>구분</td>
+            <td>점수</td>
+        </tr>
+        <tr>
+            <td>수학</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>국어</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>하나둘셋넷다섯여섯일곱여덟아홉열asasdasdfasdfasdfasdfasdfasdfasdf!!!</td>
+        </tr>
+    </table>
+</body>
+</html>

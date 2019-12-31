@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>25.변형 실습</title>
+    <style>
+        .trans {
+		    width:400px;
+		    height:300px;
+		    border:1px solid black;
+		    display:inline-block;
+            margin : 3%;
+	    }
+
+        .img1:hover {
+		    transform: translateX(50px);
+        }
+
+        .img1:active {
+		    transform: translateY(50px);
+        }
+
+        .img2:hover {
+		    transform: translateY(50px);
+        }
+
+        .img2:active {
+		    transform: translateX(50px);
+        }
+
+        .img3:hover {
+		    transform: scaleY(2); 
+        }
+
+        .img3:active {
+		    transform: scaleX(2);
+        }
+
+        .img4:hover {
+		    transform: rotate(270deg); 
+        }
+
+        .img4:active {
+		    transform: rotate(90deg); 
+        }
+
+        .img5:hover {
+		    transform: skewY(15deg); 
+        }
+
+        .img5:active {
+		    transform: skewX(15deg);
+        }
+
+        .img6:hover {
+            transform:perspective(300px) rotateZ(15deg);
+        }
+
+        .img6:active {
+            transform:perspective(300px) rotateZ(-15deg);
+        }
+
+        .img7:hover {
+            transform:perspective(300px) rotate3d(2.5, 1.5, -1.5, 30deg);
+        }
+
+        .img7:active {
+            transform:perspective(300px) rotate3d(2.5, 1.5, -1.5, -30deg);
+        }
+
+        .img8:hover {
+            transform-origin:right top;
+		    transform:rotateZ(45deg);
+        }
+
+        .img8:active {
+            transform-origin:left bottom;
+		    transform:rotateZ(45deg);
+        }
+
+        .img9:active {
+            transform:rotateY(135deg);
+		    backface-visibility:visible;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <img src="sample/image/tower1.png" class="trans img1">
+    <img src="sample/image/flower1.png" class="trans img2">
+    <img src="sample/image/flower2.png" class="trans img3">
+    <img src="sample/image/flower3.png" class="trans img4">
+    <img src="sample/image/flower4.png" class="trans img5">
+    <img src="sample/image/flower5.png" class="trans img6">
+    <img src="sample/image/forest1.png" class="trans img7">
+    <img src="sample/image/river1.png" class="trans img8">
+    <img src="sample/image/river2.png" class="trans img9">
+    
+</body>
+</html>

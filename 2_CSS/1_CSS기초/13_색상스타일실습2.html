@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+        body {
+            background-color: antiquewhite;
+        }        
+        .gra {
+            width: 200px;
+            height: 200px;
+            border:3px solid black;
+            margin:30px;
+            float:left;
+            
+        }
+
+        #gra1 {
+            background: radial-gradient(60% 70%,farthest-side,white,red,yellow);
+            background: -webkit-radial-gradient(60% 70%, farthest-side,white,red, yellow);
+            background: -moz-radial-gradient(60% 70%, farthest-side,white,red, yellow);
+            background: -ms-radial-gradient(60% 70%, farthest-side,white,red, yellow);
+            background: -o-radial-gradient(60% 70%, farthest-side,white,red, yellow);
+        }
+        #gra2 {
+            background: radial-gradient(60% 70%,closest-side,white,red,yellow);
+            background: -webkit-radial-gradient(60% 70%, closest-side,white,red, yellow);
+            background: -moz-radial-gradient(60% 70%, closest-side,white,red, yellow);
+            background: -ms-radial-gradient(60% 70%, closest-side,white,red, yellow);
+            background: -o-radial-gradient(60% 70%, closest-side,white,red, yellow);
+        }
+        #gra3 {
+            background: radial-gradient(60% 70%,farthest-corner,white,red,yellow);
+            background: -webkit-radial-gradient(60% 70%, farthest-corner,white,red, yellow);
+            background: -moz-radial-gradient(60% 70%, farthest-corner,white,red, yellow);
+            background: -ms-radial-gradient(60% 70%, farthest-corner,white,red, yellow);
+            background: -o-radial-gradient(60% 70%, farthest-corner,white,red, yellow);
+        }
+        #gra4 {
+            background: radial-gradient(60% 70%,closest-corner,white,red,yellow);
+            background: -webkit-radial-gradient(60% 70%, closest-corner,white,red, yellow);
+            background: -moz-radial-gradient(60% 70%,closest-corner,white,red,yellow);
+            background: -ms-radial-gradient(60% 70%,closest-corner,white,red,yellow);
+            background: -o-radial-gradient(60% 70%,closest-corner,white,red,yellow);
+            
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>색상 스타일 실습2</h1>
+
+    <div id="gra1" class="gra"></div>
+    <div id="gra2" class="gra"></div>
+    <br clear="both">;
+    <div id="gra3" class="gra"></div>
+    <div id="gra4" class="gra"></div>
+</body>
+</html>

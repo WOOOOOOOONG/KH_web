@@ -1,0 +1,79 @@
+#menu {
+    width:960px;
+    height:40px;
+}
+
+ul.navi {
+    /* 왼쪽 정렬될 수 있게 */
+    float:left;
+    width: 960px;
+    /* 기본적으로 적용되는 margin, padding, 제거 */
+    margin: 0;
+    padding: 0;
+    /* 불렛 없애기 */
+    list-style:none;
+    background: #39f;
+    
+    /* 좌우 상단 둥글게 */
+    border-top-right-radius:10px;
+    border-top-left-radius:10px;
+}
+
+/* 메인메뉴 inline 속성으로 */
+ul.navi li {
+    display:inline;
+}
+
+ul.navi li a {
+    /* 모든 a태그 왼쪽 정렬 */
+    float:left;
+    font:bold 14px 굴림;
+    line-height: 40px;
+    color: #fff;
+    /* 기존의 a 태그의 밑줄 없애기 */
+    text-decoration: none;
+    text-shadow:1px 1px 1px #880000;
+    margin:0;
+    padding: 0 30px;
+    /* 위 오른쪽 아래 왼쪽. 순으로 패딩 작성 가능 */
+}
+
+ul.navi li:hover>a {
+    background: #36F;
+
+    /* 메인메뉴 마우스 오버 시 상단 둥글게 */
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+/* ul의 후손 ul은 보여지지 않게 하기 */
+ul.navi ul {
+    display: none;
+}
+
+/* 내부 ul 자리잡기 */
+ul.navi li:hover>ul {
+    position: absolute;
+    display:block;
+    width:920px;
+    height:45px;
+    margin: 40px 0 0 0;
+    background:#33F;
+
+    /* 좌우 하단 둥글게 */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* 내부 ul의 a태그 정렬 */
+ul.navi li:hover>ul li a {
+    padding: 0 30px 0 0;
+    background: #33F;
+}
+
+/* 하위 a태그에 마우스 오버 시 글자 색 변경 */
+ul.navi li:hover>ul li a:hover {
+    color:#120000;
+    text-decoration: none;
+    text-shadow: none;
+}

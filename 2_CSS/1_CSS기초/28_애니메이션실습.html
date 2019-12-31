@@ -1,0 +1,85 @@
+
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>애니메이션</title>
+	<style>
+		img {
+			margin: 100px;
+			width: 300px;
+			height: 200px;
+		}
+
+		h1 {
+			text-align : center;
+		}
+
+		.img1 {
+			animation-name: trans1;
+			animation-duration: 3s;
+			animation-direction: normal;
+			animation-iteration-count: 1;
+		}
+
+		.img2 {
+			animation-name: trans1;
+			animation-duration: 3s;
+			animation-direction: alternate;
+			animation-iteration-count: 3;
+		}
+
+		.img3 {
+			animation-name: trans2;
+			animation-duration: 5s;
+			animation-direction: normal;
+			animation-iteration-count: infinite;
+		}
+
+		.img4 {
+			animation-name: trans2;
+			animation-duration: 10s;
+			animation-direction: alternate;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes trans1 {
+			from {
+				border-radius: 10%;
+			}
+
+			to {
+				border-radius: 50%;
+				transform: perspective(300px) rotateY(180deg);
+			}
+		}
+
+		@keyframes trans2 {
+			25% {
+				transform: translate(50px, 50px);
+			}
+
+			50% {
+				transform: scale(0.5);
+				border: 5px dashed black;
+			}
+
+			100% {
+				transform: rotate(45deg);
+				border: 5px dotted black;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<h1>애니메이션 실습</h1>
+	<img src="sample/image/flower1.PNG" class="img img1">
+	<img src="sample/image/flower2.PNG" class="img img2">
+	<br>
+	<img src="sample/image/flower3.PNG" class="img img3">
+	<img src="sample/image/flower4.PNG" class="img img4">
+</body>
+
+</html>

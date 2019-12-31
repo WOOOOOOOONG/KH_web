@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	div {
+		border: 1px solid red;
+		width: 400px;
+		height: 400px;
+	}
+</style>
+</head>
+<body>
+	<h1>연산자 문제</h1>
+
+	<h3>연산자를 이용한 짧은 조건문 사용 테스트 (|| 와 &&를 사용하세요)</h3>
+	<button onclick="checkLogic();">실행확인</button>
+
+	<div id="board"></div>
+
+	<script>
+		function checkLogic() {
+			var board = document.getElementById("board");
+			var number = 1;
+			var str = "1";
+			var bool = true;
+
+			board.innerHTML = "";
+			if(number == 1) {
+				board.innerHTML += "숫자 1과 논리값 true의 동등연산자의 결과는 true입니다. <br>";
+			}else {
+				board.innerHTML += "숫자 1과 논리값 true의 동등연산자의 결과는 false입니다. <br>";
+			}
+
+			if(number === bool) {
+				board.innerHTML += "숫자 1과 논리값 true의 일치연산자의 결과는 true입니다. <br>";
+			}else {
+				board.innerHTML += "숫자 1과 논리값 true의 일치연산자의 결과는 false입니다. <br>";
+			}
+			
+		}
+	</script>
+</body>
+</html>

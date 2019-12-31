@@ -1,0 +1,82 @@
+alert, console.log, .style.background="color", <script src="°æ·Î"></script>, document.write(""), document.getElementById("¿ä¼Ò"), .innerHTML, console.confirm(), window.prompt(), for(var i in hobby), hobby[i].value, .focus(), Àü¿ªº¯¼ö<Áö¿ªº¯¼ö, Àü¿ªº¯¼ö »ç¿ë½Ã this. window. , ÀÏ¹İÇÔ¼ö ÀÍ¸íÇÔ¼ö( (function() {}();) °¡º¯ÀÎÀÚÇÔ¼ö(arguments¹è¿­ ÀÚµ¿), Math.sqrt, === !==, "7"+7=77, parseInt("4").¹è¿­[], onclick="test(this)"
+
+Array classÀÇ ¸Ş¼Òµåµé(indexOf(), concat(¹è¿­¸í), join("/"),tpString(),sort(),reverse(), push(), pop(), shift() ¸Ç¾ÕÁ¦°Å, unshift("Ãß°¡") ¸Ç¾ÕÃß°¡, slice(2,4), splice(2,1,'jsp')->2¹øÂ°ÀÎµ¦½º1°³Á¦°ÅÇÏ°í jsp³Ö±â, 
+sort() : Á¤·Ä±âÁØ string. arr.sort(function(left,right){return left - right;});
+
+return function() {}
+select ~option, datalist~option
+input type="number" min max step placeholder
+input type="range" min max step 
+input type="text" readonly
+
+Å¬·ÎÀú : »ı¸íÁÖ±â°¡ ³¡³­ ÇÔ¼öÀÇ Áö¿ªº¯¼ö ÂüÁ¶ °¡´É
+
+display:none;
+
+escape : ¿µ¹® ¾ËÆÄºª, ¼ıÀÚ, ÀÏºÎ Æ¯¼ö¹®ÀÚ(@, *, -, _, ., /)¸¦ Á¦¿ÜÇÑ ¸ğµç ¹®ÀÚ¸¦ ÀÎÄÚµùÇÑ´Ù.
+encodeURI : escape¿¡¼­ ÀÎÅÍ³İ ÁÖ¼Ò¿¡ »ç¿ëµÇ´Â ÀÏºÎ Æ¯¼ö¹®ÀÚ(:, ;, /, =, ?, &)´Â º¯È¯ÇÏÁö ¾Ê´Â´Ù.
+encodeURIComponent : ¾ËÆÄºª°ú ¼ıÀÚ¸¦ Á¦¿ÜÇÑ ¸ğµç »ç¿ëÀÚ¸¦ ÀÎÄÚµùÇÑ´Ù. (UTF-8)
+unescape : escape·Î ÀÎÄÚµùµÈ ¹®ÀÚ¸¦ µğÄÚµùÇÑ´Ù.
+decodeURI + encodeURL·Î ÀÎÄÚµùµÈ ¹®ÀÚ¸¦ µğÄÚµùÇÑ´Ù decodeURIComponent : encodeURIComponent·Î ÀÌÄÚµùµÈ ¹®ÀÚ¸¦ µğÄÚµùÇÑ´Ù.
+eval() ÇÔ¼ö : ¹®ÀÚ¿­À» ÀÚ¹Ù½ºÅ©¸³Æ® ÄÚµå·Î º¯È¯ÇØ ½ÇÇàÇÏ´Â ÇÔ¼öÀÌ´Ù
+
+BOM, DOM
+-window°´Ã¼ : open(ÁÖ¼Ò,open¹æ½Ä,ÇüÅÂ(±æÀÌ))
+                   open¹æ½Ä : _popup1, _self, _blank
+setTimeout(function(){}, 3000); 3ÃÊÈÄ function½ÇÇà
+setInterval(function(){}, 1000); 1ÃÊ°£°İÀ¸·Î function ½ÇÇà
+var timer = window.setInterval(function(){}, 10);
+´Ù¸¥¹öÆ° Å¬¸¯ÇÏ¸é ´Ù·ç´Â ÇÔ¼ö¿¡¼­ clearInterval(timer);
+
+screen, location, navigator, history °´Ã¼
+onclick="location='http://www.naver.com'
+onclick="location.reload()"
+
+var product = {pName : 'mango'}; °´Ã¼ »ç¿ë¹ı product.pName
+°´Ã¼ ¹İº¹¹®¿¡¼­ for in¹®Àº °´Ã¼ »Ì¾Æ³¿
+('pName' in student) : student ¾È¿¡ pName ÀÖ´ÂÁö
+¸¸µçÀÌÈÄ »õ·Ó°Ô ¸¸µé¾î °¡´É
+with(student) {} ¾È¿¡¼­ ¾Õ Å¬·¡½º¸í. ¾ÈºÙ¿©µµµÊ
+
+-³»Àå°´Ã¼
+object.hasOwnProperty('name') // Object´Â¿ø·¡ÀÖÀ½
+delete(student.pName) °¡´É
+num1.constructo == Number // µÎ ´ë»óÀ» °°Àº ÀÚ·áÇüÀÌ¶ó°í ÇÏ°í½ÍÀ»¶§. Number´Â ÀÚ·áÇüÀÎµí
+
+-String°´Ã¼
+big(), bold(), fontcolor('red'), fonsize(size),italics(),link(),small(),strike(),sub(),sup()
+
+-Date °´Ã¼
+new Date(), new Date(2019,6,31,15,30,23)
+getFullYear(),getMonth()~
+
+-»ı¼ºÀÚ ÇÔ¼ö
+function student(name, java) {this.getSum = function() {}//¸Ş¼Òµå Á¤ÀÇ}
+var student = new Student(prompt('ÀÌ¸§ÀÔ·Â'), prompt('ÀÚ¹ÙÁ¡¼öÀÔ·Â'));
+
+instanceof
+
+-Á¤±Ô½Ä
+var re = /^01[0-9][a-z\d][A-Z][°¡-ÆR][0148]{3,11}$/
+re.test(Å×½ºÆ®ÇÒ°ª);
+\d, \s, \w(¾Æ¹«´Ü¾î), \D(¼ıÀÚ¾Æ´Ô), \S(°ø¹é¹®ÀÚ¾Æ´Ô), \W(¾Æ¹«´Ü¾î¾Æ´Ô)
+
+-DOM
+var title = document.createElement("h3");
+var textNode = document.createTextNode("¾È³çÇÏ¼¼¿ä");
+title.appendChild(textNode);
+document.getElementById("area1").appendChild(title);
+, area2.removeChild(img[0]), area2.firstChild.remove()
+-½ºÅ¸ÀÏÁöÁ¤
+area4.style.borderRadius="50px";
+area4.style.transition="all 2s";
+
+-ÀÌº¥Æ® ¹ß»ı
+test3.onclick = function(e) { // test3¿¡¼­ onclickÁöÁ¤ÇÏÁö¾Ê°í ¹Ø¿¡¼­ÇßÀ½
+var event = e || window.event
+event.target.style.backgroundColor="red";
+this.style.color="white"; // ¸ñÇ¥ À§¿Í µ¿ÀÏ
+document.getElementById("password2").select();
+
+-ÀÌº¥Æ® ¹öºí¸µ ¸·±â
+event.stopPropagation() // ¹öºí¸µ¸·´Â¸Ş¼Òµå

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form method="">
+        <fieldset>
+            <legend>로그인 정보</legend>
+            <ol type="1">
+                <li>아이디 <input type="text"></li> 
+                <li>비밀번호 <input type="text"></li> 
+                <li>비밀번호 확인 <input type="text"></li> 
+                <li>회원 등급 <input type="text" value="준회원"></li> 
+            </ol>
+        </fieldset>
+
+        <fieldset>
+            <legend>개인 정보</legend>
+            <ol type="1">
+                <li>이름 <em><input type="text" placeholder="5자미만 공백없이"></em></li> 
+                <li>메일 주소 <em><input type="text" placeholder="abcd@domain.com"></em></li> 
+                <li>연락처 <input type="text"> </li> 
+            </ol>
+        </fieldset>
+
+        <fieldset>
+            <legend>코딩 숙련도(상,중,하)</legend>
+
+            <ol type="1">
+                <li><input type="range" min="1" max="3" value="2" step="1"></li>
+            </ol>
+            <br>
+            
+            <input type="submit" value="제출">
+        </fieldset>
+    </form>
+</body>
+</html>

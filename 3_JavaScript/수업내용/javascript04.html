@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <script>
+        // 전역 변수의 선언
+        str = '전역변수'; // 자동으로 window 객체의 필드가 됨.
+        // 함수 외부에 선언한 변수는 var를 붙여도 전역변수다.
+        var str2 = 'var전역변수';
+
+        // window.onload : 페이지가 로드된 직후 실행되는 함수를 지정. funtion()은 이름이 없는 익명함수
+        window.onload = function() {
+            var str = "지역변수";
+            var str3 = "새로운 지역변수";
+
+            str4 = "새로운 전역변수";
+
+            console.log("str 호출");
+            console.log(str);
+            console.log(this.str);
+            console.log(window.str);
+            // 전역 변수를 호출할 때 this, 혹은 window. 을 붙일 수 있다.
+
+            console.log("str2 호출");
+            console.log(str2);
+            console.log(this.str2);
+            console.log(window.str2);
+
+            // 지역변수는 this. 이나 window. 을 사용할 수 없다.
+            console.log("str3 호출");
+            console.log(str3);
+            console.log(this.str3);
+            console.log(window.str3);
+
+            console.log("str4 호출");
+            console.log(str4);
+            console.log(this.str4);
+            console.log(window.str4);
+        }
+    </script>
+
+    <style>
+        .area1 {
+            border: 1px solid red;
+            width: 1000px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>변수와 자료형</h1>
+
+    <h3>window 객체</h3>
+    <p>웹 브라우저에서 제공하는 창(window) 자체를 나타내는 객체</p>
+
+    <h3>변수 선언</h3>
+    <pre>
+        &lt;script&gt;
+        변수명; // 전역변수(global)
+        var 변수명; // 전역변수(global)
+
+        function 함수명() {
+            변수명; // 전역변수(global)
+            var 변수명; // 지역변수(local)
+        }
+        &lt;/script&gt;
+    </pre>
+
+    <h4>전역변수명과 지역변수명이 같을 때</h4>
+    <p>
+        함수 내부에서 변수명을 호출하면 지역변수가 우선권을 가짐. <br>
+        전역 변수 사용 시 this.변수명 또는 window.변수명 으로 사용하여
+        지역변수와 구분.
+    </p>
+
+    <h4>자바스크립트의 자료형</h4>
+    <ul>
+        <li>string(문자열)</li>
+        <li>number(숫자형)</li>
+        <li>boolean(논리값)</li>
+        <li>object(객체)</li>
+        <li>funtion(함수)</li>
+        <li>undefined(초기값이 없는 변수)</li>
+    </ul>
+
+    <button onclick="typeTest();">자료형 테스트</button>
+    <br><br>
+    <div id="area1" class="area1"></div>
+    <script type="text/javascript">
+        function typeTest() {
+            var name = "홍길동";
+            var age = 20;
+            var check = true;
+            var hobby = ['영화', '음악', '낮잠'];
+            var user = {
+                name:"홍길동",
+                age:20,
+                id:'user01'
+            }
+            var testFunction = function testFunction(num1, num2) {
+                var sum = num1 + num2;
+                alert(sum);
+            }
+            var noVal;
+            // undefined와 null의 차이점
+            // undefined : 변수 생성 시 초기값이 없는 상태
+            // null : 의도적으로 변수가 참조하고 있는 값이 없다는걸 알리는 상태
+            
+            var area1 = document.getElementById("area1");
+
+            // typeof : 값의 자료형을 확인하는 연산자
+            area1.innerHTML = ""; // area1의 기존 내용 삭제
+            area1.innerHTML += name + "의 자료형 : " + typeof name + "<br>";
+            area1.innerHTML += age +"의 자료형 : " + typeof age + "<br>";
+            area1.innerHTML += check +"의 자료형 : " + typeof check + "<br>";
+            area1.innerHTML += hobby +"의 자료형 : " + typeof hobby + "<br>";
+            // hobby는 배열로 선언했기 때문에 요소별로 자료형을 출력할 수 있음
+            for(var i = 0; i < hobby.length; i++) {
+                console.log(hobby[i]);
+            }
+
+            area1.innerHTML += user +"의 자료형 : " + typeof user + "<br>";
+            // 객체 내부 멤버변수 접근
+            console.log("객체 : " + user.name + ", " + user.age + ", " + user.id);
+
+            area1.innerHTML += testFunction +"의 자료형 : " + typeof testFunction + "<br>";
+            area1.innerHTML += noVal + "의 자료형 : " + typeof noVal;
+        }
+    </script>
+</body>
+</html>

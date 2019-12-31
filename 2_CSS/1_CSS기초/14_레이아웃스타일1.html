@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .size-test {
+            border:2px solid red;
+        }
+
+        #test1 {
+            width:800px;
+            height:200px;
+        }
+
+        #test2 {
+            width:50%;
+            height:200px;
+        }
+
+        .block {
+            width:150px;
+            height:150px;
+            border:1px solid black;
+            color:white;
+        }
+
+        .area1 {
+            background:red;
+        }
+
+        .area2 {
+            background:orange;
+        }
+
+        .area3 {
+            background:yellowgreen;
+        }
+
+        .area4 {
+            background:green;
+        }
+
+        .area5 {
+            background:blue;
+        }
+    
+        .block-test1 {
+            display:inline;
+        }
+
+        .block-test2 {
+            display:inline-block;
+        }
+
+        .block-test3 {
+            display:block;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>레이아웃 스타일1</h1>
+
+    <h3>width와 height</h3>
+    <p>내용이 차지하고 있는 영역의 크기를 조절할 수 있는 속성</p>
+    <h4>고정 크기</h4>
+    <div id="test1" class="size-test"></div>
+    <h4>가변 크기</h4>
+    <div id="test2" class="size-test"></div>
+    <hr>
+
+    <h3>화면 배치 방법 변경</h3>
+    <p>블럭 요소와 인라인 요소의 속성을 변경하여 배치 방식을 변경할 수 있다.</p>
+    <br>
+    <p>블럭 요소 : 한 줄 전체 차지하는 요소. 한 줄에 여러 요소가 올 수 없는 요소.</p>
+    <pre> Ex. div, p, hn, ul, ol, blockquote, form, hr, table, fieldset, address</pre>
+    <p>인라인 요소 : 한 줄에서 일부분만 차지하는 요소. 한 줄에 여러 요소가 올 수 있는 요소.</p>
+    <pre> Ex. img, object, br, sub, sup, span, input, textarea, label, button</pre>
+    <br>
+
+    <h3>두 요소의 특징</h3>
+    <ul>
+        <li>블럭 요소는 줄 바꿈 발생, 인라인 요소는 발생하지 않음</li>
+        <li>블럭 요소는 width와 height 속성 적용, 인라인 요소는 적용되지 않음</li>
+        <li>블럭 요소는 margin-top, margin-bottom, padding-top, padding-bottom
+             속성 적용, 인라인 요소는 적용되지 않음</li>
+    </ul>
+
+    <hr>
+
+    <h4>블럭요소를 인라인요소로 변경</h4>
+    <pre><b>>> display:inline 테스트</b></pre>
+    <pre>인라인 요소로 변경되면서 width와 height 속성이 무시된다.</pre>
+    <div class="block block-test1 area1">첫 번째 영역</div>
+    <div class="block block-test1 area2">두 번째 영역</div>
+    <div class="block block-test1 area3">세 번째 영역</div>
+    <div class="block block-test1 area4">네 번째 영역</div>
+    <div class="block block-test1 area5">다섯 번째 영역</div>
+
+    <pre><b>>> display:inline-block 테스트</b></pre>
+    <p>영역은 인라인 요소로 변경되지만 내용은 블럭 요소로 지정 되어
+        width와 height 속성을 설정할 수 있다.
+    </p>
+    <div class="block block-test2 area1">첫 번째 영역</div>
+    <div class="block block-test2 area2">두 번째 영역</div>
+    <div class="block block-test2 area3">세 번째 영역</div>
+    <div class="block block-test2 area4">네 번째 영역</div>
+    <div class="block block-test2 area5">다섯 번째 영역</div>
+
+    <h4>인라인 요소를 블럭 요소로 변경</h4>
+    <pre><b>>> display:block 테스트</b></pre>
+    <pre>인라인 요소를 블럭 요소로 변경하면 width와 height값을 지정할 수
+        있지만, 내용만 block요소로 변경이 되는 것이다.
+    </pre>
+    <span class="block block-test3 area1">첫 번째 영역</span>
+    <span class="block block-test3 area2">두 번째 영역</span>
+    <span class="block block-test3 area3">세 번째 영역</span>
+    <span class="block block-test3 area4">네 번째 영역</span>
+    <span class="block block-test3 area5">다섯 번째 영역</span>
+
+</body>
+</html>

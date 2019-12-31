@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS와 js파일로 넣기 -->
+    <!-- <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="text/javascript" href='../js/bootstrap.js'></script> -->
+
+    <!-- SDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+    <style>
+        .btn {
+            background: black;
+        }
+
+        #formwrap {
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            width: 30%;
+            margin: auto;
+            padding: 3%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>부트스트랩(Bootstrap)</h1>
+    <p>트위터에서 개발 한 UI 라이브러리로 웹 사이트 디자인 개발 시간을 줄이며
+        반응형 웹 사이트 개발을 위해 만들어짐
+    </p>
+    <a href="http://www.getbootstrap.com">부트스트랩 공식 사이트</a>
+    <!-- bootstrap.js는 내부적으로 순수 자바스크립트가 아닌 jQuery로 구현되어 있으므로 jQuery 반드시 추가 -->
+
+    <hr>
+    <h2>Bootstrap 맛보기</h2>
+    <br><br>
+
+    <h3>Bootstrap 버튼</h3>
+    <button>일반버튼</button>
+    <!-- bootrap에서 btn이라는 클라스를 사용하고 있어서 -->
+    <button class="btn">bootstrap 버튼</button>
+
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+
+    <button type="button" class="btn btn-link">Link</button>
+
+    <br><br>
+
+    <!-- outline buttons -->
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+    <button type="button" class="btn btn-outline-success">Success</button>
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+    <button type="button" class="btn btn-outline-warning">Warning</button>
+    <button type="button" class="btn btn-outline-info">Info</button>
+    <button type="button" class="btn btn-outline-light">Light</button>
+    <button type="button" class="btn btn-outline-dark">Dark</button>
+
+    <br><br>
+
+
+    <!-- size -->
+    <button type="button" class="btn btn-primary btn-lg">Primary</button>
+    <button type="button" class="btn btn-secondary btn-lg">Secondary</button>
+    <button type="button" class="btn btn-success btn-lg">Success</button>
+    <button type="button" class="btn btn-danger btn-lg">Danger</button>
+    <button type="button" class="btn btn-warning btn-sm">Warning</button>
+    <button type="button" class="btn btn-info btn-sm">Info</button>
+    <button type="button" class="btn btn-light btn-sm">Light</button>
+    <button type="button" class="btn btn-dark btn-sm">Dark</button>
+    <br><br>
+    <!-- 클래스명 충돌을 피할 것! -->
+    <hr>
+
+    <h3>Bootstrap table</h3>
+    <br><br>
+    <table class="table table-dark table-hover">
+        <tr>
+            <th>글번호</th>
+            <th>글제목</th>
+            <th>작성자</th>
+            <th>조회수</th>
+            <th>작성일자</th>
+        </tr>
+        <tr>
+            <td>2001</td>
+            <td>공지입니다</td>
+            <td>관리자</td>
+            <td>200</td>
+            <td>2019-10-30</td>
+        </tr>
+        <tr>
+            <td>2000</td>
+            <td>다음주 수요일 시험</td>
+            <td>우별림</td>
+            <td>21</td>
+            <td>2019-10-29</td>
+        </tr>
+        <tr>
+            <td>1999</td>
+            <td>세미프로젝트 곧 시작</td>
+            <td>우별림</td>
+            <td>0</td>
+            <td>2019-10-28</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <div>
+        <ul class="pagination justify-content-center">
+            <li><a href="#" class="page-link">1</a></li>
+            <li><a href="#" class="page-link">2</a></li>
+            <li><a href="#" class="page-link">3</a></li>
+            <li><a href="#" class="page-link">4</a></li>
+            <li><a href="#" class="page-link">5</a></li>
+        </ul>
+    </div>
+
+    <br><br>
+
+    <hr>
+    <h3>BootStrap Forms</h3>
+    <br><br>
+
+    <div id="formwrap">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <h3>Bootstrap Modal</h3>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <hr>
+
+    <h2><a href="">Bootstrap 테마</a></h2>
+    
+
+
+    <!-- script를 body 마지막에 넣는 이유는 브라우저가 script를 읽는데 시간이 좀 걸리기 때문에 마지막에 로드하기 위해서 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

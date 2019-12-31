@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #area {
+            width: 400px;
+            height: 150px;
+            background: #ffff99;
+            border: 1px solid #6666ff;
+        }
+    </style>
+</head>
+<body>
+   <h2>연습 1</h2> 
+   <label>구매자 : </label>
+   <input type="text" placeholder="구매자의 이름을 입력하세요.">
+   <br><br>
+   <label>상품명 : </label>
+   <input type="text" id="murchan" placeholder="구매 상품명을 입력하세요">
+   <br><br>
+   <label>가격 : </label>
+   <input type="text" name="price" placeholder="구매 가격을 입력하세요">
+   <br><br>
+   <button onclick="printValue();">입력값 출력</button>
+   <br><br> 
+
+   <div id="area">
+       <!-- 구매자명은 태그명, 상품명은 아이디, 가격은 이름을 통해 알아올 것 -->       
+   </div>
+
+   <script>
+       function printValue() {
+           var buier = document.getElementsByTagName("input");
+           var murchan = document.getElementById("murchan").value;
+           var price = document.getElementsByName("price");
+           var area = document.getElementById("area"); 
+
+           area.innerHTML = "구입자 : " + buier[0].value + "님<br>";
+           area.innerHTML += "구입상품 : " + murchan + "<br>";
+           area.innerHTML += "구매가격 : " + price[0].value + "만원<br>" ;
+
+       }
+   </script>
+
+    
+</body>
+</html>

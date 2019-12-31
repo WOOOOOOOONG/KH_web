@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 각 div에 border 속성 */
+        .positioning {
+            border : 1px black solid;
+        }
+
+        /* relative : 이전 요소와 자연스럽게 연결해 배치. 위치 지정 가능 */
+        .outer {
+            position:relative;
+        }
+
+        /* absolute : 원하는 위치를 지정해 배치 */
+        /* 부모 속성이 relative여야 자식 속성에 absolute를 통해 원하는
+           위치 지정 가능 */
+        .first {
+            width:300px;
+            height:300px;
+            background:yellow;
+        }   
+
+        .second {
+            width:200px;
+            height:200px;
+            background:yellowgreen;
+            position:absolute;
+            top:50px;
+            left:50px;
+        }
+
+        .third {
+            width:100px;
+            height:100px;
+            background:red;
+            position:absolute;
+            top:100px;
+            left:100px;
+        }
+
+        .fixed-area {
+            width:100px;
+            height:100px;
+            position:fixed;
+            background:red;
+        }
+
+        /* 각 div에 border와 크기 속성 지정 */
+        .vis-test {
+            width:100px;
+            height:100px;
+            border:1px solid black;
+        }
+
+        .vis-test1{
+            background:red;
+        }
+
+        .vis-test2{
+            background:yellow;
+            /* visibility:hidden; */
+            display:none;
+        }
+
+        .vis-test3{
+            background:green;
+        }
+
+        /* 부모 요소 relative로 지정 */
+        .wrap {
+            position:relative;
+        }
+
+        /* 각 div에 border와 크기 속성 지정 */
+        .z-test {
+            width:150px;
+            height:100px;
+            border:1px solid black;
+        }
+
+        .z-test1 {
+            background:yellow;
+            position:absolute;
+            top:100px;
+            left:100px;
+            z-index: 1000;
+        }
+
+        .z-test2 {
+            background:green;
+            position:absolute;
+            top:50px;
+            left:50px;
+            z-index: 100;
+        }
+
+        .z-test3 {
+            background:red;
+            position:absolute;
+            z-index:1;
+        }
+
+
+        .float-test {
+            border:1px solid black;
+            width:100px;
+            height:50px;
+            /* float:left; */
+            float:right;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>배치 관련 스타일</h1>
+    <h3>절대위치와 상대위치</h3>
+    <div class="outer">
+        <div class="positioning first"></div>
+        <div class="positioning second"></div>
+        <div class="positioning third"></div>
+    </div>
+
+    <h3>고정위치</h3>
+    <p>지정한 위치에 고정 배치</p>
+    <div class="positioning fixed-area"></div>
+    <br><br><br><br><br><br>
+    <hr>
+
+    <h3>visibility</h3>
+    <p>페이지에 특정 속성을 보이거나 보이지 않게 하는 속성</p>
+    <p>display:none 속성은 페이지 공간도 차지 하지 않고,
+        visibility:hidden 속성은 페이지 공간은 차지한다.</p>
+    <div class="vis-test vis-test1"></div>
+    <div class="vis-test vis-test2"></div>
+    <div class="vis-test vis-test3"></div>
+    <hr>
+
+    <h3>z-index</h3>
+    <p>페이지 안의 요소들을 순서대로 위로 쌓는 속성이다.</p>
+    <div class="wrap">
+        <div class="z-test z-test1">요소1</div>
+        <div class="z-test z-test2">요소2</div>
+        <div class="z-test z-test3">요소3</div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <hr>
+
+    <h3>float속성</h3>
+    <p>페이지 내의 요소의 위치를 왼쪽이나 오른쪽으로 지정하는 속성</p>
+    <div class="float1">
+        <div class="float-test float-test1">111</div>
+        <div class="float-test float-test2">222</div>
+        <div class="float-test float-test3">333</div>
+        <div class="float-test float-test4">444</div>
+        <div class="float-test float-test5">555</div>
+    </div>
+</body>
+</html>

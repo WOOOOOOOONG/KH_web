@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #result {
+            background: yellowgreen;
+            border: 1px solid black;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h2>연습2</h2>
+    <form method="GET">
+        <!-- fieldset : 테두리 감싸는 기능 -->
+        <fieldset>
+            <legend>납품정보</legend>
+            <ul>
+                <li>
+                    <label>상품명 : </label>
+                    <input type="text" id="productName" list="goodslist">
+                    <!-- list 속성은 datalist와 연동. datalist ~ option value -->
+                    <datalist id="goodslist">
+                        <option value="dog1004">도그1004</option>
+                        <option value="catchicken">고양이치킨</option>
+                        <option value="milk">우유</option>
+                    </datalist>
+                </li>
+                <br>
+                <li>
+                    <label>납품수량 : </label>
+                    <!-- number 타입 : 위아래로 버튼 누르며 올리는 것. min max step -->
+                    <input type="number" id="productAmount" min="10" max="100" step="10" placeholder="최소10이상">
+                </li>
+                <br>
+                <li>
+                    <label>납품등급 : </label>
+                    <!-- onchange : 납품등급에 변화가 있을 때 -->
+                    <input type="range" id="productLevel" min="1" max="5" step="1" onchange="changeRange(this.val)">
+                    <input type="text" id="rangeVal" value="3등급" readonly>
+                    <!-- reaonly : 화면에서 결과를 바꾸지 못하게 함.
+                         disable : 화면에서 결과를 바꾸지 못하게 하나 form에서 값을 전송하지 않는 것까지 추가 -->
+                </li>
+                <br>
+                <li>
+                    <label>기타 사항 : </label>
+                    <textarea id="message" cols="30" rows="5"></textarea>
+                </li>
+                <br>
+                <input type="submit" value="send message" onclick="return printProduct();"> <!-- return에 true나 false 주기 -->
+                <br><br>
+                <div id="result"></div>
+            </ul>
+        </fieldset>
+    </form>
+
+    <script>
+        function changeRange(val) {
+            var productLevel = document.getElementById("productLevel").value;
+            var rangeVal = document.getElementById("rangeVal");
+            var grade;
+
+            if(productLevel == 1) {
+                grade = 1;
+            }else if(productLevel == 2) {
+                grade = 2;
+            }else if(productLevel == 3) {
+                grade = 3;
+            }else if(productLevel == 4) {
+                grade = 4;
+            }else {
+                grade = 5;
+            }
+
+            rangeVal.value = grade + "등급";
+            
+            // document.getElementById("rangeVal").value = val + "등급";
+        }
+
+        function printProduct() {
+            var productName = document.getElementById("productName").value;
+            var productAmount = document.getElementById("productAmount").value;
+            var rangeVal = document.getElementById("rangeVal").value;
+            var message = document.getElementById("message").value;
+            var result = document.getElementById("result");
+
+            result.innerHTML = "상품명 : " + productName + "<br>";
+            result.innerHTML += "납품수량 : " + productAmount + "<br>";
+            result.innerHTML += "상품등급 : " + rangeVal + "<br>";
+            result.innerHTML += "기타사항 : " + message + "<br>";
+
+            return false;
+        }
+    </script>
+</body>
+</html>

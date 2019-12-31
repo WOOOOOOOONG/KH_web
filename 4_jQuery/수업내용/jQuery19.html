@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+            width:50px;
+            height:50px;
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>상대적 애니메이션</h1>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        $(function(){
+            $("div").click(function(){
+                // 클릭하면 가로, 세로 크기 50씩 증가
+
+                var width = $(this).css("width");
+                var height = $(this).css("height");
+                
+                // css 함수는 px이 붙은 문자열을 리턴함
+                console.log(width);
+                console.log(height);
+
+                // parseInt는 문자열을 왼쪽 -> 오른쪽으로 읽어 들이면서
+                // 숫자인 부분만 변환 (50px에서 px는 영향X)
+                // $(this).animate({width:parseInt(width) + 50,
+                //                 height:parseInt(height) + 50}, "slow");
+
+                var w = $(this).width();
+                var h = $(this).height();
+
+                console.log(w);
+                console.log(h);
+
+                $(this).animate({width:w+50, height:h+50}, "slow");
+                
+            }); 
+
+            $(function(){
+                $("div").each(function(index){
+                    $(this).css("backgroundColor", "rgb(255,200,"+(index*40)+")");
+                    // delay 함수
+                    $(this).delay(index*50).animate({left:200}, 'slow');
+                });
+            })
+
+
+
+        }); 
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

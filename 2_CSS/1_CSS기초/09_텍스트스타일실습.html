@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <h1>텍스트 스타일 실습 문제</h1>
+
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">;
+
+    <style>
+        #font {
+            font-family: 'Mansalva', cursive;
+        }
+        #font>#font2 {
+            font-size: 1.5em;
+        }
+        #font>#font3 {
+            font-style: italic;
+            font-weight:bold;
+        }
+        #font>#font4 {
+            font-size: 1.5em;
+        }
+
+        #para {
+            list-style-type: decimal-leading-zero;
+        }
+        #para li:nth-child(2n-1) {
+            letter-spacing: 5px;
+        }
+        #para2 {
+            text-decoration: underline;
+        }
+        #para4 {
+            text-transform: uppercase;
+        }
+
+        #sort {
+            list-style-type: circle;
+        }
+        #sort2 {
+            text-align: right;
+        }
+        #sort3 {
+            text-align:center;
+        }
+        #sort4 {
+            line-height: 3em;
+        }
+    </style>
+<body>
+    <ul id='font'>
+        <li id='font1'>저를 선택해서 구글 웹 폰트 사이트에서 원하는 폰트를 가지고 와 바꿔보세요</li>
+        <li id='font2'>저를 선택해서 부모 요소보다 1.5배 크게 만들어 보세요</li>
+        <li id='font3'>저를 선택해서 두꺼운 이텔릭체로 만들어 보세요</li>
+        <li id='font4'>저를 선택해서 부모 요소보다 1.5배 크게 만들어 보세요</li>
+    </ul>
+    <hr>
+    
+    <ol id='para'>
+        <li id='para1'>저를 선택해서 글자와 글자 사이를 떨어지게 만들어 보세요</li>
+        <li id='para2'>저를 선택해서 중간에 줄이 그어지도록 만들어 보세요</li>
+        <li id='para3'>저를 선택해서 글자와 글자 사이를 떨어지게 만들어 보세요</li>
+        <li id='para4'>저를 선택해서 i love you를 원래는 소문자로 적었지만 대문자로 보이게 만들어 보세요</li>
+    </ol>
+    <hr>
+
+    <ul>
+        <li id='sort1'>이번에는 정렬입니다.</li>
+        <li id='sort2'>저를 선택해서 오른쪽 정렬로 만들어 보세요</li>
+        <li id='sort3'>저를 선택해서 가운데 정렬로 만들어 보세요</li>
+        <li id='sort4'>저를 선택해서 위의 친구들과 3배만큼 떨어지게 만들어 보세요</li>
+    </ul>
+</body>
+</html>

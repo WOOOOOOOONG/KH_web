@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    #box2, #box3 {
+        position: absolute;
+    }
+</style> 
+</head>
+<body>
+    <div id="box1"><img src="../수업내용/image/cute1.gif"></div> 
+    <div id="box2"><img src="../수업내용/image/cute1.gif"></div> 
+    <div id="box3"><img src="../수업내용/image/cute1.gif"></div>
+
+    <script> 
+    $(function(){ 
+
+        $("#box1").fadeTo(3000,0);
+
+        $("#box2").animate({ left: 200, top: 200 }, 3000); 
+
+        var interval = setInterval(move, 2000); // 2초 interval로 move() 실행 
+            
+        function move(){ 
+            $("#box3").animate({ top: 200, left: 200 }, 1000)
+            .animate({ top: 400, left: 400 }, 1000); 
+        } 
+            
+        $("#box3").click(function(){ 
+            clearInterval(interval); // interval 중지 
+        }); 
+    }); 
+    </script>
+
+</body>
+</html>
